@@ -1,0 +1,7 @@
+.idea/
+.vscode/
+__pysembled__/
+__pycache__/
+cmake_build_debug/
+wilson
+libwilson/

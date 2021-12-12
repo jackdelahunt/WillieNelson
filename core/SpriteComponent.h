@@ -5,7 +5,7 @@
 #include <memory>
 #include "Window.h"
 
-namespace wilson {
+namespace WillieNelson {
     class SpriteComponent : public Component, public WilsonWrapper {
     public:
         void start() override {};

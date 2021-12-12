@@ -8,7 +8,7 @@
 
 using json = nlohmann::json;
 
-namespace wilson {
+namespace WillieNelson {
 
     typedef struct {
         const char* name;

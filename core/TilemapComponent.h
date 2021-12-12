@@ -5,7 +5,7 @@
 
 using json = nlohmann::json;
 
-namespace wilson {
+namespace WillieNelson {
 class TilemapComponent : public Component, public sf::Drawable, sf::Transformable, public WilsonWrapper{
     public:
         TilemapComponent();

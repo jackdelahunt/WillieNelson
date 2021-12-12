@@ -1,6 +1,6 @@
 #include "Entity.h"
 
-namespace wilson {
+namespace WillieNelson {
     Entity::Entity() {
         name = "";
         transform = Transform();

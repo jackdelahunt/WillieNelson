@@ -3,7 +3,7 @@
 #include "SFML/Graphics.hpp"
 #include "Entity.h"
 
-namespace wilson {
+namespace WillieNelson {
 
      class Entity;
 

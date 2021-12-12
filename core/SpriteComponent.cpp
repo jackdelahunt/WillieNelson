@@ -1,7 +1,7 @@
 #include "SpriteComponent.h"
 #include <iostream>
 
-namespace wilson {
+namespace WillieNelson {
     void SpriteComponent::set_texture(std::shared_ptr<sf::Texture>& texture) {
         m_sprite.setTexture(*texture);
     }

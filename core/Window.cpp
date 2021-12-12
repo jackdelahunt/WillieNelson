@@ -2,10 +2,10 @@
 
 #include <memory>
 
-namespace wilson {
+namespace WillieNelson {
     Window::Window() {
         m_video_mode = sf::VideoMode(800, 640);
-        m_window = std::make_unique<sf::RenderWindow>(m_video_mode, "wilson");
+        m_window = std::make_unique<sf::RenderWindow>(m_video_mode, "WillieNelson");
     }
 
     void Window::start() {

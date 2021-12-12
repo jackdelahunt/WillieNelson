@@ -2,7 +2,7 @@
 #include "Entity.h"
 #include "SFML/Graphics.hpp"
 
-namespace wilson {
+namespace WillieNelson {
     class Entity;
 
     class Component {

@@ -3,7 +3,7 @@
 #include <fstream>
 
 using json = nlohmann::json;
-namespace wilson {
+namespace WillieNelson {
 
     Resources::Resources() {
         m_texture_handles = std::vector<TextureHandle>();

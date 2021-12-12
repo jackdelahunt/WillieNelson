@@ -2,7 +2,7 @@
 #include "Resources.h"
 #include <iostream>
 
-namespace wilson {
+namespace WillieNelson {
     TilemapComponent::TilemapComponent() {
         m_width = 0;
         m_height = 0;

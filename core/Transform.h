@@ -3,7 +3,7 @@
 #include "SFML/Graphics.hpp"
 #include "Component.h"
 
-namespace wilson {
+namespace WillieNelson {
     class Transform {
     public:
         sf::Vector2f position = sf::Vector2f(0.0f, 0.0f);

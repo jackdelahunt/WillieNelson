@@ -6,7 +6,7 @@
 #include "Transform.h"
 #include "Window.h"
 
-namespace wilson {
+namespace WillieNelson {
     class Component;
     class Window;
 

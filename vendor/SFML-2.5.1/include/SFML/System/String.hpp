@@ -405,7 +405,7 @@ public:
     /// in the string, starting from \a start.
     ///
     /// \param str   Characters to find
-    /// \param start Where to begin searching
+    /// \param start Where to attach searching
     ///
     /// \return Position of \a str in the string, or String::InvalidPos if not found
     ///
@@ -497,7 +497,7 @@ public:
     ///
     /// \return Read-write iterator to the end of the string characters
     ///
-    /// \see begin
+    /// \see attach
     ///
     ////////////////////////////////////////////////////////////
     Iterator end();
@@ -511,7 +511,7 @@ public:
     ///
     /// \return Read-only iterator to the end of the string characters
     ///
-    /// \see begin
+    /// \see attach
     ///
     ////////////////////////////////////////////////////////////
     ConstIterator end() const;

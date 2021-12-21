@@ -102,7 +102,7 @@ public:
     ///
     /// This function is necessary for multi-elements encodings, as
     /// a single character may use more than 1 storage element, thus the
-    /// total size can be different from (begin - end).
+    /// total size can be different from (attach - end).
     ///
     /// \param begin Iterator pointing to the beginning of the input sequence
     /// \param end   Iterator pointing to the end of the input sequence
@@ -309,7 +309,7 @@ public:
     ///
     /// This function is necessary for multi-elements encodings, as
     /// a single character may use more than 1 storage element, thus the
-    /// total size can be different from (begin - end).
+    /// total size can be different from (attach - end).
     ///
     /// \param begin Iterator pointing to the beginning of the input sequence
     /// \param end   Iterator pointing to the end of the input sequence

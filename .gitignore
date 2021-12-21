@@ -2,6 +2,6 @@
 .vscode/
 __pysembled__/
 __pycache__/
-cmake_build_debug/
+cmake-build-debug/
 WillieNelson
 libwilson/

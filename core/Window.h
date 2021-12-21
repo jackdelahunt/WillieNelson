@@ -2,10 +2,12 @@
 
 #include "SFML/Graphics.hpp"
 #include "Entity.h"
+#include "Scene.h"
 
 namespace WillieNelson {
 
-     class Entity;
+    class Entity;
+    class Scene;
 
     class WilsonWrapper {
     public:
@@ -23,12 +25,23 @@ namespace WillieNelson {
         void end();
         void add_entity(const std::shared_ptr<Entity>& entity);
         std::shared_ptr<Entity> get_entity_with_name(const char* name);
-
         bool is_open() const { return m_window->isOpen(); }
+        void next_scene();
+
+        template<typename T>
+        void add_scene() {
+            auto generic_ptr = std::make_shared<T>();
+            auto scene = std::static_pointer_cast<Scene>(generic_ptr);
+            if(scene != nullptr) {
+                m_scenes.push_back(scene);
+            }
+        }
 
     private:
         std::unique_ptr<sf::RenderWindow> m_window;
         std::vector<std::shared_ptr<Entity>> m_entities;
+        std::vector<std::shared_ptr<Scene>> m_scenes;
         sf::VideoMode m_video_mode;
+        size_t m_current_scene_index;
     };
 }

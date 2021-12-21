@@ -12,7 +12,7 @@ class TilemapComponent : public Component, public sf::Drawable, sf::Transformabl
 
         void start() override {};
         void update(float delta_time, std::vector<sf::Event>& events) override {};
-        void Destroy() override;
+        void destroy() override;
         bool load_from_disk(std::string name);
         json to_json();
         void from_json(json& j);

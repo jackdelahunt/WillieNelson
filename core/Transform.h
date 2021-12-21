@@ -1,7 +1,5 @@
 #pragma once
-
 #include "SFML/Graphics.hpp"
-#include "Component.h"
 
 namespace WillieNelson {
     class Transform {

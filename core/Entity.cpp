@@ -26,7 +26,7 @@ namespace WillieNelson {
 
     void Entity::Destroy() {
         for(auto& component : components) {
-            component->Destroy();
+            component->destroy();
         }
     }
 }

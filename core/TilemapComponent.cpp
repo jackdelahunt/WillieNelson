@@ -14,7 +14,7 @@ namespace WillieNelson {
         m_vertices.resize(m_width * m_height * 4);
     }
 
-    void TilemapComponent::Destroy() {
+    void TilemapComponent::destroy() {
         auto json = to_json();
         Resources::Current()->save("tilemap.json", json);
     };

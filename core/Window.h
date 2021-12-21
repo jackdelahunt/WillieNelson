@@ -24,15 +24,22 @@ namespace WillieNelson {
         void update(float delta_time, std::vector<sf::Event>& events);
         void end();
         void add_entity(const std::shared_ptr<Entity>& entity);
-        void add_scene(Scene* scene);
         std::shared_ptr<Entity> get_entity_with_name(const char* name);
-
         bool is_open() const { return m_window->isOpen(); }
+
+        template<typename T>
+        void add_scene() {
+            auto generic_ptr = std::make_shared<T>();
+            auto scene = std::static_pointer_cast<Scene>(generic_ptr);
+            if(scene != nullptr) {
+                m_scenes.push_back(scene);
+            }
+        }
 
     private:
         std::unique_ptr<sf::RenderWindow> m_window;
         std::vector<std::shared_ptr<Entity>> m_entities;
-        std::vector<Scene*> m_scenes;
+        std::vector<std::shared_ptr<Scene>> m_scenes;
         sf::VideoMode m_video_mode;
     };
 }

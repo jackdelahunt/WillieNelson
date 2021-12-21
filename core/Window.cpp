@@ -92,8 +92,4 @@ namespace WillieNelson {
 
         return nullptr;
     }
-
-    void Window::add_scene(Scene* scene) {
-        m_scenes.push_back(scene);
-    }
 }

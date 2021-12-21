@@ -2,10 +2,12 @@
 
 #include "SFML/Graphics.hpp"
 #include "Entity.h"
+#include "Scene.h"
 
 namespace WillieNelson {
 
-     class Entity;
+    class Entity;
+    class Scene;
 
     class WilsonWrapper {
     public:
@@ -22,6 +24,7 @@ namespace WillieNelson {
         void update(float delta_time, std::vector<sf::Event>& events);
         void end();
         void add_entity(const std::shared_ptr<Entity>& entity);
+        void add_scene(Scene* scene);
         std::shared_ptr<Entity> get_entity_with_name(const char* name);
 
         bool is_open() const { return m_window->isOpen(); }
@@ -29,6 +32,7 @@ namespace WillieNelson {
     private:
         std::unique_ptr<sf::RenderWindow> m_window;
         std::vector<std::shared_ptr<Entity>> m_entities;
+        std::vector<Scene*> m_scenes;
         sf::VideoMode m_video_mode;
     };
 }

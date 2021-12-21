@@ -9,16 +9,19 @@ find_package(SFML 2.5.1 COMPONENTS graphics audio REQUIRED)
 add_executable(
                 wilson
                 game/main.cpp
-                core/json.hpp
+                game/StartScene.h
+
+        core/json.hpp
                 core/Entity.cpp core/Entity.h
                 core/Component.h
                 core/SpriteComponent.cpp core/SpriteComponent.h
                 core/Window.cpp core/Window.h
                 core/Resources.cpp core/Resources.h
                 core/Transform.h
-        core/willie_nelson.h
+                core/willie_nelson.h
                 core/AnimatedSpriteComponent.cpp core/AnimatedSpriteComponent.h
                 core/TilemapComponent.cpp core/TilemapComponent.h
+                core/Scene.cpp core/Scene.h
         )
 
 target_link_libraries(wilson sfml-graphics sfml-audio)

@@ -10,6 +10,10 @@ namespace WillieNelson {
 
     void Window::start() {
 
+        if(!m_scenes.empty()) {
+            m_scenes.at(0)->attach(*this);
+        }
+
         for(auto& entity : m_entities) {
             entity->start();
         }
@@ -87,5 +91,9 @@ namespace WillieNelson {
         }
 
         return nullptr;
+    }
+
+    void Window::add_scene(Scene* scene) {
+        m_scenes.push_back(scene);
     }
 }

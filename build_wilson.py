@@ -12,6 +12,7 @@ libwilson.add_sources([
     "core/SpriteComponent.cpp",
     "core/Entity.cpp",
     "core/Resources.cpp",
+    "core/Scene.cpp",
     "core/TilemapComponent.cpp",
     "core/Window.cpp",
 ])
@@ -21,6 +22,7 @@ libwilson.add_headers([
     "core/SpriteComponent.h",
     "core/Entity.h",
     "core/Resources.h",
+    "core/Scene.h",
     "core/TilemapComponent.h",
     "core/json.hpp",
     "core/Transform.h",

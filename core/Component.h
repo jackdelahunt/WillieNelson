@@ -12,6 +12,6 @@ namespace WillieNelson {
 
         virtual void start() = 0;
         virtual void update(float delta_time, std::vector<sf::Event>& events) = 0;
-        virtual void Destroy() {}
+        virtual void destroy() {}
     };
 }

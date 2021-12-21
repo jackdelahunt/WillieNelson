@@ -8,3 +8,4 @@
 #include "Window.h"
 #include "AnimatedSpriteComponent.h"
 #include "TilemapComponent.h"
+#include "Scene.h"

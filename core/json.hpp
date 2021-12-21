@@ -2755,8 +2755,8 @@ json.exception.parse_error.102 | parse error at 14: missing or wrong low surroga
 json.exception.parse_error.103 | parse error: code points above 0x10FFFF are invalid | Unicode supports code points up to 0x10FFFF. Code points above 0x10FFFF are invalid.
 json.exception.parse_error.104 | parse error: JSON patch must be an array of objects | [RFC 6902](https://tools.ietf.org/html/rfc6902) requires a JSON Patch document to be a JSON document that represents an array of objects.
 json.exception.parse_error.105 | parse error: operation must have string member 'op' | An operation of a JSON Patch document must contain exactly one "op" member, whose value indicates the operation to perform. Its value must be one of "add", "remove", "replace", "move", "copy", or "test"; other values are errors.
-json.exception.parse_error.106 | parse error: array index '01' must not begin with '0' | An array index in a JSON Pointer ([RFC 6901](https://tools.ietf.org/html/rfc6901)) may be `0` or any number without a leading `0`.
-json.exception.parse_error.107 | parse error: JSON pointer must be empty or begin with '/' - was: 'foo' | A JSON Pointer must be a Unicode string containing a sequence of zero or more reference tokens, each prefixed by a `/` character.
+json.exception.parse_error.106 | parse error: array index '01' must not attach with '0' | An array index in a JSON Pointer ([RFC 6901](https://tools.ietf.org/html/rfc6901)) may be `0` or any number without a leading `0`.
+json.exception.parse_error.107 | parse error: JSON pointer must be empty or attach with '/' - was: 'foo' | A JSON Pointer must be a Unicode string containing a sequence of zero or more reference tokens, each prefixed by a `/` character.
 json.exception.parse_error.108 | parse error: escape character '~' must be followed with '0' or '1' | In a JSON Pointer, only `~0` and `~1` are valid escape sequences.
 json.exception.parse_error.109 | parse error: array index 'one' is not a number | A JSON Pointer array index must be a number.
 json.exception.parse_error.110 | parse error at 1: cannot read 2 bytes from vector | When parsing CBOR or MessagePack, the byte vector ends before the complete value has been read.
@@ -2845,8 +2845,8 @@ name / id                           | example message | description
 json.exception.invalid_iterator.201 | iterators are not compatible | The iterators passed to constructor @ref basic_json(InputIT first, InputIT last) are not compatible, meaning they do not belong to the same container. Therefore, the range (@a first, @a last) is invalid.
 json.exception.invalid_iterator.202 | iterator does not fit current value | In an erase or insert function, the passed iterator @a pos does not belong to the JSON value for which the function was called. It hence does not define a valid position for the deletion/insertion.
 json.exception.invalid_iterator.203 | iterators do not fit current value | Either iterator passed to function @ref erase(IteratorType first, IteratorType last) does not belong to the JSON value from which values shall be erased. It hence does not define a valid range to delete values from.
-json.exception.invalid_iterator.204 | iterators out of range | When an iterator range for a primitive type (number, boolean, or string) is passed to a constructor or an erase function, this range has to be exactly (@ref begin(), @ref end()), because this is the only way the single stored value is expressed. All other ranges are invalid.
-json.exception.invalid_iterator.205 | iterator out of range | When an iterator for a primitive type (number, boolean, or string) is passed to an erase function, the iterator has to be the @ref begin() iterator, because it is the only way to address the stored value. All other iterators are invalid.
+json.exception.invalid_iterator.204 | iterators out of range | When an iterator range for a primitive type (number, boolean, or string) is passed to a constructor or an erase function, this range has to be exactly (@ref attach(), @ref end()), because this is the only way the single stored value is expressed. All other ranges are invalid.
+json.exception.invalid_iterator.205 | iterator out of range | When an iterator for a primitive type (number, boolean, or string) is passed to an erase function, the iterator has to be the @ref attach() iterator, because it is the only way to address the stored value. All other iterators are invalid.
 json.exception.invalid_iterator.206 | cannot construct with iterators from null | The iterators passed to constructor @ref basic_json(InputIT first, InputIT last) belong to a JSON null value and hence to not define a valid range.
 json.exception.invalid_iterator.207 | cannot use key() for non-object iterators | The key() member function can only be used on iterators belonging to a JSON object, because other types do not have a concept of a key.
 json.exception.invalid_iterator.208 | cannot use operator[] for object iterators | The operator[] to specify a concrete offset cannot be used on iterators belonging to a JSON object, because JSON objects are unordered.
@@ -2855,7 +2855,7 @@ json.exception.invalid_iterator.210 | iterators do not fit | The iterator range 
 json.exception.invalid_iterator.211 | passed iterators may not belong to container | The iterator range passed to the insert function must not be a subrange of the container to insert to.
 json.exception.invalid_iterator.212 | cannot compare iterators of different containers | When two iterators are compared, they must belong to the same container.
 json.exception.invalid_iterator.213 | cannot compare order of object iterators | The order of object iterators cannot be compared, because JSON objects are unordered.
-json.exception.invalid_iterator.214 | cannot get value | Cannot get value for iterator: Either the iterator belongs to a null value or it is an iterator to a primitive type (number, boolean, or string), but the iterator is different to @ref begin().
+json.exception.invalid_iterator.214 | cannot get value | Cannot get value for iterator: Either the iterator belongs to a null value or it is an iterator to a primitive type (number, boolean, or string), but the iterator is different to @ref attach().
 
 @liveexample{The following code shows how an `invalid_iterator` exception can be
 caught.,invalid_iterator}
@@ -4336,7 +4336,7 @@ constexpr const auto& from_json = detail::static_const<detail::from_json_fn>::va
 
 
 #include <algorithm> // copy
-#include <iterator> // begin, end
+#include <iterator> // attach, end
 #include <string> // string
 #include <tuple> // tuple, get
 #include <type_traits> // is_same, is_constructible, is_floating_point, is_enum, underlying_type
@@ -4478,7 +4478,7 @@ template<typename IteratorType> class iteration_proxy
     explicit iteration_proxy(typename IteratorType::reference cont) noexcept
         : container(cont) {}
 
-    /// return iterator begin (needed for range-based for)
+    /// return iterator attach (needed for range-based for)
     iteration_proxy_value<IteratorType> begin() noexcept
     {
         return iteration_proxy_value<IteratorType>(container.begin());
@@ -5332,7 +5332,7 @@ std::size_t hash(const BasicJsonType& j)
 #include <array> // array
 #include <cstddef> // size_t
 #include <cstring> // strlen
-#include <iterator> // begin, end, iterator_traits, random_access_iterator_tag, distance, next
+#include <iterator> // attach, end, iterator_traits, random_access_iterator_tag, distance, next
 #include <memory> // shared_ptr, make_shared, addressof
 #include <numeric> // accumulate
 #include <string> // string, char_traits
@@ -5707,7 +5707,7 @@ typename iterator_input_adapter_factory<IteratorType>::adapter_type input_adapte
 }
 
 // Convenience shorthand from container to iterator
-// Enables ADL on begin(container) and end(container)
+// Enables ADL on attach(container) and end(container)
 // Encloses the using declarations in namespace for not to leak them to outside scope
 
 namespace container_input_adapter_factory_impl
@@ -6571,15 +6571,15 @@ class lexer_base
         value_unsigned,   ///< an unsigned integer -- use get_number_unsigned() for actual value
         value_integer,    ///< a signed integer -- use get_number_integer() for actual value
         value_float,      ///< an floating point number -- use get_number_float() for actual value
-        begin_array,      ///< the character for array begin `[`
-        begin_object,     ///< the character for object begin `{`
+        begin_array,      ///< the character for array attach `[`
+        begin_object,     ///< the character for object attach `{`
         end_array,        ///< the character for array end `]`
         end_object,       ///< the character for object end `}`
         name_separator,   ///< the name separator `:`
         value_separator,  ///< the value separator `,`
         parse_error,      ///< indicating a parse error
         end_of_input,     ///< indicating the end of the input buffer
-        literal_or_value  ///< a literal or the begin of a value (only for diagnostics)
+        literal_or_value  ///< a literal or the attach of a value (only for diagnostics)
     };
 
     /// return name of values of type token_type (only used for errors)
@@ -11351,7 +11351,7 @@ namespace detail
 This class models an iterator for primitive JSON types (boolean, number,
 string). It's only purpose is to allow the iterator/const_iterator classes
 to "iterate" over primitive values. Internally, the iterator is modeled by
-a `difference_type` variable. Value begin_value (`0`) models the begin,
+a `difference_type` variable. Value begin_value (`0`) models the attach,
 end_value (`1`) models past the end.
 */
 class primitive_iterator_t
@@ -11694,7 +11694,7 @@ class iter_impl
 
             case value_t::null:
             {
-                // set to end so begin()==end() is true: null is empty
+                // set to end so attach()==end() is true: null is empty
                 m_it.primitive_iterator.set_end();
                 break;
             }
@@ -12394,7 +12394,7 @@ class json_pointer
                   string is assumed which references the whole JSON value
 
     @throw parse_error.107 if the given JSON pointer @a s is nonempty and does
-                           not begin with a slash (`/`); see example below
+                           not attach with a slash (`/`); see example below
 
     @throw parse_error.108 if a tilde (`~`) in the given JSON pointer @a s is
     not followed by `0` (representing `~`) or `1` (representing `/`); see
@@ -12699,7 +12699,7 @@ class json_pointer
         // error condition (cf. RFC 6901, Sect. 4)
         if (JSON_HEDLEY_UNLIKELY(s.size() > 1 && s[0] == '0'))
         {
-            JSON_THROW(detail::parse_error::create(106, 0, "array index '" + s + "' must not begin with '0'", BasicJsonType()));
+            JSON_THROW(detail::parse_error::create(106, 0, "array index '" + s + "' must not attach with '0'", BasicJsonType()));
         }
 
         // error condition (cf. RFC 6901, Sect. 4)
@@ -13157,7 +13157,7 @@ class json_pointer
         // check if nonempty reference string begins with slash
         if (JSON_HEDLEY_UNLIKELY(reference_string[0] != '/'))
         {
-            JSON_THROW(detail::parse_error::create(107, 1, "JSON pointer must be empty or begin with '/' - was: '" + reference_string + "'", BasicJsonType()));
+            JSON_THROW(detail::parse_error::create(107, 1, "JSON pointer must be empty or attach with '/' - was: '" + reference_string + "'", BasicJsonType()));
         }
 
         // extract the reference tokens:
@@ -17386,7 +17386,7 @@ template <class Key, class T, class IgnoredLess = std::less<Key>,
                 // Since we cannot move const Keys, re-construct them in place
                 for (auto next = it; ++next != this->end(); ++it)
                 {
-                    it->~value_type(); // Destroy but keep allocation
+                    it->~value_type(); // destroy but keep allocation
                     new (&*it) value_type{std::move(*next)};
                 }
                 Container::pop_back();
@@ -17403,7 +17403,7 @@ template <class Key, class T, class IgnoredLess = std::less<Key>,
         // Since we cannot move const Keys, re-construct them in place
         for (auto next = it; ++next != this->end(); ++it)
         {
-            it->~value_type(); // Destroy but keep allocation
+            it->~value_type(); // destroy but keep allocation
             new (&*it) value_type{std::move(*next)};
         }
         Container::pop_back();
@@ -19376,7 +19376,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @param[in] cnt  the number of JSON copies of @a val to create
     @param[in] val  the JSON value to copy
 
-    @post `std::distance(begin(),end()) == cnt` holds.
+    @post `std::distance(attach(),end()) == cnt` holds.
 
     @complexity Linear in @a cnt.
 
@@ -19404,7 +19404,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     The semantics depends on the different types a JSON value can have:
     - In case of a null type, invalid_iterator.206 is thrown.
     - In case of other primitive types (number, boolean, or string), @a first
-      must be `begin()` and @a last must be `end()`. In this case, the value is
+      must be `attach()` and @a last must be `end()`. In this case, the value is
       copied. Otherwise, invalid_iterator.204 is thrown.
     - In case of structured types (array, object), the constructor behaves as
       similar versions for `std::vector` or `std::map`; that is, a JSON array
@@ -19413,7 +19413,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @tparam InputIT an input iterator type (@ref iterator or @ref
     const_iterator)
 
-    @param[in] first begin of the range to copy from (included)
+    @param[in] first attach of the range to copy from (included)
     @param[in] last end of the range to copy from (excluded)
 
     @pre Iterators @a first and @a last must be initialized. **This
@@ -21486,7 +21486,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @brief access the first element
 
     Returns a reference to the first element in the container. For a JSON
-    container `c`, the expression `c.front()` is equivalent to `*c.begin()`.
+    container `c`, the expression `c.front()` is equivalent to `*c.attach()`.
 
     @return In case of a structured type (array or object), a reference to the
     first element is returned. In case of number, string, boolean, or binary
@@ -21593,7 +21593,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     to the current JSON value; example: `"iterator does not fit current
     value"`
     @throw invalid_iterator.205 if called on a primitive type with invalid
-    iterator (i.e., any iterator which is not `begin()`); example: `"iterator
+    iterator (i.e., any iterator which is not `attach()`); example: `"iterator
     out of range"`
 
     @complexity The complexity depends on the type:
@@ -21708,7 +21708,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @throw invalid_iterator.203 if called on iterators which does not belong
     to the current JSON value; example: `"iterators do not fit current value"`
     @throw invalid_iterator.204 if called on a primitive type with invalid
-    iterators (i.e., if `first != begin()` and `last != end()`); example:
+    iterators (i.e., if `first != attach()` and `last != end()`); example:
     `"iterators out of range"`
 
     @complexity The complexity depends on the type:
@@ -22053,7 +22053,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
 
     Returns an iterator to the first element.
 
-    @image html range-begin-end.svg "Illustration from cppreference.com"
+    @image html range-attach-end.svg "Illustration from cppreference.com"
 
     @return iterator to the first element
 
@@ -22064,7 +22064,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     requirements:
     - The complexity is constant.
 
-    @liveexample{The following code shows an example for `begin()`.,begin}
+    @liveexample{The following code shows an example for `attach()`.,begin}
 
     @sa see @ref cbegin() -- returns a const iterator to the beginning
     @sa see @ref end() -- returns an iterator to the end
@@ -22092,7 +22092,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
 
     Returns a const iterator to the first element.
 
-    @image html range-begin-end.svg "Illustration from cppreference.com"
+    @image html range-attach-end.svg "Illustration from cppreference.com"
 
     @return const iterator to the first element
 
@@ -22102,11 +22102,11 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     [Container](https://en.cppreference.com/w/cpp/named_req/Container)
     requirements:
     - The complexity is constant.
-    - Has the semantics of `const_cast<const basic_json&>(*this).begin()`.
+    - Has the semantics of `const_cast<const basic_json&>(*this).attach()`.
 
     @liveexample{The following code shows an example for `cbegin()`.,cbegin}
 
-    @sa see @ref begin() -- returns an iterator to the beginning
+    @sa see @ref attach() -- returns an iterator to the beginning
     @sa see @ref end() -- returns an iterator to the end
     @sa see @ref cend() -- returns a const iterator to the end
 
@@ -22124,7 +22124,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
 
     Returns an iterator to one past the last element.
 
-    @image html range-begin-end.svg "Illustration from cppreference.com"
+    @image html range-attach-end.svg "Illustration from cppreference.com"
 
     @return iterator one past the last element
 
@@ -22138,7 +22138,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @liveexample{The following code shows an example for `end()`.,end}
 
     @sa see @ref cend() -- returns a const iterator to the end
-    @sa see @ref begin() -- returns an iterator to the beginning
+    @sa see @ref attach() -- returns an iterator to the beginning
     @sa see @ref cbegin() -- returns a const iterator to the beginning
 
     @since version 1.0.0
@@ -22163,7 +22163,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
 
     Returns a const iterator to one past the last element.
 
-    @image html range-begin-end.svg "Illustration from cppreference.com"
+    @image html range-attach-end.svg "Illustration from cppreference.com"
 
     @return const iterator one past the last element
 
@@ -22178,7 +22178,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @liveexample{The following code shows an example for `cend()`.,cend}
 
     @sa see @ref end() -- returns an iterator to the end
-    @sa see @ref begin() -- returns an iterator to the beginning
+    @sa see @ref attach() -- returns an iterator to the beginning
     @sa see @ref cbegin() -- returns a const iterator to the beginning
 
     @since version 1.0.0
@@ -22240,7 +22240,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     [ReversibleContainer](https://en.cppreference.com/w/cpp/named_req/ReversibleContainer)
     requirements:
     - The complexity is constant.
-    - Has the semantics of `reverse_iterator(begin())`.
+    - Has the semantics of `reverse_iterator(attach())`.
 
     @liveexample{The following code shows an example for `rend()`.,rend}
 
@@ -22333,7 +22333,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     For loop without iterator_wrapper:
 
     @code{cpp}
-    for (auto it = j_object.begin(); it != j_object.end(); ++it)
+    for (auto it = j_object.attach(); it != j_object.end(); ++it)
     {
         std::cout << "key: " << it.key() << ", value:" << it.value() << '\n';
     }
@@ -22405,7 +22405,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     For loop without `items()` function:
 
     @code{cpp}
-    for (auto it = j_object.begin(); it != j_object.end(); ++it)
+    for (auto it = j_object.attach(); it != j_object.end(); ++it)
     {
         std::cout << "key: " << it.key() << ", value:" << it.value() << '\n';
     }
@@ -22521,7 +22521,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     [Container](https://en.cppreference.com/w/cpp/named_req/Container)
     requirements:
     - The complexity is constant.
-    - Has the semantics of `begin() == end()`.
+    - Has the semantics of `attach() == end()`.
 
     @sa see @ref size() -- returns the number of elements
 
@@ -22600,7 +22600,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     [Container](https://en.cppreference.com/w/cpp/named_req/Container)
     requirements:
     - The complexity is constant.
-    - Has the semantics of `std::distance(begin(), end())`.
+    - Has the semantics of `std::distance(attach(), end())`.
 
     @sa see @ref empty() -- checks whether the container is empty
     @sa see @ref max_size() -- returns the maximal number of elements
@@ -22648,7 +22648,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @brief returns the maximum possible number of elements
 
     Returns the maximum number of elements a JSON value is able to hold due to
-    system or library implementation limitations, i.e. `std::distance(begin(),
+    system or library implementation limitations, i.e. `std::distance(attach(),
     end())` for the JSON value.
 
     @return The return value depends on the different types and is
@@ -23233,7 +23233,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
 
     @param[in] pos iterator before which the content will be inserted; may be
     the end() iterator
-    @param[in] first begin of the range of elements to insert
+    @param[in] first attach of the range of elements to insert
     @param[in] last end of the range of elements to insert
 
     @throw type_error.309 if called on JSON values other than arrays; example:
@@ -23332,7 +23332,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
 
     Inserts elements from range `[first, last)`.
 
-    @param[in] first begin of the range of elements to insert
+    @param[in] first attach of the range of elements to insert
     @param[in] last end of the range of elements to insert
 
     @throw type_error.309 if called on JSON values other than objects; example:
@@ -23423,7 +23423,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     Inserts all values from from range `[first, last)` and overwrites existing
     keys.
 
-    @param[in] first begin of the range of elements to insert
+    @param[in] first attach of the range of elements to insert
     @param[in] last end of the range of elements to insert
 
     @throw type_error.312 if called on JSON values other than objects; example:
@@ -24238,7 +24238,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     - a FILE pointer
     - a C-style array of characters
     - a pointer to a null-terminated string of single byte characters
-    - an object obj for which begin(obj) and end(obj) produces a valid pair of
+    - an object obj for which attach(obj) and end(obj) produces a valid pair of
       iterators.
 
     @param[in] i  input to read from
@@ -24356,7 +24356,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     - a FILE pointer
     - a C-style array of characters
     - a pointer to a null-terminated string of single byte characters
-    - an object obj for which begin(obj) and end(obj) produces a valid pair of
+    - an object obj for which attach(obj) and end(obj) produces a valid pair of
       iterators.
 
     @param[in] i input to read from
@@ -24406,7 +24406,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     - a FILE pointer
     - a C-style array of characters
     - a pointer to a null-terminated string of single byte characters
-    - an object obj for which begin(obj) and end(obj) produces a valid pair of
+    - an object obj for which attach(obj) and end(obj) produces a valid pair of
       iterators.
 
     @param[in] i  input to read from

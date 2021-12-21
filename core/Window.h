@@ -26,6 +26,7 @@ namespace WillieNelson {
         void add_entity(const std::shared_ptr<Entity>& entity);
         std::shared_ptr<Entity> get_entity_with_name(const char* name);
         bool is_open() const { return m_window->isOpen(); }
+        void next_scene();
 
         template<typename T>
         void add_scene() {
@@ -41,5 +42,6 @@ namespace WillieNelson {
         std::vector<std::shared_ptr<Entity>> m_entities;
         std::vector<std::shared_ptr<Scene>> m_scenes;
         sf::VideoMode m_video_mode;
+        size_t m_current_scene_index;
     };
 }

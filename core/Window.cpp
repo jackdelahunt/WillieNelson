@@ -6,12 +6,13 @@ namespace WillieNelson {
     Window::Window() {
         m_video_mode = sf::VideoMode(800, 640);
         m_window = std::make_unique<sf::RenderWindow>(m_video_mode, "WillieNelson");
+        m_current_scene_index = 0;
     }
 
     void Window::start() {
 
-        if(!m_scenes.empty()) {
-            m_scenes.at(0)->attach(*this);
+        if(m_current_scene_index < m_scenes.size()) {
+            m_scenes.at(m_current_scene_index)->attach(*this);
         }
 
         for(auto& entity : m_entities) {
@@ -91,5 +92,14 @@ namespace WillieNelson {
         }
 
         return nullptr;
+    }
+
+    void Window::next_scene() {
+        m_entities.clear();
+        m_current_scene_index++;
+        auto s = m_scenes.size();
+        if(m_current_scene_index < m_scenes.size()) {
+            m_scenes.at(m_current_scene_index)->attach(*this);
+        }
     }
 }

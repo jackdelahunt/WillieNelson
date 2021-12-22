@@ -1,7 +1,5 @@
 #pragma once
-#include "../core/Window.h"
-#include "../core/Scene.h"
-#include "../core/Resources.h"
+#include "common.h"
 
 class StartScene: public WillieNelson::Scene {
 public:
@@ -11,6 +9,8 @@ public:
         auto game_object = WillieNelson::Entity::New();
         auto sprite = game_object->add_component<WillieNelson::SpriteComponent>();
         sprite->set_texture(texture);
+
+        auto boxCollider = game_object->add_component<WillieNelson::BoxCollider>();
 
         window.add_entity(game_object);
 

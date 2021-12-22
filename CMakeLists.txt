@@ -10,19 +10,20 @@ add_executable(
                 wilson
                 game/main.cpp
                 game/StartScene.h
+                game/common.h
 
-        core/json.hpp
+                core/json.hpp
                 core/Entity.cpp core/Entity.h
                 core/Component.h
                 core/SpriteComponent.cpp core/SpriteComponent.h
                 core/Window.cpp core/Window.h
                 core/Resources.cpp core/Resources.h
                 core/Transform.h
-                core/willie_nelson.h
                 core/AnimatedSpriteComponent.cpp core/AnimatedSpriteComponent.h
                 core/TilemapComponent.cpp core/TilemapComponent.h
                 core/Scene.cpp core/Scene.h
                 core/TextComponent.cpp core/TextComponent.h
+                core/BoxCollider.cpp core/BoxCollider.h
         )
 
 target_link_libraries(wilson sfml-graphics)

@@ -10,10 +10,10 @@ namespace WillieNelson {
     }
 
     Resources* Resources::Current() {
-        if(current == nullptr)
-            current = new Resources();
+        if(current_resources == nullptr)
+            current_resources = new Resources();
 
-        return current;
+        return current_resources;
     }
 
     std::shared_ptr<sf::Texture> Resources::load_texture(const char* path) {

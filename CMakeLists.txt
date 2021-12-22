@@ -9,6 +9,7 @@ find_package(SFML 2.5.1 COMPONENTS graphics audio REQUIRED)
 add_executable(
                 wilson
                 game/main.cpp
+                game/PlayerScript.cpp game/PlayerScript.h
                 game/StartScene.h
                 game/common.h
 
@@ -24,6 +25,7 @@ add_executable(
                 core/Scene.cpp core/Scene.h
                 core/TextComponent.cpp core/TextComponent.h
                 core/BoxCollider.cpp core/BoxCollider.h
+                core/Physics.cpp core/Physics.h
         )
 
 target_link_libraries(wilson sfml-graphics)

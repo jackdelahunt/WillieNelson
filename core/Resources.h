@@ -29,5 +29,5 @@ namespace WillieNelson {
         void build_save_path();
     };
 
-    static Resources* current = nullptr;
+    static Resources* current_resources = nullptr;
 }

@@ -30,6 +30,7 @@ namespace WillieNelson {
             if(comp != nullptr) {
                 components.push_back(comp);
                 comp->entity = this;
+                resolve_physics(comp);
                 return generic_ptr;
             }
 
@@ -48,5 +49,8 @@ namespace WillieNelson {
 
             return nullptr;
         }
+
+    private:
+        void resolve_physics(std::shared_ptr<Component>& component);
     };
 }

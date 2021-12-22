@@ -55,9 +55,9 @@ public:
     static bool isDown(unsigned int finger);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Get the current position of a touch in desktop coordinates
+    /// \brief Get the current_resources position of a touch in desktop coordinates
     ///
-    /// This function returns the current touch position
+    /// This function returns the current_resources touch position
     /// in global (desktop) coordinates.
     ///
     /// \param finger Finger index
@@ -68,9 +68,9 @@ public:
     static Vector2i getPosition(unsigned int finger);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Get the current position of a touch in window coordinates
+    /// \brief Get the current_resources position of a touch in window coordinates
     ///
-    /// This function returns the current touch position
+    /// This function returns the current_resources touch position
     /// relative to the given window.
     ///
     /// \param finger Finger index
@@ -105,7 +105,7 @@ public:
 /// and you always get the real state of the touches, even if they
 /// happen when your window is out of focus and no event is triggered.
 ///
-/// The getPosition function can be used to retrieve the current
+/// The getPosition function can be used to retrieve the current_resources
 /// position of a touch. There are two versions: one that operates
 /// in global coordinates (relative to the desktop) and one that
 /// operates in window coordinates (relative to a specific window).

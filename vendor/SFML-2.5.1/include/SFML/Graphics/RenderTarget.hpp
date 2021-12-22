@@ -71,7 +71,7 @@ public:
     void clear(const Color& color = Color(0, 0, 0, 255));
 
     ////////////////////////////////////////////////////////////
-    /// \brief Change the current active view
+    /// \brief Change the current_resources active view
     ///
     /// The view is like a 2D camera, it controls which part of
     /// the 2D scene is visible, and how it is viewed in the
@@ -118,7 +118,7 @@ public:
     /// \brief Get the viewport of a view, applied to this render target
     ///
     /// The viewport is defined in the view as a ratio, this function
-    /// simply applies this ratio to the current dimensions of the
+    /// simply applies this ratio to the current_resources dimensions of the
     /// render target to calculate the pixels rectangle that the viewport
     /// actually covers in the target.
     ///
@@ -131,10 +131,10 @@ public:
 
     ////////////////////////////////////////////////////////////
     /// \brief Convert a point from target coordinates to world
-    ///        coordinates, using the current view
+    ///        coordinates, using the current_resources view
     ///
     /// This function is an overload of the mapPixelToCoords
-    /// function that implicitly uses the current view.
+    /// function that implicitly uses the current_resources view.
     /// It is equivalent to:
     /// \code
     /// target.mapPixelToCoords(point, target.getView());
@@ -167,7 +167,7 @@ public:
     /// which point (or object) is located below the mouse cursor.
     ///
     /// This version uses a custom view for calculations, see the other
-    /// overload of the function if you want to use the current view of the
+    /// overload of the function if you want to use the current_resources view of the
     /// render target.
     ///
     /// \param point Pixel to convert
@@ -182,10 +182,10 @@ public:
 
     ////////////////////////////////////////////////////////////
     /// \brief Convert a point from world coordinates to target
-    ///        coordinates, using the current view
+    ///        coordinates, using the current_resources view
     ///
     /// This function is an overload of the mapCoordsToPixel
-    /// function that implicitly uses the current view.
+    /// function that implicitly uses the current_resources view.
     /// It is equivalent to:
     /// \code
     /// target.mapCoordsToPixel(point, target.getView());
@@ -214,7 +214,7 @@ public:
     /// (10, 50) of your render target -- if the view is translated by (140, 25).
     ///
     /// This version uses a custom view for calculations, see the other
-    /// overload of the function if you want to use the current view of the
+    /// overload of the function if you want to use the current_resources view of the
     /// render target.
     ///
     /// \param point Point to convert
@@ -279,13 +279,13 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Activate or deactivate the render target for rendering
     ///
-    /// This function makes the render target's context current for
+    /// This function makes the render target's context current_resources for
     /// future OpenGL rendering operations (so you shouldn't care
     /// about it if you're not doing direct OpenGL stuff).
-    /// A render target's context is active only on the current thread,
+    /// A render target's context is active only on the current_resources thread,
     /// if you want to make it active on another thread you have
     /// to deactivate it on the previous thread first if it was active.
-    /// Only one context can be current in a thread, so if you
+    /// Only one context can be current_resources in a thread, so if you
     /// want to draw OpenGL geometry to another render target
     /// don't forget to activate it again. Activating a render
     /// target will automatically deactivate the previously active
@@ -299,7 +299,7 @@ public:
     virtual bool setActive(bool active = true);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Save the current OpenGL render states and matrices
+    /// \brief Save the current_resources OpenGL render states and matrices
     ///
     /// This function can be used when you mix SFML drawing
     /// and direct OpenGL rendering. Combined with popGLStates,
@@ -386,7 +386,7 @@ protected:
 private:
 
     ////////////////////////////////////////////////////////////
-    /// \brief Apply the current view
+    /// \brief Apply the current_resources view
     ///
     ////////////////////////////////////////////////////////////
     void applyCurrentView();
@@ -460,7 +460,7 @@ private:
 
         bool      enable;         ///< Is the cache enabled?
         bool      glStatesSet;    ///< Are our internal GL states set yet?
-        bool      viewChanged;    ///< Has the current view changed since last draw?
+        bool      viewChanged;    ///< Has the current_resources view changed since last draw?
         BlendMode lastBlendMode;  ///< Cached blending mode
         Uint64    lastTextureId;  ///< Cached texture
         bool      texCoordsArrayEnabled; ///< Is GL_TEXTURE_COORD_ARRAY client state enabled?

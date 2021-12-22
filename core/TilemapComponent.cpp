@@ -63,14 +63,14 @@ namespace WillieNelson {
         for (unsigned int i = 0; i < m_width; ++i)
             for (unsigned int j = 0; j < m_height; ++j)
             {
-                // get the current tile number
+                // get the current_resources tile number
                 int tileNumber = m_tiles.at(i + j * m_width);
 
                 // find its position in the tileset texture
                 int tu = tileNumber % (m_tileset.getSize().x / m_tile_width);
                 int tv = tileNumber / (m_tileset.getSize().x / m_tile_width);
 
-                // get a pointer to the current tile's quad
+                // get a pointer to the current_resources tile's quad
                 sf::Vertex* quad = &m_vertices[(i + j * m_width) * 4];
 
                 // define its 4 corners

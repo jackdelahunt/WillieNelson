@@ -2,6 +2,7 @@
 
 #include "../core/AnimatedSpriteComponent.h"
 #include "../core/BoxCollider.h"
+#include "../core/Physics.h"
 #include "../core/Component.h"
 #include "../core/Entity.h"
 #include "../core/Resources.h"

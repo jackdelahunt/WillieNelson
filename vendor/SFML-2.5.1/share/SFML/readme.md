@@ -19,7 +19,7 @@ SFML is a simple, fast, cross-platform and object-oriented multimedia API. It pr
 
 ## Download
 
-You can get the latest official release on [SFML's website](https://www.sfml-dev.org/download.php). You can also get the current development version from the [Git repository](https://github.com/SFML/SFML).
+You can get the latest official release on [SFML's website](https://www.sfml-dev.org/download.php). You can also get the current_resources development version from the [Git repository](https://github.com/SFML/SFML).
 
 ## Install
 

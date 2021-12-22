@@ -329,7 +329,7 @@ private:
     IntRect findGlyphRect(Page& page, unsigned int width, unsigned int height) const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Make sure that the given size is the current one
+    /// \brief Make sure that the given size is the current_resources one
     ///
     /// \param characterSize Reference character size
     ///

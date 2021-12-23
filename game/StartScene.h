@@ -16,8 +16,8 @@ public:
 
         auto text_object = WillieNelson::Entity::New();
         auto text = text_object->add_component<WillieNelson::TextComponent>();
-        text->set_font();
-        text->set_text();
+        text->set_font("Sansation_Regular");
+        text->set_text("Cool Text Bro", sf::Color::Magenta, 100);
 
         window.add_entity(text_object);
     }

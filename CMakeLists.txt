@@ -22,6 +22,7 @@ add_executable(
                 core/AnimatedSpriteComponent.cpp core/AnimatedSpriteComponent.h
                 core/TilemapComponent.cpp core/TilemapComponent.h
                 core/Scene.cpp core/Scene.h
+                core/TextComponent.cpp core/TextComponent.h
         )
 
-target_link_libraries(wilson sfml-graphics sfml-audio)
+target_link_libraries(wilson sfml-graphics)

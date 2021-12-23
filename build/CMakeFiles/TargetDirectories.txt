@@ -1,0 +1,3 @@
+/home/adrianhebel/Desktop/LocalGit/WillieNelson/build/CMakeFiles/wilson.dir
+/home/adrianhebel/Desktop/LocalGit/WillieNelson/build/CMakeFiles/edit_cache.dir
+/home/adrianhebel/Desktop/LocalGit/WillieNelson/build/CMakeFiles/rebuild_cache.dir

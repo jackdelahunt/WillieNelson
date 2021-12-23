@@ -9,3 +9,4 @@
 #include "AnimatedSpriteComponent.h"
 #include "TilemapComponent.h"
 #include "Scene.h"
+#include "TextComponent.h"

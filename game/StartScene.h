@@ -13,5 +13,12 @@ public:
         sprite->set_texture(texture);
 
         window.add_entity(game_object);
+
+        auto text_object = WillieNelson::Entity::New();
+        auto text = text_object->add_component<WillieNelson::TextComponent>();
+        text->set_font("Sansation_Regular");
+        text->set_text("Cool Text Bro", sf::Color::Magenta, 100);
+
+        window.add_entity(text_object);
     }
 };

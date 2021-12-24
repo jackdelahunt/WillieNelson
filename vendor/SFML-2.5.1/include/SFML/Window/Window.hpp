@@ -399,7 +399,7 @@ public:
     /// \brief Limit the framerate to a maximum fixed frequency
     ///
     /// If a limit is set, the window will use a small delay after
-    /// each call to display() to ensure that the current frame
+    /// each call to display() to ensure that the current_resources frame
     /// lasted long enough to match the framerate limit.
     /// SFML will try to match the given limit as much as it can,
     /// but since it internally uses sf::sleep, whose precision
@@ -426,10 +426,10 @@ public:
     void setJoystickThreshold(float threshold);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Activate or deactivate the window as the current target
+    /// \brief Activate or deactivate the window as the current_resources target
     ///        for OpenGL rendering
     ///
-    /// A window is active only on the current thread, if you want to
+    /// A window is active only on the current_resources thread, if you want to
     /// make it active on another thread you have to deactivate it
     /// on the previous thread first if it was active.
     /// Only one window can be active on a thread at a time, thus
@@ -444,7 +444,7 @@ public:
     bool setActive(bool active = true) const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Request the current window to be made the active
+    /// \brief Request the current_resources window to be made the active
     ///        foreground window
     ///
     /// At any given time, only one window may have the input focus
@@ -476,7 +476,7 @@ public:
     /// \brief Display on screen what has been rendered to the window so far
     ///
     /// This function is typically called after all OpenGL rendering
-    /// has been done for the current frame, in order to show
+    /// has been done for the current_resources frame, in order to show
     /// it on screen.
     ///
     ////////////////////////////////////////////////////////////
@@ -614,7 +614,7 @@ private:
 ///
 ///    // OpenGL drawing commands go here...
 ///
-///    // End the current frame and display its contents on screen
+///    // End the current_resources frame and display its contents on screen
 ///    window.display();
 /// }
 /// \endcode

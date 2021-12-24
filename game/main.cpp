@@ -1,4 +1,3 @@
-#include "../core/willie_nelson.h"
 #include "StartScene.h"
 
 int main() {

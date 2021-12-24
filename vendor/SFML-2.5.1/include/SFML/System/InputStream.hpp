@@ -63,7 +63,7 @@ public:
     virtual Int64 read(void* data, Int64 size) = 0;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Change the current reading position
+    /// \brief Change the current_resources reading position
     ///
     /// \param position The position to seek to, from the beginning
     ///
@@ -73,9 +73,9 @@ public:
     virtual Int64 seek(Int64 position) = 0;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Get the current reading position in the stream
+    /// \brief Get the current_resources reading position in the stream
     ///
-    /// \return The current position, or -1 on error.
+    /// \return The current_resources position, or -1 on error.
     ///
     ////////////////////////////////////////////////////////////
     virtual Int64 tell() = 0;

@@ -113,10 +113,10 @@ public:
     virtual Vector2u getSize() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Activate or deactivate the window as the current target
+    /// \brief Activate or deactivate the window as the current_resources target
     ///        for OpenGL rendering
     ///
-    /// A window is active only on the current thread, if you want to
+    /// A window is active only on the current_resources thread, if you want to
     /// make it active on another thread you have to deactivate it
     /// on the previous thread first if it was active.
     /// Only one window can be active on a thread at a time, thus
@@ -131,7 +131,7 @@ public:
     bool setActive(bool active = true);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Copy the current contents of the window to an image
+    /// \brief Copy the current_resources contents of the window to an image
     ///
     /// \deprecated
     /// Use a sf::Texture and its sf::Texture::update(const Window&)
@@ -237,7 +237,7 @@ private:
 ///    window.draw(circle);
 ///    window.draw(text);
 ///
-///    // End the current frame and display its contents on screen
+///    // End the current_resources frame and display its contents on screen
 ///    window.display();
 /// }
 /// \endcode

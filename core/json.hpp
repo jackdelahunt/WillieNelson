@@ -2587,12 +2587,12 @@ namespace nlohmann
 {
 namespace detail
 {
-/// struct to capture the start position of the current token
+/// struct to capture the start position of the current_resources token
 struct position_t
 {
     /// the total number of characters read
     std::size_t chars_read_total = 0;
-    /// the number of characters read in the current line
+    /// the number of characters read in the current_resources line
     std::size_t chars_read_current_line = 0;
     /// the number of lines read
     std::size_t lines_read = 0;
@@ -2843,8 +2843,8 @@ Exceptions have ids 2xx.
 name / id                           | example message | description
 ----------------------------------- | --------------- | -------------------------
 json.exception.invalid_iterator.201 | iterators are not compatible | The iterators passed to constructor @ref basic_json(InputIT first, InputIT last) are not compatible, meaning they do not belong to the same container. Therefore, the range (@a first, @a last) is invalid.
-json.exception.invalid_iterator.202 | iterator does not fit current value | In an erase or insert function, the passed iterator @a pos does not belong to the JSON value for which the function was called. It hence does not define a valid position for the deletion/insertion.
-json.exception.invalid_iterator.203 | iterators do not fit current value | Either iterator passed to function @ref erase(IteratorType first, IteratorType last) does not belong to the JSON value from which values shall be erased. It hence does not define a valid range to delete values from.
+json.exception.invalid_iterator.202 | iterator does not fit current_resources value | In an erase or insert function, the passed iterator @a pos does not belong to the JSON value for which the function was called. It hence does not define a valid position for the deletion/insertion.
+json.exception.invalid_iterator.203 | iterators do not fit current_resources value | Either iterator passed to function @ref erase(IteratorType first, IteratorType last) does not belong to the JSON value from which values shall be erased. It hence does not define a valid range to delete values from.
 json.exception.invalid_iterator.204 | iterators out of range | When an iterator range for a primitive type (number, boolean, or string) is passed to a constructor or an erase function, this range has to be exactly (@ref attach(), @ref end()), because this is the only way the single stored value is expressed. All other ranges are invalid.
 json.exception.invalid_iterator.205 | iterator out of range | When an iterator for a primitive type (number, boolean, or string) is passed to an erase function, the iterator has to be the @ref attach() iterator, because it is the only way to address the stored value. All other iterators are invalid.
 json.exception.invalid_iterator.206 | cannot construct with iterators from null | The iterators passed to constructor @ref basic_json(InputIT first, InputIT last) belong to a JSON null value and hence to not define a valid range.
@@ -5513,7 +5513,7 @@ struct wide_string_input_helper<BaseInputAdapter, 4>
         }
         else
         {
-            // get the current character
+            // get the current_resources character
             const auto wc = input.get_character();
 
             // UTF-32 to UTF-8 encoding
@@ -5571,7 +5571,7 @@ struct wide_string_input_helper<BaseInputAdapter, 2>
         }
         else
         {
-            // get the current character
+            // get the current_resources character
             const auto wc = input.get_character();
 
             // UTF-16 to UTF-8 encoding
@@ -6414,7 +6414,7 @@ class json_sax_dom_callback_parser
 
         // object
         JSON_ASSERT(ref_stack.back()->is_object());
-        // check if we should store an element for the current key
+        // check if we should store an element for the current_resources key
         JSON_ASSERT(!key_keep_stack.empty());
         const bool store_element = key_keep_stack.back();
         key_keep_stack.pop_back();
@@ -6728,7 +6728,7 @@ class lexer : public lexer_base<BasicJsonType>
     /*!
     @brief check if the next byte(s) are inside a given range
 
-    Adds the current byte and, for each passed range, reads a new byte and
+    Adds the current_resources byte and, for each passed range, reads a new byte and
     checks if it is inside the range. If a violation was detected, set up an
     error message and return false. Otherwise, return true.
 
@@ -7488,7 +7488,7 @@ class lexer : public lexer_base<BasicJsonType>
             token_type::value_float if number could be successfully scanned,
             token_type::parse_error otherwise
 
-    @note The scanner is independent of the current locale. Internally, the
+    @note The scanner is independent of the current_resources locale. Internally, the
           locale's decimal point is used instead of `.` to work with the
           locale-dependent converters.
     */
@@ -7842,7 +7842,7 @@ scan_number_done:
     // input management
     /////////////////////
 
-    /// reset token_buffer; current character is beginning of token
+    /// reset token_buffer; current_resources character is beginning of token
     void reset() noexcept
     {
         token_buffer.clear();
@@ -7867,7 +7867,7 @@ scan_number_done:
 
         if (next_unget)
         {
-            // just reset the next_unget variable and work with current
+            // just reset the next_unget variable and work with current_resources
             next_unget = false;
         }
         else
@@ -7890,7 +7890,7 @@ scan_number_done:
     }
 
     /*!
-    @brief unget current character (read it again on next get)
+    @brief unget current_resources character (read it again on next get)
 
     We implement unget by setting variable next_unget to true. The input is not
     changed - we just simulate ungetting by modifying chars_read_total,
@@ -7952,7 +7952,7 @@ scan_number_done:
         return value_float;
     }
 
-    /// return current string value (implicitly resets the token; useful only once)
+    /// return current_resources string value (implicitly resets the token; useful only once)
     string_t& get_string()
     {
         return token_buffer;
@@ -8127,13 +8127,13 @@ scan_number_done:
     /// whether comments should be ignored (true) or signaled as errors (false)
     const bool ignore_comments = false;
 
-    /// the current character
+    /// the current_resources character
     char_int_type current = std::char_traits<char_type>::eof();
 
-    /// whether the next get() call should just return current
+    /// whether the next get() call should just return current_resources
     bool next_unget = false;
 
-    /// the start position of the current token
+    /// the start position of the current_resources token
     position_t position {};
 
     /// raw input token string (for error messages)
@@ -10630,7 +10630,7 @@ class binary_reader
     @brief read a number from the input
 
     @tparam NumberType the type of the number
-    @param[in] format   the current format (for diagnostics)
+    @param[in] format   the current_resources format (for diagnostics)
     @param[out] result  number of type @a NumberType
 
     @return whether conversion completed
@@ -10672,7 +10672,7 @@ class binary_reader
     @brief create a string by reading characters from the input
 
     @tparam NumberType the type of the number
-    @param[in] format the current format (for diagnostics)
+    @param[in] format the current_resources format (for diagnostics)
     @param[in] len number of characters to read
     @param[out] result string created by reading @a len bytes
 
@@ -10705,7 +10705,7 @@ class binary_reader
     @brief create a byte array by reading bytes from the input
 
     @tparam NumberType the type of the number
-    @param[in] format the current format (for diagnostics)
+    @param[in] format the current_resources format (for diagnostics)
     @param[in] len number of bytes to read
     @param[out] result byte array created by reading @a len bytes
 
@@ -10735,7 +10735,7 @@ class binary_reader
     }
 
     /*!
-    @param[in] format   the current format (for diagnostics)
+    @param[in] format   the current_resources format (for diagnostics)
     @param[in] context  further context information (for diagnostics)
     @return whether the last read character is not EOF
     */
@@ -10761,7 +10761,7 @@ class binary_reader
     }
 
     /*!
-    @param[in] format   the current format
+    @param[in] format   the current_resources format
     @param[in] detail   a detailed error message
     @param[in] context  further context information
     @return a message string to use in the parse_error exceptions
@@ -10802,7 +10802,7 @@ class binary_reader
     /// input adapter
     InputAdapterType ia;
 
-    /// the current character
+    /// the current_resources character
     char_int_type current = std::char_traits<char_type>::eof();
 
     /// the number of characters read
@@ -12798,7 +12798,7 @@ class json_pointer
 
                 /*
                 The following code is only reached if there exists a reference
-                token _and_ the current value is primitive. In this case, we have
+                token _and_ the current_resources value is primitive. In this case, we have
                 an error situation, because primitive values may only occur as
                 single value; that is, with an empty list of reference tokens.
                 */
@@ -13206,7 +13206,7 @@ class json_pointer
 
   private:
     /*!
-    @param[in] reference_string  the reference string to the current value
+    @param[in] reference_string  the reference string to the current_resources value
     @param[in] value             the value to consider
     @param[in,out] result        the result object to insert values to
 
@@ -14754,7 +14754,7 @@ class binary_writer
     @brief Serializes the JSON value @a j to BSON and associates it with the
            key @a name.
     @param name The name to associate with the JSON entity @a j within the
-                current BSON document
+                current_resources BSON document
     */
     void write_bson_element(const string_t& name,
                             const BasicJsonType& j)
@@ -16420,7 +16420,7 @@ class serializer
     in the output are escaped with `\uXXXX` sequences, and the result consists
     of ASCII characters only.
     @param[in] indent_step       the indent level
-    @param[in] current_indent    the current indent level (only used internally)
+    @param[in] current_indent    the current_resources indent level (only used internally)
     */
     void dump(const BasicJsonType& val,
               const bool pretty_print,
@@ -17179,7 +17179,7 @@ class serializer
     The function checks each byte of a string whether it is UTF-8 encoded. The
     result of the check is stored in the @a state parameter. The function must
     be called initially with state 0 (accept). State 1 means the string must
-    be rejected, because the current byte is not allowed. If the string is
+    be rejected, because the current_resources byte is not allowed. If the string is
     completely processed, but the state is non-zero, the string ended
     prematurely; that is, the last byte indicated more bytes should have
     followed.
@@ -18541,7 +18541,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         {
             if (t == value_t::array || t == value_t::object)
             {
-                // flatten the current json_value to a heap-allocated stack
+                // flatten the current_resources json_value to a heap-allocated stack
                 std::vector<basic_json> stack;
 
                 // move the top-level items to stack
@@ -18648,7 +18648,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
 
     Furthermore, the parent relation is checked for arrays and objects: If
     @a check_parents true and the value is an array or object, then the
-    container's elements must have the current value as parent.
+    container's elements must have the current_resources value as parent.
 
     @param[in] check_parents  whether the parent relation should be checked.
                The value is true by default and should only be set to false
@@ -18824,7 +18824,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @param[in] event  an event of type parse_event_t indicating the context in
     the callback function has been called
 
-    @param[in,out] parsed  the current intermediate parse result; note that
+    @param[in,out] parsed  the current_resources intermediate parse result; note that
     writing to this value has no effect for parse_event_t::key events
 
     @return Whether the JSON value which called the function during parsing
@@ -18986,7 +18986,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
 
     This is a constructor for existing @ref basic_json types.
     It does not hijack copy/move constructors, since the parameter has different
-    template arguments than the current ones.
+    template arguments than the current_resources ones.
 
     The constructor tries to convert the internal @ref m_value of the parameter.
 
@@ -19460,7 +19460,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         JSON_ASSERT(first.m_object != nullptr);
         JSON_ASSERT(last.m_object != nullptr);
 
-        // make sure iterator fits the current value
+        // make sure iterator fits the current_resources value
         if (JSON_HEDLEY_UNLIKELY(first.m_object != last.m_object))
         {
             JSON_THROW(invalid_iterator::create(201, "iterators are not compatible", basic_json()));
@@ -20359,7 +20359,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @tparam ThisType will be deduced as `basic_json` or `const basic_json`
 
     @throw type_error.303 if ReferenceType does not match underlying value
-    type of the current JSON
+    type of the current_resources JSON
     */
     template<typename ReferenceType, typename ThisType>
     static ReferenceType get_ref_impl(ThisType& obj)
@@ -20522,7 +20522,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     /*!
     @brief get special-case overload
 
-    This overloads converts the current @ref basic_json in a different
+    This overloads converts the current_resources @ref basic_json in a different
     @ref basic_json type
 
     @tparam BasicJsonType == @ref basic_json
@@ -20590,8 +20590,8 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     - If the requested type is a pointer to the internally stored JSON value that pointer is returned.
     No copies are made.
 
-    - If the requested type is the current @ref basic_json, or a different @ref basic_json convertible
-    from the current @ref basic_json.
+    - If the requested type is the current_resources @ref basic_json, or a different @ref basic_json convertible
+    from the current_resources @ref basic_json.
 
     - Otherwise the value is converted by calling the @ref json_serializer<ValueType> `from_json()`
     method.
@@ -21590,7 +21590,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @throw type_error.307 if called on a `null` value; example: `"cannot use
     erase() with null"`
     @throw invalid_iterator.202 if called on an iterator which does not belong
-    to the current JSON value; example: `"iterator does not fit current
+    to the current_resources JSON value; example: `"iterator does not fit current_resources
     value"`
     @throw invalid_iterator.205 if called on a primitive type with invalid
     iterator (i.e., any iterator which is not `attach()`); example: `"iterator
@@ -21620,10 +21620,10 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
                = 0 >
     IteratorType erase(IteratorType pos)
     {
-        // make sure iterator fits the current value
+        // make sure iterator fits the current_resources value
         if (JSON_HEDLEY_UNLIKELY(this != pos.m_object))
         {
-            JSON_THROW(invalid_iterator::create(202, "iterator does not fit current value", *this));
+            JSON_THROW(invalid_iterator::create(202, "iterator does not fit current_resources value", *this));
         }
 
         IteratorType result = end();
@@ -21706,7 +21706,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @throw type_error.307 if called on a `null` value; example: `"cannot use
     erase() with null"`
     @throw invalid_iterator.203 if called on iterators which does not belong
-    to the current JSON value; example: `"iterators do not fit current value"`
+    to the current_resources JSON value; example: `"iterators do not fit current_resources value"`
     @throw invalid_iterator.204 if called on a primitive type with invalid
     iterators (i.e., if `first != attach()` and `last != end()`); example:
     `"iterators out of range"`
@@ -21735,10 +21735,10 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
                = 0 >
     IteratorType erase(IteratorType first, IteratorType last)
     {
-        // make sure iterator fits the current value
+        // make sure iterator fits the current_resources value
         if (JSON_HEDLEY_UNLIKELY(this != first.m_object || this != last.m_object))
         {
-            JSON_THROW(invalid_iterator::create(203, "iterators do not fit current value", *this));
+            JSON_THROW(invalid_iterator::create(203, "iterators do not fit current_resources value", *this));
         }
 
         IteratorType result = end();
@@ -22010,7 +22010,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     /*!
     @brief check the existence of an element in a JSON object given a JSON pointer
 
-    Check whether the given JSON pointer @a ptr can be resolved in the current
+    Check whether the given JSON pointer @a ptr can be resolved in the current_resources
     JSON value.
 
     @note This method can be executed on any JSON value type.
@@ -22731,7 +22731,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @brief clears the contents
 
     Clears the content of a JSON value and resets it to the default value as
-    if @ref basic_json(value_t) would have been called with the current value
+    if @ref basic_json(value_t) would have been called with the current_resources value
     type from @ref type():
 
     Value type  | initial value
@@ -22968,7 +22968,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
 
     This function allows to use `push_back` with an initializer list. In case
 
-    1. the current value is an object,
+    1. the current_resources value is an object,
     2. the initializer list @a init contains only two elements, and
     3. the first element of @a init is a string,
 
@@ -23148,7 +23148,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @throw type_error.309 if called on JSON values other than arrays;
     example: `"cannot use insert() with string"`
     @throw invalid_iterator.202 if @a pos is not an iterator of *this;
-    example: `"iterator does not fit current value"`
+    example: `"iterator does not fit current_resources value"`
 
     @complexity Constant plus linear in the distance between @a pos and end of
     the container.
@@ -23165,7 +23165,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
             // check if iterator pos fits to this JSON value
             if (JSON_HEDLEY_UNLIKELY(pos.m_object != this))
             {
-                JSON_THROW(invalid_iterator::create(202, "iterator does not fit current value", *this));
+                JSON_THROW(invalid_iterator::create(202, "iterator does not fit current_resources value", *this));
             }
 
             // insert to array and return iterator
@@ -23199,7 +23199,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @throw type_error.309 if called on JSON values other than arrays; example:
     `"cannot use insert() with string"`
     @throw invalid_iterator.202 if @a pos is not an iterator of *this;
-    example: `"iterator does not fit current value"`
+    example: `"iterator does not fit current_resources value"`
 
     @complexity Linear in @a cnt plus linear in the distance between @a pos
     and end of the container.
@@ -23216,7 +23216,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
             // check if iterator pos fits to this JSON value
             if (JSON_HEDLEY_UNLIKELY(pos.m_object != this))
             {
-                JSON_THROW(invalid_iterator::create(202, "iterator does not fit current value", *this));
+                JSON_THROW(invalid_iterator::create(202, "iterator does not fit current_resources value", *this));
             }
 
             // insert to array and return iterator
@@ -23239,7 +23239,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @throw type_error.309 if called on JSON values other than arrays; example:
     `"cannot use insert() with string"`
     @throw invalid_iterator.202 if @a pos is not an iterator of *this;
-    example: `"iterator does not fit current value"`
+    example: `"iterator does not fit current_resources value"`
     @throw invalid_iterator.210 if @a first and @a last do not belong to the
     same JSON value; example: `"iterators do not fit"`
     @throw invalid_iterator.211 if @a first or @a last are iterators into
@@ -23267,7 +23267,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         // check if iterator pos fits to this JSON value
         if (JSON_HEDLEY_UNLIKELY(pos.m_object != this))
         {
-            JSON_THROW(invalid_iterator::create(202, "iterator does not fit current value", *this));
+            JSON_THROW(invalid_iterator::create(202, "iterator does not fit current_resources value", *this));
         }
 
         // check if range iterators belong to the same JSON object
@@ -23297,7 +23297,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @throw type_error.309 if called on JSON values other than arrays; example:
     `"cannot use insert() with string"`
     @throw invalid_iterator.202 if @a pos is not an iterator of *this;
-    example: `"iterator does not fit current value"`
+    example: `"iterator does not fit current_resources value"`
 
     @return iterator pointing to the first element inserted, or @a pos if
     `ilist` is empty
@@ -23320,7 +23320,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         // check if iterator pos fits to this JSON value
         if (JSON_HEDLEY_UNLIKELY(pos.m_object != this))
         {
-            JSON_THROW(invalid_iterator::create(202, "iterator does not fit current value", *this));
+            JSON_THROW(invalid_iterator::create(202, "iterator does not fit current_resources value", *this));
         }
 
         // insert to array and return iterator
@@ -24595,10 +24595,10 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     // member variables //
     //////////////////////
 
-    /// the type of the current element
+    /// the type of the current_resources element
     value_t m_type = value_t::null;
 
-    /// the value of the current element
+    /// the value of the current_resources element
     json_value m_value = {};
 
 #if JSON_DIAGNOSTICS
@@ -25569,7 +25569,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
       is returned.
     - If the JSON pointer points to an array index that does not exist, it
       is created an filled with a `null` value before a reference to it
-      is returned. All indices between the current maximum and the given
+      is returned. All indices between the current_resources maximum and the given
       index are also filled with `null`.
     - The special value `-` is treated as a synonym for the index past the
       end.
@@ -25785,7 +25785,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
 
     [JSON Patch](http://jsonpatch.com) defines a JSON document structure for
     expressing a sequence of operations to apply to a JSON) document. With
-    this function, a JSON Patch is applied to the current JSON value by
+    this function, a JSON Patch is applied to the current_resources JSON value by
     executing all operations from the patch.
 
     @param[in] json_patch  JSON patch document
@@ -25805,7 +25805,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @throw out_of_range.401 if an array index is out of range.
 
     @throw out_of_range.403 if a JSON pointer inside the patch could not be
-    resolved successfully in the current JSON value; example: `"key baz not
+    resolved successfully in the current_resources JSON value; example: `"key baz not
     found"`
 
     @throw out_of_range.405 if JSON pointer has no parent ("add", "remove",
@@ -26279,7 +26279,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
 
     The merge patch format is primarily intended for use with the HTTP PATCH
     method as a means of describing a set of modifications to a target
-    resource's content. This function applies a merge patch to the current
+    resource's content. This function applies a merge patch to the current_resources
     JSON value.
 
     The function implements the following algorithm from Section 2 of
@@ -26301,8 +26301,8 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return Patch
     ```
 
-    Thereby, `Target` is the current object; that is, the patch is applied to
-    the current value.
+    Thereby, `Target` is the current_resources object; that is, the patch is applied to
+    the current_resources value.
 
     @param[in] apply_patch  the patch to apply
 

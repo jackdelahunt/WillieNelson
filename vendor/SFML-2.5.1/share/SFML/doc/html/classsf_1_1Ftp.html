@@ -98,16 +98,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa1127d442b4acb2105aa8060a39d04fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a null command to keep the connection alive.  <a href="#aa1127d442b4acb2105aa8060a39d04fc">More...</a><br /></td></tr>
 <tr class="separator:aa1127d442b4acb2105aa8060a39d04fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79c654fcdd0c81e68c4fa29af3b45e0c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsf_1_1Ftp_1_1DirectoryResponse.html">DirectoryResponse</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Ftp.html#a79c654fcdd0c81e68c4fa29af3b45e0c">getWorkingDirectory</a> ()</td></tr>
-<tr class="memdesc:a79c654fcdd0c81e68c4fa29af3b45e0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current working directory.  <a href="#a79c654fcdd0c81e68c4fa29af3b45e0c">More...</a><br /></td></tr>
+<tr class="memdesc:a79c654fcdd0c81e68c4fa29af3b45e0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current_resources working directory.  <a href="#a79c654fcdd0c81e68c4fa29af3b45e0c">More...</a><br /></td></tr>
 <tr class="separator:a79c654fcdd0c81e68c4fa29af3b45e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f37258e461fcb9e2a0655e9df0be4a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsf_1_1Ftp_1_1ListingResponse.html">ListingResponse</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Ftp.html#a8f37258e461fcb9e2a0655e9df0be4a0">getDirectoryListing</a> (const std::string &amp;directory=&quot;&quot;)</td></tr>
 <tr class="memdesc:a8f37258e461fcb9e2a0655e9df0be4a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the contents of the given directory.  <a href="#a8f37258e461fcb9e2a0655e9df0be4a0">More...</a><br /></td></tr>
 <tr class="separator:a8f37258e461fcb9e2a0655e9df0be4a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e93488ea6330dd4dd76e428da9bb6d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsf_1_1Ftp_1_1Response.html">Response</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Ftp.html#a7e93488ea6330dd4dd76e428da9bb6d3">changeDirectory</a> (const std::string &amp;directory)</td></tr>
-<tr class="memdesc:a7e93488ea6330dd4dd76e428da9bb6d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the current working directory.  <a href="#a7e93488ea6330dd4dd76e428da9bb6d3">More...</a><br /></td></tr>
+<tr class="memdesc:a7e93488ea6330dd4dd76e428da9bb6d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the current_resources working directory.  <a href="#a7e93488ea6330dd4dd76e428da9bb6d3">More...</a><br /></td></tr>
 <tr class="separator:a7e93488ea6330dd4dd76e428da9bb6d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad295cf77f30f9ad07b5c401fd9849189"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsf_1_1Ftp_1_1Response.html">Response</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Ftp.html#ad295cf77f30f9ad07b5c401fd9849189">parentDirectory</a> ()</td></tr>
-<tr class="memdesc:ad295cf77f30f9ad07b5c401fd9849189"><td class="mdescLeft">&#160;</td><td class="mdescRight">Go to the parent directory of the current one.  <a href="#ad295cf77f30f9ad07b5c401fd9849189">More...</a><br /></td></tr>
+<tr class="memdesc:ad295cf77f30f9ad07b5c401fd9849189"><td class="mdescLeft">&#160;</td><td class="mdescRight">Go to the parent directory of the current_resources one.  <a href="#ad295cf77f30f9ad07b5c401fd9849189">More...</a><br /></td></tr>
 <tr class="separator:ad295cf77f30f9ad07b5c401fd9849189"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a247b84c4b25da37804218c2b748c4787"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsf_1_1Ftp_1_1Response.html">Response</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Ftp.html#a247b84c4b25da37804218c2b748c4787">createDirectory</a> (const std::string &amp;name)</td></tr>
 <tr class="memdesc:a247b84c4b25da37804218c2b748c4787"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new directory.  <a href="#a247b84c4b25da37804218c2b748c4787">More...</a><br /></td></tr>
@@ -147,7 +147,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>DataChannel</b></td>
 <li>Sending commands to the server </li>
 <li>Disconnecting (this part can be done implicitly by the destructor)</li>
 </ul>
-<p>Every command returns a FTP response, which contains the status code as well as a message from the server. Some commands such as <a class="el" href="classsf_1_1Ftp.html#a79c654fcdd0c81e68c4fa29af3b45e0c" title="Get the current working directory. ">getWorkingDirectory()</a> and <a class="el" href="classsf_1_1Ftp.html#a8f37258e461fcb9e2a0655e9df0be4a0" title="Get the contents of the given directory. ">getDirectoryListing()</a> return additional data, and use a class derived from <a class="el" href="classsf_1_1Ftp_1_1Response.html" title="Define a FTP response. ">sf::Ftp::Response</a> to provide this data. The most often used commands are directly provided as member functions, but it is also possible to use specific commands with the <a class="el" href="classsf_1_1Ftp.html#a44e095103ecbce175a33eaf0820440ff" title="Send a command to the FTP server. ">sendCommand()</a> function.</p>
+<p>Every command returns a FTP response, which contains the status code as well as a message from the server. Some commands such as <a class="el" href="classsf_1_1Ftp.html#a79c654fcdd0c81e68c4fa29af3b45e0c" title="Get the current_resources working directory. ">getWorkingDirectory()</a> and <a class="el" href="classsf_1_1Ftp.html#a8f37258e461fcb9e2a0655e9df0be4a0" title="Get the contents of the given directory. ">getDirectoryListing()</a> return additional data, and use a class derived from <a class="el" href="classsf_1_1Ftp_1_1Response.html" title="Define a FTP response. ">sf::Ftp::Response</a> to provide this data. The most often used commands are directly provided as member functions, but it is also possible to use specific commands with the <a class="el" href="classsf_1_1Ftp.html#a44e095103ecbce175a33eaf0820440ff" title="Send a command to the FTP server. ">sendCommand()</a> function.</p>
 <p>Note that response statuses &gt;= 1000 are not part of the FTP standard, they are generated by SFML when an internal error occurs.</p>
 <p>All commands, especially upload and download, may take some time to complete. This is important to know if you don't want to block your application while the server is completing the task.</p>
 <p>Usage example: </p><div class="fragment"><div class="line"><span class="comment">// Create a new FTP client</span></div><div class="line"><a class="code" href="classsf_1_1Ftp.html">sf::Ftp</a> ftp;</div><div class="line"></div><div class="line"><span class="comment">// Connect to the server</span></div><div class="line"><a class="code" href="classsf_1_1Ftp_1_1Response.html">sf::Ftp::Response</a> response = ftp.<a class="code" href="classsf_1_1Ftp.html#af02fb3de3f450a50a27981961c69c860">connect</a>(<span class="stringliteral">&quot;ftp://ftp.myserver.com&quot;</span>);</div><div class="line"><span class="keywordflow">if</span> (response.<a class="code" href="classsf_1_1Ftp_1_1Response.html#a5102552955a2652c1a39e9046e617b36">isOk</a>())</div><div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Connected&quot;</span> &lt;&lt; std::endl;</div><div class="line"></div><div class="line"><span class="comment">// Log in</span></div><div class="line">response = ftp.<a class="code" href="classsf_1_1Ftp.html#a686262bc377584cd50e52e1576aa3a9b">login</a>(<span class="stringliteral">&quot;laurent&quot;</span>, <span class="stringliteral">&quot;dF6Zm89D&quot;</span>);</div><div class="line"><span class="keywordflow">if</span> (response.<a class="code" href="classsf_1_1Ftp_1_1Response.html#a5102552955a2652c1a39e9046e617b36">isOk</a>())</div><div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Logged in&quot;</span> &lt;&lt; std::endl;</div><div class="line"></div><div class="line"><span class="comment">// Print the working directory</span></div><div class="line"><a class="code" href="classsf_1_1Ftp_1_1DirectoryResponse.html">sf::Ftp::DirectoryResponse</a> directory = ftp.<a class="code" href="classsf_1_1Ftp.html#a79c654fcdd0c81e68c4fa29af3b45e0c">getWorkingDirectory</a>();</div><div class="line"><span class="keywordflow">if</span> (directory.<a class="code" href="classsf_1_1Ftp_1_1Response.html#a5102552955a2652c1a39e9046e617b36">isOk</a>())</div><div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Working directory: &quot;</span> &lt;&lt; directory.<a class="code" href="classsf_1_1Ftp_1_1DirectoryResponse.html#a311575c5c50905219025acfa73de67e2">getDirectory</a>() &lt;&lt; std::endl;</div><div class="line"></div><div class="line"><span class="comment">// Create a new directory</span></div><div class="line">response = ftp.<a class="code" href="classsf_1_1Ftp.html#a247b84c4b25da37804218c2b748c4787">createDirectory</a>(<span class="stringliteral">&quot;files&quot;</span>);</div><div class="line"><span class="keywordflow">if</span> (response.<a class="code" href="classsf_1_1Ftp_1_1Response.html#a5102552955a2652c1a39e9046e617b36">isOk</a>())</div><div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Created new directory&quot;</span> &lt;&lt; std::endl;</div><div class="line"></div><div class="line"><span class="comment">// Upload a file to this new directory</span></div><div class="line">response = ftp.<a class="code" href="classsf_1_1Ftp.html#a0402d2cec27a197ffba34c88ffaddeac">upload</a>(<span class="stringliteral">&quot;local-path/file.txt&quot;</span>, <span class="stringliteral">&quot;files&quot;</span>, <a class="code" href="classsf_1_1Ftp.html#a1cd6b89ad23253f6d97e6d4ca4d558cbac9e544a22dce8ef3177449cb235d15c2">sf::Ftp::Ascii</a>);</div><div class="line"><span class="keywordflow">if</span> (response.<a class="code" href="classsf_1_1Ftp_1_1Response.html#a5102552955a2652c1a39e9046e617b36">isOk</a>())</div><div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;File uploaded&quot;</span> &lt;&lt; std::endl;</div><div class="line"></div><div class="line"><span class="comment">// Send specific commands (here: FEAT to list supported FTP features)</span></div><div class="line">response = ftp.<a class="code" href="classsf_1_1Ftp.html#a44e095103ecbce175a33eaf0820440ff">sendCommand</a>(<span class="stringliteral">&quot;FEAT&quot;</span>);</div><div class="line"><span class="keywordflow">if</span> (response.<a class="code" href="classsf_1_1Ftp_1_1Response.html#a5102552955a2652c1a39e9046e617b36">isOk</a>())</div><div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Feature list:\n&quot;</span> &lt;&lt; response.<a class="code" href="classsf_1_1Ftp_1_1Response.html#a4af82a0b3620c90558390e1f600abc05">getMessage</a>() &lt;&lt; std::endl;</div><div class="line"></div><div class="line"><span class="comment">// Disconnect from the server (optional)</span></div><div class="line">ftp.<a class="code" href="classsf_1_1Ftp.html#acf7459926f3391cd06bf84337ed6a0f4">disconnect</a>();</div></div><!-- fragment --> 
@@ -217,8 +217,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>DataChannel</b></td>
       </table>
 </div><div class="memdoc">
 
-<p>Change the current working directory. </p>
-<p>The new directory must be relative to the current one.</p>
+<p>Change the current_resources working directory. </p>
+<p>The new directory must be relative to the current_resources one.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">directory</td><td>New working directory</td></tr>
@@ -226,7 +226,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>DataChannel</b></td>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Server response to the request</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsf_1_1Ftp.html#a79c654fcdd0c81e68c4fa29af3b45e0c" title="Get the current working directory. ">getWorkingDirectory</a>, <a class="el" href="classsf_1_1Ftp.html#a8f37258e461fcb9e2a0655e9df0be4a0" title="Get the contents of the given directory. ">getDirectoryListing</a>, <a class="el" href="classsf_1_1Ftp.html#ad295cf77f30f9ad07b5c401fd9849189" title="Go to the parent directory of the current one. ">parentDirectory</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsf_1_1Ftp.html#a79c654fcdd0c81e68c4fa29af3b45e0c" title="Get the current_resources working directory. ">getWorkingDirectory</a>, <a class="el" href="classsf_1_1Ftp.html#a8f37258e461fcb9e2a0655e9df0be4a0" title="Get the contents of the given directory. ">getDirectoryListing</a>, <a class="el" href="classsf_1_1Ftp.html#ad295cf77f30f9ad07b5c401fd9849189" title="Go to the parent directory of the current_resources one. ">parentDirectory</a> </dd></dl>
 
 </div>
 </div>
@@ -294,7 +294,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>DataChannel</b></td>
 </div><div class="memdoc">
 
 <p>Create a new directory. </p>
-<p>The new directory is created as a child of the current working directory.</p>
+<p>The new directory is created as a child of the current_resources working directory.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>Name of the directory to create</td></tr>
@@ -323,7 +323,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>DataChannel</b></td>
 </div><div class="memdoc">
 
 <p>Remove an existing directory. </p>
-<p>The directory to remove must be relative to the current working directory. Use this function with caution, the directory will be removed permanently!</p>
+<p>The directory to remove must be relative to the current_resources working directory. Use this function with caution, the directory will be removed permanently!</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>Name of the directory to remove</td></tr>
@@ -352,7 +352,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>DataChannel</b></td>
 </div><div class="memdoc">
 
 <p>Remove an existing file. </p>
-<p>The file name must be relative to the current working directory. Use this function with caution, the file will be removed permanently!</p>
+<p>The file name must be relative to the current_resources working directory. Use this function with caution, the file will be removed permanently!</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>File to remove</td></tr>
@@ -418,7 +418,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>DataChannel</b></td>
 </div><div class="memdoc">
 
 <p>Download a file from the server. </p>
-<p>The filename of the distant file is relative to the current working directory of the server, and the local destination path is relative to the current directory of your application. If a file with the same filename as the distant file already exists in the local destination path, it will be overwritten.</p>
+<p>The filename of the distant file is relative to the current_resources working directory of the server, and the local destination path is relative to the current_resources directory of your application. If a file with the same filename as the distant file already exists in the local destination path, it will be overwritten.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">remoteFile</td><td>Filename of the distant file to download </td></tr>
@@ -449,7 +449,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>DataChannel</b></td>
 </div><div class="memdoc">
 
 <p>Get the contents of the given directory. </p>
-<p>This function retrieves the sub-directories and files contained in the given directory. It is not recursive. The <em>directory</em> parameter is relative to the current working directory.</p>
+<p>This function retrieves the sub-directories and files contained in the given directory. It is not recursive. The <em>directory</em> parameter is relative to the current_resources working directory.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">directory</td><td>Directory to list</td></tr>
@@ -457,7 +457,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>DataChannel</b></td>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Server response to the request</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsf_1_1Ftp.html#a79c654fcdd0c81e68c4fa29af3b45e0c" title="Get the current working directory. ">getWorkingDirectory</a>, <a class="el" href="classsf_1_1Ftp.html#a7e93488ea6330dd4dd76e428da9bb6d3" title="Change the current working directory. ">changeDirectory</a>, <a class="el" href="classsf_1_1Ftp.html#ad295cf77f30f9ad07b5c401fd9849189" title="Go to the parent directory of the current one. ">parentDirectory</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsf_1_1Ftp.html#a79c654fcdd0c81e68c4fa29af3b45e0c" title="Get the current_resources working directory. ">getWorkingDirectory</a>, <a class="el" href="classsf_1_1Ftp.html#a7e93488ea6330dd4dd76e428da9bb6d3" title="Change the current_resources working directory. ">changeDirectory</a>, <a class="el" href="classsf_1_1Ftp.html#ad295cf77f30f9ad07b5c401fd9849189" title="Go to the parent directory of the current_resources one. ">parentDirectory</a> </dd></dl>
 
 </div>
 </div>
@@ -476,10 +476,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>DataChannel</b></td>
       </table>
 </div><div class="memdoc">
 
-<p>Get the current working directory. </p>
+<p>Get the current_resources working directory. </p>
 <p>The working directory is the root path for subsequent operations involving directories and/or filenames.</p>
 <dl class="section return"><dt>Returns</dt><dd>Server response to the request</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsf_1_1Ftp.html#a8f37258e461fcb9e2a0655e9df0be4a0" title="Get the contents of the given directory. ">getDirectoryListing</a>, <a class="el" href="classsf_1_1Ftp.html#a7e93488ea6330dd4dd76e428da9bb6d3" title="Change the current working directory. ">changeDirectory</a>, <a class="el" href="classsf_1_1Ftp.html#ad295cf77f30f9ad07b5c401fd9849189" title="Go to the parent directory of the current one. ">parentDirectory</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsf_1_1Ftp.html#a8f37258e461fcb9e2a0655e9df0be4a0" title="Get the contents of the given directory. ">getDirectoryListing</a>, <a class="el" href="classsf_1_1Ftp.html#a7e93488ea6330dd4dd76e428da9bb6d3" title="Change the current_resources working directory. ">changeDirectory</a>, <a class="el" href="classsf_1_1Ftp.html#ad295cf77f30f9ad07b5c401fd9849189" title="Go to the parent directory of the current_resources one. ">parentDirectory</a> </dd></dl>
 
 </div>
 </div>
@@ -579,9 +579,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>DataChannel</b></td>
       </table>
 </div><div class="memdoc">
 
-<p>Go to the parent directory of the current one. </p>
+<p>Go to the parent directory of the current_resources one. </p>
 <dl class="section return"><dt>Returns</dt><dd>Server response to the request</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsf_1_1Ftp.html#a79c654fcdd0c81e68c4fa29af3b45e0c" title="Get the current working directory. ">getWorkingDirectory</a>, <a class="el" href="classsf_1_1Ftp.html#a8f37258e461fcb9e2a0655e9df0be4a0" title="Get the contents of the given directory. ">getDirectoryListing</a>, <a class="el" href="classsf_1_1Ftp.html#a7e93488ea6330dd4dd76e428da9bb6d3" title="Change the current working directory. ">changeDirectory</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsf_1_1Ftp.html#a79c654fcdd0c81e68c4fa29af3b45e0c" title="Get the current_resources working directory. ">getWorkingDirectory</a>, <a class="el" href="classsf_1_1Ftp.html#a8f37258e461fcb9e2a0655e9df0be4a0" title="Get the contents of the given directory. ">getDirectoryListing</a>, <a class="el" href="classsf_1_1Ftp.html#a7e93488ea6330dd4dd76e428da9bb6d3" title="Change the current_resources working directory. ">changeDirectory</a> </dd></dl>
 
 </div>
 </div>
@@ -612,7 +612,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>DataChannel</b></td>
 </div><div class="memdoc">
 
 <p>Rename an existing file. </p>
-<p>The filenames must be relative to the current working directory.</p>
+<p>The filenames must be relative to the current_resources working directory.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">file</td><td>File to rename </td></tr>
@@ -703,7 +703,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>DataChannel</b></td>
 </div><div class="memdoc">
 
 <p>Upload a file to the server. </p>
-<p>The name of the local file is relative to the current working directory of your application, and the remote path is relative to the current directory of the FTP server.</p>
+<p>The name of the local file is relative to the current_resources working directory of your application, and the remote path is relative to the current_resources directory of the FTP server.</p>
 <p>The append parameter controls whether the remote file is appended to or overwritten if it already exists.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

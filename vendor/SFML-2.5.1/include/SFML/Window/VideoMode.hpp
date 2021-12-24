@@ -61,7 +61,7 @@ public:
     VideoMode(unsigned int modeWidth, unsigned int modeHeight, unsigned int modeBitsPerPixel = 32);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Get the current desktop video mode
+    /// \brief Get the current_resources desktop video mode
     ///
     /// \return Current desktop video mode
     ///
@@ -206,7 +206,7 @@ SFML_WINDOW_API bool operator >=(const VideoMode& left, const VideoMode& right);
 /// Additionally, sf::VideoMode provides a static function
 /// to get the mode currently used by the desktop: getDesktopMode().
 /// This allows to build windows with the same size or pixel
-/// depth as the current resolution.
+/// depth as the current_resources resolution.
 ///
 /// Usage example:
 /// \code

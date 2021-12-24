@@ -463,7 +463,7 @@ public:
     void setUniform(const std::string& name, const Texture& texture);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Specify current texture as \p sampler2D uniform
+    /// \brief Specify current_resources texture as \p sampler2D uniform
     ///
     /// This overload maps a shader texture variable to the
     /// texture of the object being drawn, which cannot be
@@ -474,10 +474,10 @@ public:
     ///
     /// Example:
     /// \code
-    /// uniform sampler2D current; // this is the variable in the shader
+    /// uniform sampler2D current_resources; // this is the variable in the shader
     /// \endcode
     /// \code
-    /// shader.setUniform("current", sf::Shader::CurrentTexture);
+    /// shader.setUniform("current_resources", sf::Shader::CurrentTexture);
     /// \endcode
     ///
     /// \param name Name of the texture in the shader
@@ -746,7 +746,7 @@ private:
     // Member data
     ////////////////////////////////////////////////////////////
     unsigned int m_shaderProgram;  ///< OpenGL identifier for the program
-    int          m_currentTexture; ///< Location of the current texture in the shader
+    int          m_currentTexture; ///< Location of the current_resources texture in the shader
     TextureTable m_textures;       ///< Texture variables in the shader, mapped to their location
     UniformTable m_uniforms;       ///< Parameters location cache
 };
@@ -801,7 +801,7 @@ private:
 /// uniform vec4 color;
 /// uniform mat4 matrix;
 /// uniform sampler2D overlay;
-/// uniform sampler2D current;
+/// uniform sampler2D current_resources;
 /// \endcode
 /// You can set their values from C++ code as follows, using the types
 /// defined in the sf::Glsl namespace:
@@ -811,14 +811,14 @@ private:
 /// shader.setUniform("color", sf::Glsl::Vec4(color));          // color is a sf::Color
 /// shader.setUniform("matrix", sf::Glsl::Mat4(transform));     // transform is a sf::Transform
 /// shader.setUniform("overlay", texture);                      // texture is a sf::Texture
-/// shader.setUniform("current", sf::Shader::CurrentTexture);
+/// shader.setUniform("current_resources", sf::Shader::CurrentTexture);
 /// \endcode
 ///
 /// The old setParameter() overloads are deprecated and will be removed in a
 /// future version. You should use their setUniform() equivalents instead.
 ///
 /// The special Shader::CurrentTexture argument maps the
-/// given \p sampler2D uniform to the current texture of the
+/// given \p sampler2D uniform to the current_resources texture of the
 /// object being drawn (which cannot be known in advance).
 ///
 /// To apply a shader to a drawable, you must pass it as an
@@ -845,10 +845,10 @@ private:
 /// of the text is not the actual text that you see on screen, it is
 /// a big texture containing all the characters of the font in an
 /// arbitrary order; thus, texture lookups on pixels other than the
-/// current one may not give you the expected result.
+/// current_resources one may not give you the expected result.
 ///
 /// Shaders can also be used to apply global post-effects to the
-/// current contents of the target (like the old sf::PostFx class
+/// current_resources contents of the target (like the old sf::PostFx class
 /// in SFML 1). This can be done in two different ways:
 /// \li draw everything to a sf::RenderTexture, then draw it to
 ///     the main target using the shader

@@ -163,7 +163,7 @@ public:
     bool isRepeated() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Generate a mipmap using the current texture data
+    /// \brief Generate a mipmap using the current_resources texture data
     ///
     /// This function is similar to Texture::generateMipmap and operates
     /// on the texture used as the target for drawing.
@@ -181,10 +181,10 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Activate or deactivate the render-texture for rendering
     ///
-    /// This function makes the render-texture's context current for
+    /// This function makes the render-texture's context current_resources for
     /// future OpenGL rendering operations (so you shouldn't care
     /// about it if you're not doing direct OpenGL stuff).
-    /// Only one context can be current in a thread, so if you
+    /// Only one context can be current_resources in a thread, so if you
     /// want to draw OpenGL geometry to another render target
     /// (like a RenderWindow) don't forget to activate it again.
     ///
@@ -299,7 +299,7 @@ private:
 ///    sf::Sprite sprite(texture.getTexture());
 ///    window.draw(sprite);
 ///
-///    // End the current frame and display its contents on screen
+///    // End the current_resources frame and display its contents on screen
 ///    window.display();
 /// }
 /// \endcode

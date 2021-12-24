@@ -135,7 +135,7 @@ public:
     FloatRect transformRect(const FloatRect& rectangle) const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Combine the current transform with another one
+    /// \brief Combine the current_resources transform with another one
     ///
     /// The result is a transform that is equivalent to applying
     /// *this followed by \a transform. Mathematically, it is
@@ -149,7 +149,7 @@ public:
     Transform& combine(const Transform& transform);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Combine the current transform with a translation
+    /// \brief Combine the current_resources transform with a translation
     ///
     /// This function returns a reference to *this, so that calls
     /// can be chained.
@@ -169,7 +169,7 @@ public:
     Transform& translate(float x, float y);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Combine the current transform with a translation
+    /// \brief Combine the current_resources transform with a translation
     ///
     /// This function returns a reference to *this, so that calls
     /// can be chained.
@@ -188,7 +188,7 @@ public:
     Transform& translate(const Vector2f& offset);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Combine the current transform with a rotation
+    /// \brief Combine the current_resources transform with a rotation
     ///
     /// This function returns a reference to *this, so that calls
     /// can be chained.
@@ -207,7 +207,7 @@ public:
     Transform& rotate(float angle);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Combine the current transform with a rotation
+    /// \brief Combine the current_resources transform with a rotation
     ///
     /// The center of rotation is provided for convenience as a second
     /// argument, so that you can build rotations around arbitrary points
@@ -233,7 +233,7 @@ public:
     Transform& rotate(float angle, float centerX, float centerY);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Combine the current transform with a rotation
+    /// \brief Combine the current_resources transform with a rotation
     ///
     /// The center of rotation is provided for convenience as a second
     /// argument, so that you can build rotations around arbitrary points
@@ -258,7 +258,7 @@ public:
     Transform& rotate(float angle, const Vector2f& center);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Combine the current transform with a scaling
+    /// \brief Combine the current_resources transform with a scaling
     ///
     /// This function returns a reference to *this, so that calls
     /// can be chained.
@@ -278,7 +278,7 @@ public:
     Transform& scale(float scaleX, float scaleY);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Combine the current transform with a scaling
+    /// \brief Combine the current_resources transform with a scaling
     ///
     /// The center of scaling is provided for convenience as a second
     /// argument, so that you can build scaling around arbitrary points
@@ -305,7 +305,7 @@ public:
     Transform& scale(float scaleX, float scaleY, float centerX, float centerY);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Combine the current transform with a scaling
+    /// \brief Combine the current_resources transform with a scaling
     ///
     /// This function returns a reference to *this, so that calls
     /// can be chained.
@@ -324,7 +324,7 @@ public:
     Transform& scale(const Vector2f& factors);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Combine the current transform with a scaling
+    /// \brief Combine the current_resources transform with a scaling
     ///
     /// The center of scaling is provided for convenience as a second
     /// argument, so that you can build scaling around arbitrary points

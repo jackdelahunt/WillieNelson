@@ -166,7 +166,7 @@ public:
 /// either pass the render states unmodified, or change
 /// some of them.
 /// For example, a transformable object will combine the
-/// current transform with its own transform. A sprite will
+/// current_resources transform with its own transform. A sprite will
 /// set its texture. Etc.
 ///
 /// \see sf::RenderTarget, sf::Drawable

@@ -168,7 +168,7 @@ private:
 ///
 /// Having a valid context is necessary for *every* OpenGL call.
 ///
-/// Note that a context is only active in its current thread,
+/// Note that a context is only active in its current_resources thread,
 /// if you create a new thread it will have no valid context
 /// by default.
 ///

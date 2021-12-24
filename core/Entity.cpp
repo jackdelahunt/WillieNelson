@@ -1,4 +1,6 @@
 #include "Entity.h"
+#include "BoxCollider.h"
+#include "Physics.h"
 
 namespace WillieNelson {
     Entity::Entity() {
@@ -27,6 +29,13 @@ namespace WillieNelson {
     void Entity::Destroy() {
         for(auto& component : components) {
             component->destroy();
+        }
+    }
+
+    void Entity::resolve_physics(std::shared_ptr<Component>& component) {
+        if (auto b = dynamic_cast<BoxCollider*>(component.get()))
+        {
+            Physics::Current()->add_collider(std::static_pointer_cast<BoxCollider>(component));
         }
     }
 }

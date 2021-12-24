@@ -173,7 +173,7 @@ public:
     const Vector2f& getSize() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Get the current orientation of the view
+    /// \brief Get the current_resources orientation of the view
     ///
     /// \return Rotation angle of the view, in degrees
     ///
@@ -193,7 +193,7 @@ public:
     const FloatRect& getViewport() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Move the view relatively to its current position
+    /// \brief Move the view relatively to its current_resources position
     ///
     /// \param offsetX X coordinate of the move offset
     /// \param offsetY Y coordinate of the move offset
@@ -204,7 +204,7 @@ public:
     void move(float offsetX, float offsetY);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Move the view relatively to its current position
+    /// \brief Move the view relatively to its current_resources position
     ///
     /// \param offset Move offset
     ///
@@ -214,7 +214,7 @@ public:
     void move(const Vector2f& offset);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Rotate the view relatively to its current orientation
+    /// \brief Rotate the view relatively to its current_resources orientation
     ///
     /// \param angle Angle to rotate, in degrees
     ///
@@ -224,7 +224,7 @@ public:
     void rotate(float angle);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Resize the view rectangle relatively to its current size
+    /// \brief Resize the view rectangle relatively to its current_resources size
     ///
     /// Resizing the view simulates a zoom, as the zone displayed on
     /// screen grows or shrinks.

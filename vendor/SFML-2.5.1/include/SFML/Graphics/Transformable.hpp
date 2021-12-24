@@ -184,7 +184,7 @@ public:
     float getRotation() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief get the current scale of the object
+    /// \brief get the current_resources scale of the object
     ///
     /// \return Current scale factors
     ///
@@ -206,7 +206,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Move the object by a given offset
     ///
-    /// This function adds to the current position of the object,
+    /// This function adds to the current_resources position of the object,
     /// unlike setPosition which overwrites it.
     /// Thus, it is equivalent to the following code:
     /// \code
@@ -225,7 +225,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Move the object by a given offset
     ///
-    /// This function adds to the current position of the object,
+    /// This function adds to the current_resources position of the object,
     /// unlike setPosition which overwrites it.
     /// Thus, it is equivalent to the following code:
     /// \code
@@ -242,7 +242,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Rotate the object
     ///
-    /// This function adds to the current rotation of the object,
+    /// This function adds to the current_resources rotation of the object,
     /// unlike setRotation which overwrites it.
     /// Thus, it is equivalent to the following code:
     /// \code
@@ -257,7 +257,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Scale the object
     ///
-    /// This function multiplies the current scale of the object,
+    /// This function multiplies the current_resources scale of the object,
     /// unlike setScale which overwrites it.
     /// Thus, it is equivalent to the following code:
     /// \code
@@ -276,7 +276,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Scale the object
     ///
-    /// This function multiplies the current scale of the object,
+    /// This function multiplies the current_resources scale of the object,
     /// unlike setScale which overwrites it.
     /// Thus, it is equivalent to the following code:
     /// \code

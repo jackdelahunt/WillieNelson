@@ -85,11 +85,11 @@ public:
     static void setEnabled(Type sensor, bool enabled);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Get the current sensor value
+    /// \brief Get the current_resources sensor value
     ///
     /// \param sensor Sensor to read
     ///
-    /// \return The current sensor value
+    /// \return The current_resources sensor value
     ///
     ////////////////////////////////////////////////////////////
     static Vector3f getValue(Type sensor);
@@ -113,7 +113,7 @@ public:
 /// time and directly, without having to deal with a window and
 /// its events. Compared to the SensorChanged event, sf::Sensor
 /// can retrieve the state of a sensor at any time (you don't need to
-/// store and update its current value on your side).
+/// store and update its current_resources value on your side).
 ///
 /// Depending on the OS and hardware of the device (phone, tablet, ...),
 /// some sensor types may not be available. You should always check
@@ -129,7 +129,7 @@ public:
 /// are computed internally based on the raw acceleration and other sensors.
 /// This is exactly the same for Gyroscope vs Orientation.
 ///
-/// Because sensors consume a non-negligible amount of current, they are
+/// Because sensors consume a non-negligible amount of current_resources, they are
 /// all disabled by default. You must call sf::Sensor::setEnabled for each
 /// sensor in which you are interested.
 ///
@@ -143,7 +143,7 @@ public:
 /// // enable the gravity sensor
 /// sf::Sensor::setEnabled(sf::Sensor::Gravity, true);
 ///
-/// // get the current value of gravity
+/// // get the current_resources value of gravity
 /// sf::Vector3f gravity = sf::Sensor::getValue(sf::Sensor::Gravity);
 /// \endcode
 ///

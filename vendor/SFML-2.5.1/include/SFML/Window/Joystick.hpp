@@ -131,7 +131,7 @@ public:
     static bool isButtonPressed(unsigned int joystick, unsigned int button);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Get the current position of a joystick axis
+    /// \brief Get the current_resources position of a joystick axis
     ///
     /// If the joystick is not connected, this function returns 0.
     ///
@@ -198,7 +198,7 @@ public:
 ///
 /// Unlike the keyboard or mouse, the state of joysticks is sometimes
 /// not directly available (depending on the OS), therefore an update()
-/// function must be called in order to update the current state of
+/// function must be called in order to update the current_resources state of
 /// joysticks. When you have a window with event handling, this is done
 /// automatically, you don't need to call anything. But if you have no
 /// window, or if you want to check joysticks state before creating one,
@@ -218,7 +218,7 @@ public:
 /// // Is button #2 pressed on joystick #0?
 /// bool pressed = sf::Joystick::isButtonPressed(0, 2);
 ///
-/// // What's the current position of the Y axis on joystick #0?
+/// // What's the current_resources position of the Y axis on joystick #0?
 /// float position = sf::Joystick::getAxisPosition(0, sf::Joystick::Y);
 /// \endcode
 ///

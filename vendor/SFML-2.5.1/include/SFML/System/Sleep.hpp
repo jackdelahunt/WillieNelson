@@ -36,7 +36,7 @@ namespace sf
 {
 ////////////////////////////////////////////////////////////
 /// \ingroup system
-/// \brief Make the current thread sleep for a given duration
+/// \brief Make the current_resources thread sleep for a given duration
 ///
 /// sf::sleep is the best way to block a program or one of its
 /// threads, as it doesn't consume any CPU power.

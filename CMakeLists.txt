@@ -17,7 +17,7 @@ add_executable(
                 core/Entity.cpp core/Entity.h
                 core/Component.h
                 core/SpriteComponent.cpp core/SpriteComponent.h
-                core/Window.cpp core/Window.h
+        core/Game.cpp core/Game.h
                 core/Resources.cpp core/Resources.h
                 core/Transform.h
                 core/AnimatedSpriteComponent.cpp core/AnimatedSpriteComponent.h

@@ -37,7 +37,7 @@ $(function() {
 <a href="#friends">Friends</a> &#124;
 <a href="classsf_1_1Cursor-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sf::Cursor Class Reference<div class="ingroups"><a class="el" href="group__window.html">Window module</a></div></div>  </div>
+<div class="title">sf::Cursor Class Reference<div class="ingroups"><a class="el" href="group__window.html">Game module</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -97,16 +97,16 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a553f958a25683445088050a69d3de8e9"><td class="memItemLeft" align="right" valign="top"><a id="a553f958a25683445088050a69d3de8e9"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>Window</b></td></tr>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>Game</b></td></tr>
 <tr class="separator:a553f958a25683445088050a69d3de8e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classsf_1_1Cursor.html" title="Cursor defines the appearance of a system cursor. ">Cursor</a> defines the appearance of a system cursor. </p>
 <dl class="section warning"><dt>Warning</dt><dd>Features related to <a class="el" href="classsf_1_1Cursor.html" title="Cursor defines the appearance of a system cursor. ">Cursor</a> are not supported on iOS and Android.</dd></dl>
 <p>This class abstracts the operating system resources associated with either a native system cursor or a custom cursor.</p>
-<p>After loading the cursor the graphical appearance with either <a class="el" href="classsf_1_1Cursor.html#ac24ecf82ac7d9ba6703389397f948b3a" title="Create a cursor with the provided image. ">loadFromPixels()</a> or <a class="el" href="classsf_1_1Cursor.html#ad41999c8633c2fbaa2364e379c1ab25b" title="Create a native system cursor. ">loadFromSystem()</a>, the cursor can be changed with <a class="el" href="classsf_1_1Window.html#aab7a05baece72b08ad120063b143d19b" title="Set the displayed cursor to a native system cursor. ">sf::Window::setMouseCursor()</a>.</p>
+<p>After loading the cursor the graphical appearance with either <a class="el" href="classsf_1_1Cursor.html#ac24ecf82ac7d9ba6703389397f948b3a" title="Create a cursor with the provided image. ">loadFromPixels()</a> or <a class="el" href="classsf_1_1Cursor.html#ad41999c8633c2fbaa2364e379c1ab25b" title="Create a native system cursor. ">loadFromSystem()</a>, the cursor can be changed with <a class="el" href="classsf_1_1Window.html#aab7a05baece72b08ad120063b143d19b" title="Set the displayed cursor to a native system cursor. ">sf::Game::setMouseCursor()</a>.</p>
 <p>The behaviour is undefined if the cursor is destroyed while in use by the window.</p>
-<p>Usage example: </p><div class="fragment"><div class="line"><a class="code" href="classsf_1_1Window.html">sf::Window</a> window;</div><div class="line"></div><div class="line"><span class="comment">// ... create window as usual ...</span></div><div class="line"></div><div class="line"><a class="code" href="classsf_1_1Cursor.html">sf::Cursor</a> cursor;</div><div class="line"><span class="keywordflow">if</span> (cursor.<a class="code" href="classsf_1_1Cursor.html#ad41999c8633c2fbaa2364e379c1ab25b">loadFromSystem</a>(<a class="code" href="classsf_1_1Cursor.html#ab9ab152aec1f8a4955e34ccae08f930aae826935374aa0414723918ba79f13368">sf::Cursor::Hand</a>))</div><div class="line">    window.<a class="code" href="classsf_1_1Window.html#aab7a05baece72b08ad120063b143d19b">setMouseCursor</a>(cursor);</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classsf_1_1Window.html#aab7a05baece72b08ad120063b143d19b" title="Set the displayed cursor to a native system cursor. ">sf::Window::setMouseCursor</a> </dd></dl>
+<p>Usage example: </p><div class="fragment"><div class="line"><a class="code" href="classsf_1_1Window.html">sf::Game</a> window;</div><div class="line"></div><div class="line"><span class="comment">// ... create window as usual ...</span></div><div class="line"></div><div class="line"><a class="code" href="classsf_1_1Cursor.html">sf::Cursor</a> cursor;</div><div class="line"><span class="keywordflow">if</span> (cursor.<a class="code" href="classsf_1_1Cursor.html#ad41999c8633c2fbaa2364e379c1ab25b">loadFromSystem</a>(<a class="code" href="classsf_1_1Cursor.html#ab9ab152aec1f8a4955e34ccae08f930aae826935374aa0414723918ba79f13368">sf::Cursor::Hand</a>))</div><div class="line">    window.<a class="code" href="classsf_1_1Window.html#aab7a05baece72b08ad120063b143d19b">setMouseCursor</a>(cursor);</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classsf_1_1Window.html#aab7a05baece72b08ad120063b143d19b" title="Set the displayed cursor to a native system cursor. ">sf::Game::setMouseCursor</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Cursor_8hpp_source.html#l00046">46</a> of file <a class="el" href="Cursor_8hpp_source.html">Cursor.hpp</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Component.h"
-#include "Window.h"
+#include "Game.h"
 
 namespace WillieNelson {
 

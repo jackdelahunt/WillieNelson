@@ -115,10 +115,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a87f916490b757fe900798eedf3abf3ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Texture.html#a87f916490b757fe900798eedf3abf3ba">update</a> (const <a class="el" href="classsf_1_1Image.html">Image</a> &amp;image, unsigned int x, unsigned int y)</td></tr>
 <tr class="memdesc:a87f916490b757fe900798eedf3abf3ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update a part of the texture from an image.  <a href="#a87f916490b757fe900798eedf3abf3ba">More...</a><br /></td></tr>
 <tr class="separator:a87f916490b757fe900798eedf3abf3ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3cceef238f7d5d2108a98dd38c17fc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Texture.html#ad3cceef238f7d5d2108a98dd38c17fc5">update</a> (const <a class="el" href="classsf_1_1Window.html">Window</a> &amp;window)</td></tr>
+<tr class="memitem:ad3cceef238f7d5d2108a98dd38c17fc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Texture.html#ad3cceef238f7d5d2108a98dd38c17fc5">update</a> (const <a class="el" href="classsf_1_1Window.html">Game</a> &amp;window)</td></tr>
 <tr class="memdesc:ad3cceef238f7d5d2108a98dd38c17fc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the texture from the contents of a window.  <a href="#ad3cceef238f7d5d2108a98dd38c17fc5">More...</a><br /></td></tr>
 <tr class="separator:ad3cceef238f7d5d2108a98dd38c17fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a154f246eb8059b602076009ab1cfd175"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Texture.html#a154f246eb8059b602076009ab1cfd175">update</a> (const <a class="el" href="classsf_1_1Window.html">Window</a> &amp;window, unsigned int x, unsigned int y)</td></tr>
+<tr class="memitem:a154f246eb8059b602076009ab1cfd175"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Texture.html#a154f246eb8059b602076009ab1cfd175">update</a> (const <a class="el" href="classsf_1_1Window.html">Game</a> &amp;window, unsigned int x, unsigned int y)</td></tr>
 <tr class="memdesc:a154f246eb8059b602076009ab1cfd175"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update a part of the texture from the contents of a window.  <a href="#a154f246eb8059b602076009ab1cfd175">More...</a><br /></td></tr>
 <tr class="separator:a154f246eb8059b602076009ab1cfd175"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c3bd6825b9a99714f10d44179d74324"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Texture.html#a0c3bd6825b9a99714f10d44179d74324">setSmooth</a> (bool smooth)</td></tr>
@@ -1109,7 +1109,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RenderTarget</b></td
         <tr>
           <td class="memname">void sf::Texture::update </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classsf_1_1Window.html">Window</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsf_1_1Window.html">Game</a> &amp;&#160;</td>
           <td class="paramname"><em>window</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1122,7 +1122,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RenderTarget</b></td
 <p>This function does nothing if either the texture or the window was not previously created.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">window</td><td><a class="el" href="classsf_1_1Window.html" title="Window that serves as a target for OpenGL rendering. ">Window</a> to copy to the texture </td></tr>
+    <tr><td class="paramname">window</td><td><a class="el" href="classsf_1_1Window.html" title="Game that serves as a target for OpenGL rendering. ">Game</a> to copy to the texture </td></tr>
   </table>
   </dd>
 </dl>
@@ -1138,7 +1138,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RenderTarget</b></td
         <tr>
           <td class="memname">void sf::Texture::update </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classsf_1_1Window.html">Window</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsf_1_1Window.html">Game</a> &amp;&#160;</td>
           <td class="paramname"><em>window</em>, </td>
         </tr>
         <tr>
@@ -1166,7 +1166,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RenderTarget</b></td
 <p>This function does nothing if either the texture or the window was not previously created.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">window</td><td><a class="el" href="classsf_1_1Window.html" title="Window that serves as a target for OpenGL rendering. ">Window</a> to copy to the texture </td></tr>
+    <tr><td class="paramname">window</td><td><a class="el" href="classsf_1_1Window.html" title="Game that serves as a target for OpenGL rendering. ">Game</a> to copy to the texture </td></tr>
     <tr><td class="paramname">x</td><td>X offset in the texture where to copy the source window </td></tr>
     <tr><td class="paramname">y</td><td>Y offset in the texture where to copy the source window </td></tr>
   </table>

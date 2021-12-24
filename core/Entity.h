@@ -4,11 +4,11 @@
 #include "Component.h"
 #include <memory>
 #include "Transform.h"
-#include "Window.h"
+#include "Game.h"
 
 namespace WillieNelson {
     class Component;
-    class Window;
+    class Game;
 
     class Entity {
     public:
@@ -17,7 +17,6 @@ namespace WillieNelson {
         std::string name;
         Transform transform;
         std::vector<std::shared_ptr<Component>> components;
-        Window* window;
 
         Entity();
         void update(float delta_time, std::vector<sf::Event>& events);

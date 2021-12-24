@@ -53,7 +53,7 @@ Inheritance diagram for sf::RenderTarget:</div>
   <map id="sf::RenderTarget_map" name="sf::RenderTarget_map">
 <area href="classsf_1_1NonCopyable.html" title="Utility class that makes any derived class non-copyable. " alt="sf::NonCopyable" shape="rect" coords="61,0,174,24"/>
 <area href="classsf_1_1RenderTexture.html" title="Target for off-screen 2D rendering into a texture. " alt="sf::RenderTexture" shape="rect" coords="0,112,113,136"/>
-<area href="classsf_1_1RenderWindow.html" title="Window that can serve as a target for 2D drawing. " alt="sf::RenderWindow" shape="rect" coords="123,112,236,136"/>
+<area href="classsf_1_1RenderWindow.html" title="Game that can serve as a target for 2D drawing. " alt="sf::RenderWindow" shape="rect" coords="123,112,236,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -132,7 +132,7 @@ Protected Member Functions</h2></td></tr>
 <p>It makes it possible to draw 2D entities like sprites, shapes, text without using any OpenGL command directly.</p>
 <p>A <a class="el" href="classsf_1_1RenderTarget.html" title="Base class for all render targets (window, texture, ...) ">sf::RenderTarget</a> is also able to use views (<a class="el" href="classsf_1_1View.html" title="2D camera that defines what region is shown on screen ">sf::View</a>), which are a kind of 2D cameras. With views you can globally scroll, rotate or zoom everything that is drawn, without having to transform every single entity. See the documentation of <a class="el" href="classsf_1_1View.html" title="2D camera that defines what region is shown on screen ">sf::View</a> for more details and sample pieces of code about this class.</p>
 <p>On top of that, render targets are still able to render direct OpenGL stuff. It is even possible to mix together OpenGL calls and regular SFML drawing commands. When doing so, make sure that OpenGL states are not messed up by calling the pushGLStates/popGLStates functions.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsf_1_1RenderWindow.html" title="Window that can serve as a target for 2D drawing. ">sf::RenderWindow</a>, <a class="el" href="classsf_1_1RenderTexture.html" title="Target for off-screen 2D rendering into a texture. ">sf::RenderTexture</a>, <a class="el" href="classsf_1_1View.html" title="2D camera that defines what region is shown on screen ">sf::View</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsf_1_1RenderWindow.html" title="Game that can serve as a target for 2D drawing. ">sf::RenderWindow</a>, <a class="el" href="classsf_1_1RenderTexture.html" title="Target for off-screen 2D rendering into a texture. ">sf::RenderTexture</a>, <a class="el" href="classsf_1_1View.html" title="2D camera that defines what region is shown on screen ">sf::View</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="RenderTarget_8hpp_source.html#l00052">52</a> of file <a class="el" href="RenderTarget_8hpp_source.html">RenderTarget.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>

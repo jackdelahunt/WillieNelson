@@ -32,7 +32,7 @@ $(function() {
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">Window module</div>  </div>
+<div class="title">Game module</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -77,8 +77,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1VideoMode.html">sf::VideoMode</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classsf_1_1VideoMode.html" title="VideoMode defines a video mode (width, height, bpp) ">VideoMode</a> defines a video mode (width, height, bpp)  <a href="classsf_1_1VideoMode.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Window.html">sf::Window</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classsf_1_1Window.html" title="Window that serves as a target for OpenGL rendering. ">Window</a> that serves as a target for OpenGL rendering.  <a href="classsf_1_1Window.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Window.html">sf::Game</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classsf_1_1Window.html" title="Game that serves as a target for OpenGL rendering. ">Game</a> that serves as a target for OpenGL rendering.  <a href="classsf_1_1Window.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -124,7 +124,7 @@ Enumerations</h2></td></tr>
 <tr>
 <td>Windows </td><td><code>HWND</code> </td></tr>
 <tr>
-<td>Linux/FreeBSD </td><td><code>Window</code> </td></tr>
+<td>Linux/FreeBSD </td><td><code>Game</code> </td></tr>
 <tr>
 <td>Mac OS X </td><td>either <code>NSWindow*</code> or <code>NSView*</code>, disguised as <code>void*</code> </td></tr>
 <tr>
@@ -133,7 +133,7 @@ Enumerations</h2></td></tr>
 <td>Android </td><td><code>ANativeWindow*</code> </td></tr>
 </table>
 <dl class="section user"><dt>Mac OS X Specification</dt><dd></dd></dl>
-<p>On Mac OS X, a <a class="el" href="classsf_1_1Window.html" title="Window that serves as a target for OpenGL rendering. ">sf::Window</a> can be created either from an existing <code>NSWindow*</code> or an <code>NSView*</code>. When the window is created from a window, SFML will use its content view as the OpenGL area. <a class="el" href="classsf_1_1Window.html#ad2fa6be5104ec0bfe79af7a5f524ea90" title="Get the OS-specific handle of the window. ">sf::Window::getSystemHandle()</a> will return the handle that was used to create the window, which is a <code>NSWindow*</code> by default. </p>
+<p>On Mac OS X, a <a class="el" href="classsf_1_1Window.html" title="Game that serves as a target for OpenGL rendering. ">sf::Game</a> can be created either from an existing <code>NSWindow*</code> or an <code>NSView*</code>. When the window is created from a window, SFML will use its content view as the OpenGL area. <a class="el" href="classsf_1_1Window.html#ad2fa6be5104ec0bfe79af7a5f524ea90" title="Get the OS-specific handle of the window. ">sf::Game::getSystemHandle()</a> will return the handle that was used to create the window, which is a <code>NSWindow*</code> by default. </p>
 
 <p class="definition">Definition at line <a class="el" href="WindowHandle_8hpp_source.html#l00068">68</a> of file <a class="el" href="WindowHandle_8hpp_source.html">WindowHandle.hpp</a>.</p>
 

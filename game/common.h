@@ -11,3 +11,4 @@
 #include "../core/TilemapComponent.h"
 #include "../core/Transform.h"
 #include "../core/Window.h"
+#include "../core/TextComponent.h"

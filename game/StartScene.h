@@ -18,7 +18,6 @@ public:
         sprite_2->set_texture(texture);
         auto boxCollider_2 = game_object_2->add_component<WillieNelson::BoxCollider>();
         game_object_2->transform.position = sf::Vector2f(50.0f, 50.0f);
-        window.add_entity(game_object);
 
         auto text_object = WillieNelson::Entity::New();
         auto text = text_object->add_component<WillieNelson::TextComponent>();

@@ -39,27 +39,27 @@ namespace sf
 {
 #if defined(SFML_SYSTEM_WINDOWS)
 
-    // Window handle is HWND (HWND__*) on Windows
+    // Game handle is HWND (HWND__*) on Windows
     typedef HWND__* WindowHandle;
 
 #elif defined(SFML_SYSTEM_LINUX) || defined(SFML_SYSTEM_FREEBSD) || defined(SFML_SYSTEM_OPENBSD)
 
-    // Window handle is Window (unsigned long) on Unix - X11
+    // Game handle is Game (unsigned long) on Unix - X11
     typedef unsigned long WindowHandle;
 
 #elif defined(SFML_SYSTEM_MACOS)
 
-    // Window handle is NSWindow or NSView (void*) on Mac OS X - Cocoa
+    // Game handle is NSWindow or NSView (void*) on Mac OS X - Cocoa
     typedef void* WindowHandle;
 
 #elif defined(SFML_SYSTEM_IOS)
 
-    // Window handle is UIWindow (void*) on iOS - UIKit
+    // Game handle is UIWindow (void*) on iOS - UIKit
     typedef void* WindowHandle;
 
 #elif defined(SFML_SYSTEM_ANDROID)
 
-    // Window handle is ANativeWindow* (void*) on Android
+    // Game handle is ANativeWindow* (void*) on Android
     typedef void* WindowHandle;
 
 #elif defined(SFML_DOXYGEN)
@@ -84,17 +84,17 @@ namespace sf
 /// Platform        | Type
 /// ----------------|------------------------------------------------------------
 /// Windows         | \p HWND
-/// Linux/FreeBSD   | \p %Window
+/// Linux/FreeBSD   | \p %Game
 /// Mac OS X        | either \p NSWindow* or \p NSView*, disguised as \p void*
 /// iOS             | \p UIWindow*
 /// Android         | \p ANativeWindow*
 ///
 /// \par Mac OS X Specification
 ///
-/// On Mac OS X, a sf::Window can be created either from an
+/// On Mac OS X, a sf::Game can be created either from an
 /// existing \p NSWindow* or an \p NSView*. When the window
 /// is created from a window, SFML will use its content view
-/// as the OpenGL area. sf::Window::getSystemHandle() will
+/// as the OpenGL area. sf::Game::getSystemHandle() will
 /// return the handle that was used to create the window,
 /// which is a \p NSWindow* by default.
 ///

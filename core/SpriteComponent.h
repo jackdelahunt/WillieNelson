@@ -3,7 +3,7 @@
 #include "SFML/Graphics.hpp"
 #include "Component.h"
 #include <memory>
-#include "Window.h"
+#include "Game.h"
 
 namespace WillieNelson {
 

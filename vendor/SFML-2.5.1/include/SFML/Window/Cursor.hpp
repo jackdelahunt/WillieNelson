@@ -166,7 +166,7 @@ private:
     ////////////////////////////////////////////////////////////
     /// \brief Get access to the underlying implementation
     ///
-    /// This is primarily designed for sf::Window::setMouseCursor,
+    /// This is primarily designed for sf::Game::setMouseCursor,
     /// hence the friendship.
     ///
     /// \return a reference to the OS-specific implementation
@@ -201,14 +201,14 @@ private:
 ///
 /// After loading the cursor the graphical appearance
 /// with either loadFromPixels() or loadFromSystem(), the
-/// cursor can be changed with sf::Window::setMouseCursor().
+/// cursor can be changed with sf::Game::setMouseCursor().
 ///
 /// The behaviour is undefined if the cursor is destroyed while
 /// in use by the window.
 ///
 /// Usage example:
 /// \code
-/// sf::Window window;
+/// sf::Game window;
 ///
 /// // ... create window as usual ...
 ///
@@ -217,6 +217,6 @@ private:
 ///     window.setMouseCursor(cursor);
 /// \endcode
 ///
-/// \see sf::Window::setMouseCursor
+/// \see sf::Game::setMouseCursor
 ///
 ////////////////////////////////////////////////////////////

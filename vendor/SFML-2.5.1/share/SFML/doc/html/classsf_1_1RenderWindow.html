@@ -40,7 +40,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classsf_1_1Window.html" title="Window that serves as a target for OpenGL rendering. ">Window</a> that can serve as a target for 2D drawing.  
+<p><a class="el" href="classsf_1_1Window.html" title="Game that serves as a target for OpenGL rendering. ">Game</a> that can serve as a target for 2D drawing.
  <a href="classsf_1_1RenderWindow.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="RenderWindow_8hpp_source.html">RenderWindow.hpp</a>&gt;</code></p>
@@ -50,7 +50,7 @@ Inheritance diagram for sf::RenderWindow:</div>
  <div class="center">
   <img src="classsf_1_1RenderWindow.png" usemap="#sf::RenderWindow_map" alt=""/>
   <map id="sf::RenderWindow_map" name="sf::RenderWindow_map">
-<area href="classsf_1_1Window.html" title="Window that serves as a target for OpenGL rendering. " alt="sf::Window" shape="rect" coords="61,56,174,80"/>
+<area href="classsf_1_1Window.html" title="Game that serves as a target for OpenGL rendering. " alt="sf::Game" shape="rect" coords="61,56,174,80"/>
 <area href="classsf_1_1RenderTarget.html" title="Base class for all render targets (window, texture, ...) " alt="sf::RenderTarget" shape="rect" coords="246,56,359,80"/>
 <area href="classsf_1_1GlResource.html" title="Base class for classes that require an OpenGL context. " alt="sf::GlResource" shape="rect" coords="0,0,113,24"/>
 <area href="classsf_1_1NonCopyable.html" title="Utility class that makes any derived class non-copyable. " alt="sf::NonCopyable" shape="rect" coords="123,0,236,24"/>
@@ -218,13 +218,13 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:af530274b34159d644e509b4b4dc43eb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classsf_1_1Window.html" title="Window that serves as a target for OpenGL rendering. ">Window</a> that can serve as a target for 2D drawing. </p>
-<p><a class="el" href="classsf_1_1RenderWindow.html" title="Window that can serve as a target for 2D drawing. ">sf::RenderWindow</a> is the main class of the Graphics module.</p>
+<div class="textblock"><p><a class="el" href="classsf_1_1Window.html" title="Game that serves as a target for OpenGL rendering. ">Game</a> that can serve as a target for 2D drawing. </p>
+<p><a class="el" href="classsf_1_1RenderWindow.html" title="Game that can serve as a target for 2D drawing. ">sf::RenderWindow</a> is the main class of the Graphics module.</p>
 <p>It defines an OS window that can be painted using the other classes of the graphics module.</p>
-<p><a class="el" href="classsf_1_1RenderWindow.html" title="Window that can serve as a target for 2D drawing. ">sf::RenderWindow</a> is derived from <a class="el" href="classsf_1_1Window.html" title="Window that serves as a target for OpenGL rendering. ">sf::Window</a>, thus it inherits all its features: events, window management, OpenGL rendering, etc. See the documentation of <a class="el" href="classsf_1_1Window.html" title="Window that serves as a target for OpenGL rendering. ">sf::Window</a> for a more complete description of all these features, as well as code examples.</p>
-<p>On top of that, <a class="el" href="classsf_1_1RenderWindow.html" title="Window that can serve as a target for 2D drawing. ">sf::RenderWindow</a> adds more features related to 2D drawing with the graphics module (see its base class <a class="el" href="classsf_1_1RenderTarget.html" title="Base class for all render targets (window, texture, ...) ">sf::RenderTarget</a> for more details). Here is a typical rendering and event loop with a <a class="el" href="classsf_1_1RenderWindow.html" title="Window that can serve as a target for 2D drawing. ">sf::RenderWindow</a>:</p>
-<div class="fragment"><div class="line"><span class="comment">// Declare and create a new render-window</span></div><div class="line"><a class="code" href="classsf_1_1RenderWindow.html">sf::RenderWindow</a> window(<a class="code" href="classsf_1_1VideoMode.html">sf::VideoMode</a>(800, 600), <span class="stringliteral">&quot;SFML window&quot;</span>);</div><div class="line"></div><div class="line"><span class="comment">// Limit the framerate to 60 frames per second (this step is optional)</span></div><div class="line">window.<a class="code" href="classsf_1_1Window.html#af4322d315baf93405bf0d5087ad5e784">setFramerateLimit</a>(60);</div><div class="line"></div><div class="line"><span class="comment">// The main loop - ends as soon as the window is closed</span></div><div class="line"><span class="keywordflow">while</span> (window.<a class="code" href="classsf_1_1Window.html#ae873503db7d48157bb9cbf6129562bce">isOpen</a>())</div><div class="line">{</div><div class="line">   <span class="comment">// Event processing</span></div><div class="line">   <a class="code" href="classsf_1_1Event.html">sf::Event</a> event;</div><div class="line">   <span class="keywordflow">while</span> (window.<a class="code" href="classsf_1_1Window.html#a338e996585faf82e93069858e3b531b7">pollEvent</a>(event))</div><div class="line">   {</div><div class="line">       <span class="comment">// Request for closing the window</span></div><div class="line">       <span class="keywordflow">if</span> (event.<a class="code" href="classsf_1_1Event.html#adf2f8044f713fd9d6019077b0d1ffe0a">type</a> == <a class="code" href="classsf_1_1Event.html#af41fa9ed45c02449030699f671331d4aa316e4212e083f1dce79efd8d9e9c0a95">sf::Event::Closed</a>)</div><div class="line">           window.<a class="code" href="classsf_1_1Window.html#a99d1e030387b0c26f5995670504fe7b5">close</a>();</div><div class="line">   }</div><div class="line"></div><div class="line">   <span class="comment">// Clear the whole window before rendering a new frame</span></div><div class="line">   window.clear();</div><div class="line"></div><div class="line">   <span class="comment">// Draw some graphical entities</span></div><div class="line">   window.draw(sprite);</div><div class="line">   window.draw(circle);</div><div class="line">   window.draw(text);</div><div class="line"></div><div class="line">   <span class="comment">// End the current_resources frame and display its contents on screen</span></div><div class="line">   window.<a class="code" href="classsf_1_1Window.html#adabf839cb103ac96cfc82f781638772a">display</a>();</div><div class="line">}</div></div><!-- fragment --><p>Like <a class="el" href="classsf_1_1Window.html" title="Window that serves as a target for OpenGL rendering. ">sf::Window</a>, <a class="el" href="classsf_1_1RenderWindow.html" title="Window that can serve as a target for 2D drawing. ">sf::RenderWindow</a> is still able to render direct OpenGL stuff. It is even possible to mix together OpenGL calls and regular SFML drawing commands.</p>
-<div class="fragment"><div class="line"><span class="comment">// Create the render window</span></div><div class="line"><a class="code" href="classsf_1_1RenderWindow.html">sf::RenderWindow</a> window(<a class="code" href="classsf_1_1VideoMode.html">sf::VideoMode</a>(800, 600), <span class="stringliteral">&quot;SFML OpenGL&quot;</span>);</div><div class="line"></div><div class="line"><span class="comment">// Create a sprite and a text to display</span></div><div class="line"><a class="code" href="classsf_1_1Sprite.html">sf::Sprite</a> sprite;</div><div class="line"><a class="code" href="classsf_1_1Text.html">sf::Text</a> text;</div><div class="line">...</div><div class="line"></div><div class="line"><span class="comment">// Perform OpenGL initializations</span></div><div class="line">glMatrixMode(GL_PROJECTION);</div><div class="line">...</div><div class="line"></div><div class="line"><span class="comment">// Start the rendering loop</span></div><div class="line">while (window.<a class="code" href="classsf_1_1Window.html#ae873503db7d48157bb9cbf6129562bce">isOpen</a>())</div><div class="line">{</div><div class="line">    <span class="comment">// Process events</span></div><div class="line">    ...</div><div class="line"></div><div class="line">    <span class="comment">// Draw a background sprite</span></div><div class="line">    window.pushGLStates();</div><div class="line">    window.draw(sprite);</div><div class="line">    window.popGLStates();</div><div class="line"></div><div class="line">    <span class="comment">// Draw a 3D object using OpenGL</span></div><div class="line">    glBegin(GL_QUADS);</div><div class="line">        glVertex3f(...);</div><div class="line">        ...</div><div class="line">    glEnd();</div><div class="line"></div><div class="line">    <span class="comment">// Draw text on top of the 3D object</span></div><div class="line">    window.pushGLStates();</div><div class="line">    window.draw(text);</div><div class="line">    window.popGLStates();</div><div class="line"></div><div class="line">    <span class="comment">// Finally, display the rendered frame on screen</span></div><div class="line">    window.<a class="code" href="classsf_1_1Window.html#adabf839cb103ac96cfc82f781638772a">display</a>();</div><div class="line">}</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classsf_1_1Window.html" title="Window that serves as a target for OpenGL rendering. ">sf::Window</a>, <a class="el" href="classsf_1_1RenderTarget.html" title="Base class for all render targets (window, texture, ...) ">sf::RenderTarget</a>, <a class="el" href="classsf_1_1RenderTexture.html" title="Target for off-screen 2D rendering into a texture. ">sf::RenderTexture</a>, <a class="el" href="classsf_1_1View.html" title="2D camera that defines what region is shown on screen ">sf::View</a> </dd></dl>
+<p><a class="el" href="classsf_1_1RenderWindow.html" title="Game that can serve as a target for 2D drawing. ">sf::RenderWindow</a> is derived from <a class="el" href="classsf_1_1Window.html" title="Game that serves as a target for OpenGL rendering. ">sf::Game</a>, thus it inherits all its features: events, window management, OpenGL rendering, etc. See the documentation of <a class="el" href="classsf_1_1Window.html" title="Game that serves as a target for OpenGL rendering. ">sf::Game</a> for a more complete description of all these features, as well as code examples.</p>
+<p>On top of that, <a class="el" href="classsf_1_1RenderWindow.html" title="Game that can serve as a target for 2D drawing. ">sf::RenderWindow</a> adds more features related to 2D drawing with the graphics module (see its base class <a class="el" href="classsf_1_1RenderTarget.html" title="Base class for all render targets (window, texture, ...) ">sf::RenderTarget</a> for more details). Here is a typical rendering and event loop with a <a class="el" href="classsf_1_1RenderWindow.html" title="Game that can serve as a target for 2D drawing. ">sf::RenderWindow</a>:</p>
+<div class="fragment"><div class="line"><span class="comment">// Declare and create a new render-window</span></div><div class="line"><a class="code" href="classsf_1_1RenderWindow.html">sf::RenderWindow</a> window(<a class="code" href="classsf_1_1VideoMode.html">sf::VideoMode</a>(800, 600), <span class="stringliteral">&quot;SFML window&quot;</span>);</div><div class="line"></div><div class="line"><span class="comment">// Limit the framerate to 60 frames per second (this step is optional)</span></div><div class="line">window.<a class="code" href="classsf_1_1Window.html#af4322d315baf93405bf0d5087ad5e784">setFramerateLimit</a>(60);</div><div class="line"></div><div class="line"><span class="comment">// The main loop - ends as soon as the window is closed</span></div><div class="line"><span class="keywordflow">while</span> (window.<a class="code" href="classsf_1_1Window.html#ae873503db7d48157bb9cbf6129562bce">isOpen</a>())</div><div class="line">{</div><div class="line">   <span class="comment">// Event processing</span></div><div class="line">   <a class="code" href="classsf_1_1Event.html">sf::Event</a> event;</div><div class="line">   <span class="keywordflow">while</span> (window.<a class="code" href="classsf_1_1Window.html#a338e996585faf82e93069858e3b531b7">pollEvent</a>(event))</div><div class="line">   {</div><div class="line">       <span class="comment">// Request for closing the window</span></div><div class="line">       <span class="keywordflow">if</span> (event.<a class="code" href="classsf_1_1Event.html#adf2f8044f713fd9d6019077b0d1ffe0a">type</a> == <a class="code" href="classsf_1_1Event.html#af41fa9ed45c02449030699f671331d4aa316e4212e083f1dce79efd8d9e9c0a95">sf::Event::Closed</a>)</div><div class="line">           window.<a class="code" href="classsf_1_1Window.html#a99d1e030387b0c26f5995670504fe7b5">close</a>();</div><div class="line">   }</div><div class="line"></div><div class="line">   <span class="comment">// Clear the whole window before rendering a new frame</span></div><div class="line">   window.clear();</div><div class="line"></div><div class="line">   <span class="comment">// Draw some graphical entities</span></div><div class="line">   window.draw(sprite);</div><div class="line">   window.draw(circle);</div><div class="line">   window.draw(text);</div><div class="line"></div><div class="line">   <span class="comment">// End the current_resources frame and display its contents on screen</span></div><div class="line">   window.<a class="code" href="classsf_1_1Window.html#adabf839cb103ac96cfc82f781638772a">display</a>();</div><div class="line">}</div></div><!-- fragment --><p>Like <a class="el" href="classsf_1_1Window.html" title="Game that serves as a target for OpenGL rendering. ">sf::Game</a>, <a class="el" href="classsf_1_1RenderWindow.html" title="Game that can serve as a target for 2D drawing. ">sf::RenderWindow</a> is still able to render direct OpenGL stuff. It is even possible to mix together OpenGL calls and regular SFML drawing commands.</p>
+<div class="fragment"><div class="line"><span class="comment">// Create the render window</span></div><div class="line"><a class="code" href="classsf_1_1RenderWindow.html">sf::RenderWindow</a> window(<a class="code" href="classsf_1_1VideoMode.html">sf::VideoMode</a>(800, 600), <span class="stringliteral">&quot;SFML OpenGL&quot;</span>);</div><div class="line"></div><div class="line"><span class="comment">// Create a sprite and a text to display</span></div><div class="line"><a class="code" href="classsf_1_1Sprite.html">sf::Sprite</a> sprite;</div><div class="line"><a class="code" href="classsf_1_1Text.html">sf::Text</a> text;</div><div class="line">...</div><div class="line"></div><div class="line"><span class="comment">// Perform OpenGL initializations</span></div><div class="line">glMatrixMode(GL_PROJECTION);</div><div class="line">...</div><div class="line"></div><div class="line"><span class="comment">// Start the rendering loop</span></div><div class="line">while (window.<a class="code" href="classsf_1_1Window.html#ae873503db7d48157bb9cbf6129562bce">isOpen</a>())</div><div class="line">{</div><div class="line">    <span class="comment">// Process events</span></div><div class="line">    ...</div><div class="line"></div><div class="line">    <span class="comment">// Draw a background sprite</span></div><div class="line">    window.pushGLStates();</div><div class="line">    window.draw(sprite);</div><div class="line">    window.popGLStates();</div><div class="line"></div><div class="line">    <span class="comment">// Draw a 3D object using OpenGL</span></div><div class="line">    glBegin(GL_QUADS);</div><div class="line">        glVertex3f(...);</div><div class="line">        ...</div><div class="line">    glEnd();</div><div class="line"></div><div class="line">    <span class="comment">// Draw text on top of the 3D object</span></div><div class="line">    window.pushGLStates();</div><div class="line">    window.draw(text);</div><div class="line">    window.popGLStates();</div><div class="line"></div><div class="line">    <span class="comment">// Finally, display the rendered frame on screen</span></div><div class="line">    window.<a class="code" href="classsf_1_1Window.html#adabf839cb103ac96cfc82f781638772a">display</a>();</div><div class="line">}</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classsf_1_1Window.html" title="Game that serves as a target for OpenGL rendering. ">sf::Game</a>, <a class="el" href="classsf_1_1RenderTarget.html" title="Base class for all render targets (window, texture, ...) ">sf::RenderTarget</a>, <a class="el" href="classsf_1_1RenderTexture.html" title="Target for off-screen 2D rendering into a texture. ">sf::RenderTexture</a>, <a class="el" href="classsf_1_1View.html" title="2D camera that defines what region is shown on screen ">sf::View</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="RenderWindow_8hpp_source.html#l00044">44</a> of file <a class="el" href="RenderWindow_8hpp_source.html">RenderWindow.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -293,7 +293,7 @@ Protected Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">mode</td><td>Video mode to use (defines the width, height and depth of the rendering area of the window) </td></tr>
     <tr><td class="paramname">title</td><td>Title of the window </td></tr>
-    <tr><td class="paramname">style</td><td>Window style, a bitwise OR combination of sf::Style enumerators </td></tr>
+    <tr><td class="paramname">style</td><td>Game style, a bitwise OR combination of sf::Style enumerators </td></tr>
     <tr><td class="paramname">settings</td><td>Additional settings for the underlying OpenGL context </td></tr>
   </table>
   </dd>
@@ -340,7 +340,7 @@ Protected Member Functions</h2></td></tr>
 <p>The second parameter is an optional structure specifying advanced OpenGL context settings such as antialiasing, depth-buffer bits, etc. You shouldn't care about these parameters for a regular usage of the graphics module.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Platform-specific handle of the control (<em>HWND</em> on Windows, <em>Window</em> on Linux/FreeBSD, <em>NSWindow</em> on OS X) </td></tr>
+    <tr><td class="paramname">handle</td><td>Platform-specific handle of the control (<em>HWND</em> on Windows, <em>Game</em> on Linux/FreeBSD, <em>NSWindow</em> on OS X) </td></tr>
     <tr><td class="paramname">settings</td><td>Additional settings for the underlying OpenGL context </td></tr>
   </table>
   </dd>
@@ -393,8 +393,8 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Copy the current_resources contents of the window to an image. </p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>Use a <a class="el" href="classsf_1_1Texture.html" title="Image living on the graphics card that can be used for drawing. ">sf::Texture</a> and its <a class="el" href="classsf_1_1Texture.html#ad3cceef238f7d5d2108a98dd38c17fc5" title="Update the texture from the contents of a window. ">sf::Texture::update(const Window&amp;)</a> function and copy its contents into an <a class="el" href="classsf_1_1Image.html" title="Class for loading, manipulating and saving images. ">sf::Image</a> instead. </dd></dl>
-<div class="fragment"><div class="line"><a class="code" href="classsf_1_1Vector2.html">sf::Vector2u</a> windowSize = window.<a class="code" href="classsf_1_1Window.html#a3969926741cbe83d7f9eeaf5333d4e71">getSize</a>();</div><div class="line"><a class="code" href="classsf_1_1Texture.html">sf::Texture</a> texture;</div><div class="line">texture.<a class="code" href="classsf_1_1Texture.html#a89b4c7d204acf1033c3a1b6e0a3ad0a3">create</a>(windowSize.<a class="code" href="classsf_1_1Vector2.html#a1e6ad77fa155f3753bfb92699bd28141">x</a>, windowSize.<a class="code" href="classsf_1_1Vector2.html#a420f2481b015f4eb929c75f2af564299">y</a>);</div><div class="line">texture.<a class="code" href="classsf_1_1Texture.html#ae4eab5c6781316840b0c50ad08370963">update</a>(window);</div><div class="line"><a class="code" href="classsf_1_1Image.html">sf::Image</a> screenshot = texture.<a class="code" href="classsf_1_1Texture.html#a77e18a70de2e525ac5e4a7cd95f614b9">copyToImage</a>();</div></div><!-- fragment --><p>This is a slow operation, whose main purpose is to make screenshots of the application. If you want to update an image with the contents of the window and then use it for drawing, you should rather use a <a class="el" href="classsf_1_1Texture.html" title="Image living on the graphics card that can be used for drawing. ">sf::Texture</a> and its update(Window&amp;) function. You can also draw things directly to a texture with the <a class="el" href="classsf_1_1RenderTexture.html" title="Target for off-screen 2D rendering into a texture. ">sf::RenderTexture</a> class.</p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>Use a <a class="el" href="classsf_1_1Texture.html" title="Image living on the graphics card that can be used for drawing. ">sf::Texture</a> and its <a class="el" href="classsf_1_1Texture.html#ad3cceef238f7d5d2108a98dd38c17fc5" title="Update the texture from the contents of a window. ">sf::Texture::update(const Game&amp;)</a> function and copy its contents into an <a class="el" href="classsf_1_1Image.html" title="Class for loading, manipulating and saving images. ">sf::Image</a> instead. </dd></dl>
+<div class="fragment"><div class="line"><a class="code" href="classsf_1_1Vector2.html">sf::Vector2u</a> windowSize = window.<a class="code" href="classsf_1_1Window.html#a3969926741cbe83d7f9eeaf5333d4e71">getSize</a>();</div><div class="line"><a class="code" href="classsf_1_1Texture.html">sf::Texture</a> texture;</div><div class="line">texture.<a class="code" href="classsf_1_1Texture.html#a89b4c7d204acf1033c3a1b6e0a3ad0a3">create</a>(windowSize.<a class="code" href="classsf_1_1Vector2.html#a1e6ad77fa155f3753bfb92699bd28141">x</a>, windowSize.<a class="code" href="classsf_1_1Vector2.html#a420f2481b015f4eb929c75f2af564299">y</a>);</div><div class="line">texture.<a class="code" href="classsf_1_1Texture.html#ae4eab5c6781316840b0c50ad08370963">update</a>(window);</div><div class="line"><a class="code" href="classsf_1_1Image.html">sf::Image</a> screenshot = texture.<a class="code" href="classsf_1_1Texture.html#a77e18a70de2e525ac5e4a7cd95f614b9">copyToImage</a>();</div></div><!-- fragment --><p>This is a slow operation, whose main purpose is to make screenshots of the application. If you want to update an image with the contents of the window and then use it for drawing, you should rather use a <a class="el" href="classsf_1_1Texture.html" title="Image living on the graphics card that can be used for drawing. ">sf::Texture</a> and its update(Game&amp;) function. You can also draw things directly to a texture with the <a class="el" href="classsf_1_1RenderTexture.html" title="Target for off-screen 2D rendering into a texture. ">sf::RenderTexture</a> class.</p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classsf_1_1Image.html" title="Class for loading, manipulating and saving images. ">Image</a> containing the captured contents </dd></dl>
 
 </div>
@@ -444,7 +444,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sf::Window::close </td>
+          <td class="memname">void sf::Game::close </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -458,7 +458,7 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Close the window and destroy all the attached resources. </p>
-<p>After calling this function, the <a class="el" href="classsf_1_1Window.html" title="Window that serves as a target for OpenGL rendering. ">sf::Window</a> instance remains valid and you can call <a class="el" href="classsf_1_1Window.html#a30e6edf2162f8dbff61023b9de5d961d" title="Create (or recreate) the window. ">create()</a> to recreate the window. All other functions such as <a class="el" href="classsf_1_1Window.html#a338e996585faf82e93069858e3b531b7" title="Pop the event on top of the event queue, if any, and return it. ">pollEvent()</a> or <a class="el" href="classsf_1_1Window.html#adabf839cb103ac96cfc82f781638772a" title="Display on screen what has been rendered to the window so far. ">display()</a> will still work (i.e. you don't have to test <a class="el" href="classsf_1_1Window.html#ae873503db7d48157bb9cbf6129562bce" title="Tell whether or not the window is open. ">isOpen()</a> every time), and will have no effect on closed windows. </p>
+<p>After calling this function, the <a class="el" href="classsf_1_1Window.html" title="Game that serves as a target for OpenGL rendering. ">sf::Game</a> instance remains valid and you can call <a class="el" href="classsf_1_1Window.html#a30e6edf2162f8dbff61023b9de5d961d" title="Create (or recreate) the window. ">create()</a> to recreate the window. All other functions such as <a class="el" href="classsf_1_1Window.html#a338e996585faf82e93069858e3b531b7" title="Pop the event on top of the event queue, if any, and return it. ">pollEvent()</a> or <a class="el" href="classsf_1_1Window.html#adabf839cb103ac96cfc82f781638772a" title="Display on screen what has been rendered to the window so far. ">display()</a> will still work (i.e. you don't have to test <a class="el" href="classsf_1_1Window.html#ae873503db7d48157bb9cbf6129562bce" title="Tell whether or not the window is open. ">isOpen()</a> every time), and will have no effect on closed windows. </p>
 
 </div>
 </div>
@@ -472,7 +472,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sf::Window::create </td>
+          <td class="memname">void sf::Game::create </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classsf_1_1VideoMode.html">VideoMode</a>&#160;</td>
           <td class="paramname"><em>mode</em>, </td>
@@ -515,7 +515,7 @@ Protected Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">mode</td><td>Video mode to use (defines the width, height and depth of the rendering area of the window) </td></tr>
     <tr><td class="paramname">title</td><td>Title of the window </td></tr>
-    <tr><td class="paramname">style</td><td>Window style, a bitwise OR combination of sf::Style enumerators </td></tr>
+    <tr><td class="paramname">style</td><td>Game style, a bitwise OR combination of sf::Style enumerators </td></tr>
     <tr><td class="paramname">settings</td><td>Additional settings for the underlying OpenGL context </td></tr>
   </table>
   </dd>
@@ -533,7 +533,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sf::Window::create </td>
+          <td class="memname">void sf::Game::create </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group__window.html#gaed947028b0698a812cad2f97bfe9caa3">WindowHandle</a>&#160;</td>
           <td class="paramname"><em>handle</em>, </td>
@@ -580,7 +580,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sf::Window::display </td>
+          <td class="memname">void sf::Game::display </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -846,7 +846,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsf_1_1Vector2.html">Vector2i</a> sf::Window::getPosition </td>
+          <td class="memname"><a class="el" href="classsf_1_1Vector2.html">Vector2i</a> sf::Game::getPosition </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -875,7 +875,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="structsf_1_1ContextSettings.html">ContextSettings</a>&amp; sf::Window::getSettings </td>
+          <td class="memname">const <a class="el" href="structsf_1_1ContextSettings.html">ContextSettings</a>&amp; sf::Game::getSettings </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -935,7 +935,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__window.html#gaed947028b0698a812cad2f97bfe9caa3">WindowHandle</a> sf::Window::getSystemHandle </td>
+          <td class="memname"><a class="el" href="group__window.html#gaed947028b0698a812cad2f97bfe9caa3">WindowHandle</a> sf::Game::getSystemHandle </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1029,7 +1029,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool sf::Window::hasFocus </td>
+          <td class="memname">bool sf::Game::hasFocus </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1087,7 +1087,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool sf::Window::isOpen </td>
+          <td class="memname">bool sf::Game::isOpen </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1305,7 +1305,7 @@ Protected Member Functions</h2></td></tr>
 <p>Function called after the window has been created. </p>
 <p>This function is called so that derived classes can perform their own specific initialization as soon as the window is created. </p>
 
-<p>Reimplemented from <a class="el" href="classsf_1_1Window.html#a106633b9be49b27f83d4712689b493eb">sf::Window</a>.</p>
+<p>Reimplemented from <a class="el" href="classsf_1_1Window.html#a106633b9be49b27f83d4712689b493eb">sf::Game</a>.</p>
 
 </div>
 </div>
@@ -1335,7 +1335,7 @@ Protected Member Functions</h2></td></tr>
 <p>Function called after the window has been resized. </p>
 <p>This function is called so that derived classes can perform custom actions when the size of the window changes. </p>
 
-<p>Reimplemented from <a class="el" href="classsf_1_1Window.html#a10f567a387da7b49f417f73321fcf64d">sf::Window</a>.</p>
+<p>Reimplemented from <a class="el" href="classsf_1_1Window.html#a10f567a387da7b49f417f73321fcf64d">sf::Game</a>.</p>
 
 </div>
 </div>
@@ -1349,7 +1349,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool sf::Window::pollEvent </td>
+          <td class="memname">bool sf::Game::pollEvent </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classsf_1_1Event.html">Event</a> &amp;&#160;</td>
           <td class="paramname"><em>event</em></td><td>)</td>
@@ -1447,7 +1447,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sf::Window::requestFocus </td>
+          <td class="memname">void sf::Game::requestFocus </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1542,7 +1542,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool sf::Window::setActive </td>
+          <td class="memname">bool sf::Game::setActive </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>active</em> = <code>true</code></td><td>)</td>
@@ -1578,7 +1578,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sf::Window::setFramerateLimit </td>
+          <td class="memname">void sf::Game::setFramerateLimit </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>limit</em></td><td>)</td>
@@ -1613,7 +1613,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sf::Window::setIcon </td>
+          <td class="memname">void sf::Game::setIcon </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>width</em>, </td>
@@ -1668,7 +1668,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sf::Window::setJoystickThreshold </td>
+          <td class="memname">void sf::Game::setJoystickThreshold </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>threshold</em></td><td>)</td>
@@ -1704,7 +1704,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sf::Window::setKeyRepeatEnabled </td>
+          <td class="memname">void sf::Game::setKeyRepeatEnabled </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>enabled</em></td><td>)</td>
@@ -1740,7 +1740,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sf::Window::setMouseCursor </td>
+          <td class="memname">void sf::Game::setMouseCursor </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classsf_1_1Cursor.html">Cursor</a> &amp;&#160;</td>
           <td class="paramname"><em>cursor</em></td><td>)</td>
@@ -1781,7 +1781,7 @@ Features related to <a class="el" href="classsf_1_1Cursor.html" title="Cursor de
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sf::Window::setMouseCursorGrabbed </td>
+          <td class="memname">void sf::Game::setMouseCursorGrabbed </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>grabbed</em></td><td>)</td>
@@ -1816,7 +1816,7 @@ Features related to <a class="el" href="classsf_1_1Cursor.html" title="Cursor de
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sf::Window::setMouseCursorVisible </td>
+          <td class="memname">void sf::Game::setMouseCursorVisible </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>visible</em></td><td>)</td>
@@ -1851,7 +1851,7 @@ Features related to <a class="el" href="classsf_1_1Cursor.html" title="Cursor de
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sf::Window::setPosition </td>
+          <td class="memname">void sf::Game::setPosition </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classsf_1_1Vector2.html">Vector2i</a> &amp;&#160;</td>
           <td class="paramname"><em>position</em></td><td>)</td>
@@ -1887,7 +1887,7 @@ Features related to <a class="el" href="classsf_1_1Cursor.html" title="Cursor de
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sf::Window::setSize </td>
+          <td class="memname">void sf::Game::setSize </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classsf_1_1Vector2.html">Vector2u</a> &amp;&#160;</td>
           <td class="paramname"><em>size</em></td><td>)</td>
@@ -1922,7 +1922,7 @@ Features related to <a class="el" href="classsf_1_1Cursor.html" title="Cursor de
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sf::Window::setTitle </td>
+          <td class="memname">void sf::Game::setTitle </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classsf_1_1String.html">String</a> &amp;&#160;</td>
           <td class="paramname"><em>title</em></td><td>)</td>
@@ -1957,7 +1957,7 @@ Features related to <a class="el" href="classsf_1_1Cursor.html" title="Cursor de
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sf::Window::setVerticalSyncEnabled </td>
+          <td class="memname">void sf::Game::setVerticalSyncEnabled </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>enabled</em></td><td>)</td>
@@ -2029,7 +2029,7 @@ Features related to <a class="el" href="classsf_1_1Cursor.html" title="Cursor de
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sf::Window::setVisible </td>
+          <td class="memname">void sf::Game::setVisible </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>visible</em></td><td>)</td>
@@ -2064,7 +2064,7 @@ Features related to <a class="el" href="classsf_1_1Cursor.html" title="Cursor de
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool sf::Window::waitEvent </td>
+          <td class="memname">bool sf::Game::waitEvent </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classsf_1_1Event.html">Event</a> &amp;&#160;</td>
           <td class="paramname"><em>event</em></td><td>)</td>

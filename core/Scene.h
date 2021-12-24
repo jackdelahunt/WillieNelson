@@ -1,12 +1,12 @@
 #pragma once
-#include "Window.h"
+#include "Game.h"
 
 namespace WillieNelson {
-    class Window;
+    class Game;
 
     class Scene {
     public:
-        virtual void attach(Window& window) = 0;
+        virtual void attach(Game& window) = 0;
     };
 }
 

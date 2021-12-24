@@ -52,7 +52,7 @@ namespace priv
 class Event;
 
 ////////////////////////////////////////////////////////////
-/// \brief Window that serves as a target for OpenGL rendering
+/// \brief Game that serves as a target for OpenGL rendering
 ///
 ////////////////////////////////////////////////////////////
 class SFML_WINDOW_API Window : GlResource, NonCopyable
@@ -83,7 +83,7 @@ public:
     ///
     /// \param mode     Video mode to use (defines the width, height and depth of the rendering area of the window)
     /// \param title    Title of the window
-    /// \param style    %Window style, a bitwise OR combination of sf::Style enumerators
+    /// \param style    %Game style, a bitwise OR combination of sf::Style enumerators
     /// \param settings Additional settings for the underlying OpenGL context
     ///
     ////////////////////////////////////////////////////////////
@@ -126,7 +126,7 @@ public:
     ///
     /// \param mode     Video mode to use (defines the width, height and depth of the rendering area of the window)
     /// \param title    Title of the window
-    /// \param style    %Window style, a bitwise OR combination of sf::Style enumerators
+    /// \param style    %Game style, a bitwise OR combination of sf::Style enumerators
     /// \param settings Additional settings for the underlying OpenGL context
     ///
     ////////////////////////////////////////////////////////////
@@ -152,7 +152,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Close the window and destroy all the attached resources
     ///
-    /// After calling this function, the sf::Window instance remains
+    /// After calling this function, the sf::Game instance remains
     /// valid and you can call create() to recreate the window.
     /// All other functions such as pollEvent() or display() will
     /// still work (i.e. you don't have to test isOpen() every time),
@@ -556,13 +556,13 @@ private:
 
 
 ////////////////////////////////////////////////////////////
-/// \class sf::Window
+/// \class sf::Game
 /// \ingroup window
 ///
-/// sf::Window is the main class of the Window module. It defines
+/// sf::Game is the main class of the Game module. It defines
 /// an OS window that is able to receive an OpenGL rendering.
 ///
-/// A sf::Window can create its own new window, or be embedded into
+/// A sf::Game can create its own new window, or be embedded into
 /// an already existing control using the create(handle) function.
 /// This can be useful for embedding an OpenGL rendering area into
 /// a view which is part of a bigger GUI with existing windows,
@@ -570,7 +570,7 @@ private:
 /// area into a window created by another (probably richer) GUI library
 /// like Qt or wxWidgets.
 ///
-/// The sf::Window class provides a simple interface for manipulating
+/// The sf::Game class provides a simple interface for manipulating
 /// the window: move, resize, show/hide, control mouse cursor, etc.
 /// It also provides event handling through its pollEvent() and waitEvent()
 /// functions.
@@ -592,7 +592,7 @@ private:
 /// Usage example:
 /// \code
 /// // Declare and create a new window
-/// sf::Window window(sf::VideoMode(800, 600), "SFML window");
+/// sf::Game window(sf::VideoMode(800, 600), "SFML window");
 ///
 /// // Limit the framerate to 60 frames per second (this step is optional)
 /// window.setFramerateLimit(60);

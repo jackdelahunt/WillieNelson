@@ -247,7 +247,7 @@ public:
 ///
 /// sf::Event holds all the informations about a system event
 /// that just happened. Events are retrieved using the
-/// sf::Window::pollEvent and sf::Window::waitEvent functions.
+/// sf::Game::pollEvent and sf::Game::waitEvent functions.
 ///
 /// A sf::Event instance contains the type of the event
 /// (mouse moved, key pressed, window closed, ...) as well

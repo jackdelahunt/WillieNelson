@@ -15,9 +15,9 @@ namespace WillieNelson {
         virtual sf::Transformable* get_transform() = 0;
     };
 
-    class Window {
+    class Game {
     public:
-        Window();
+        Game();
         void start();
         std::vector<sf::Event> poll_events();
         void draw();

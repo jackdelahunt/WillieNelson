@@ -1,15 +1,15 @@
-#include "Window.h"
+#include "Game.h"
 
 #include <memory>
 
 namespace WillieNelson {
-    Window::Window() {
+    Game::Game() {
         m_video_mode = sf::VideoMode(800, 640);
         m_window = std::make_unique<sf::RenderWindow>(m_video_mode, "WillieNelson");
         m_current_scene_index = 0;
     }
 
-    void Window::start() {
+    void Game::start() {
 
         if(m_current_scene_index < m_scenes.size()) {
             m_scenes.at(m_current_scene_index)->attach(*this);
@@ -30,13 +30,13 @@ namespace WillieNelson {
         end();
     }
 
-    void Window::end() {
+    void Game::end() {
         for(auto& entity : m_entities) {
             entity->Destroy();
         }
     }
 
-    std::vector<sf::Event> Window::poll_events() {
+    std::vector<sf::Event> Game::poll_events() {
         auto events = std::vector<sf::Event>();
         sf::Event event;
         while (m_window->pollEvent(event))
@@ -50,7 +50,7 @@ namespace WillieNelson {
         return events;
     }
 
-    void Window::draw() {
+    void Game::draw() {
         m_window->clear();
         for(auto& entity : m_entities) {
             if(!entity->enabled) continue;
@@ -73,19 +73,19 @@ namespace WillieNelson {
         m_window->display();
     }
 
-    void Window::update(float delta_time, std::vector<sf::Event>& events) {
+    void Game::update(float delta_time, std::vector<sf::Event>& events) {
         for(auto& entity : m_entities) {
             if(entity->enabled)
                 entity->update(delta_time, events);
         }
     }
 
-    void Window::add_entity(const std::shared_ptr<Entity>& entity) {
+    void Game::add_entity(const std::shared_ptr<Entity>& entity) {
         entity->window = this;
         m_entities.push_back(entity);
     }
 
-    std::shared_ptr<Entity> Window::get_entity_with_name(const char* name) {
+    std::shared_ptr<Entity> Game::get_entity_with_name(const char* name) {
         for(auto& entity : m_entities) {
             if(entity->name == name)
                 return entity;
@@ -94,7 +94,7 @@ namespace WillieNelson {
         return nullptr;
     }
 
-    void Window::next_scene() {
+    void Game::next_scene() {
         m_entities.clear();
         m_current_scene_index++;
         auto s = m_scenes.size();

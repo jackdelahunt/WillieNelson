@@ -1,8 +1,17 @@
 #include "Game.h"
 
 #include <memory>
+#include <exception>
 
 namespace WillieNelson {
+    Game* Game::Active() {
+        if(active_game == nullptr) {
+            // create a game first
+            throw std::exception();
+        }
+        return active_game;
+    }
+
     Game::Game() {
         m_video_mode = sf::VideoMode(800, 640);
         m_window = std::make_unique<sf::RenderWindow>(m_video_mode, "WillieNelson");
@@ -10,6 +19,12 @@ namespace WillieNelson {
     }
 
     void Game::start() {
+
+        if(active_game != nullptr) {
+            active_game->end();
+        }
+
+        active_game = this;
 
         if(m_current_scene_index < m_scenes.size()) {
             m_scenes.at(m_current_scene_index)->attach(*this);
@@ -81,8 +96,11 @@ namespace WillieNelson {
     }
 
     void Game::add_entity(const std::shared_ptr<Entity>& entity) {
-        entity->window = this;
         m_entities.push_back(entity);
+    }
+
+    sf::RenderWindow &Game::window() {
+        return *m_window;
     }
 
     std::shared_ptr<Entity> Game::get_entity_with_name(const char* name) {

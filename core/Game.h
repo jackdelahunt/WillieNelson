@@ -17,6 +17,8 @@ namespace WillieNelson {
 
     class Game {
     public:
+        static Game* Active();
+
         Game();
         void start();
         std::vector<sf::Event> poll_events();
@@ -24,6 +26,7 @@ namespace WillieNelson {
         void update(float delta_time, std::vector<sf::Event>& events);
         void end();
         void add_entity(const std::shared_ptr<Entity>& entity);
+        sf::RenderWindow& window();
         std::shared_ptr<Entity> get_entity_with_name(const char* name);
         bool is_open() const { return m_window->isOpen(); }
         void next_scene();
@@ -44,4 +47,6 @@ namespace WillieNelson {
         sf::VideoMode m_video_mode;
         size_t m_current_scene_index;
     };
+
+    static Game* active_game = nullptr;
 }

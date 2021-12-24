@@ -17,7 +17,6 @@ namespace WillieNelson {
         std::string name;
         Transform transform;
         std::vector<std::shared_ptr<Component>> components;
-        Game* window;
 
         Entity();
         void update(float delta_time, std::vector<sf::Event>& events);

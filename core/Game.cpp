@@ -2,6 +2,7 @@
 
 #include <memory>
 #include <exception>
+#include <iostream>
 
 namespace WillieNelson {
     Game* Game::Active() {

@@ -27,6 +27,7 @@ add_executable(
                 core/TextComponent.cpp core/TextComponent.h
                 core/BoxCollider.cpp core/BoxCollider.h
                 core/Physics.cpp core/Physics.h
+                core/ButtonComponent.cpp core/ButtonComponent.h
         )
 
 target_link_libraries(wilson sfml-graphics)

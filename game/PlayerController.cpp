@@ -50,6 +50,8 @@ void PlayerController::create_bullet(sf::Vector2f angle) {
     auto bullet_controller = bullet_entity->add_component<BulletController>();
     auto bullet_texture = WillieNelson::Resources::Current()->load_texture("../resources/battle-location-top-down-game-tileset-pack/PNG/Props/Artifact.png");
     bullet_entity->add_component<WillieNelson::SpriteComponent>()->set_texture(bullet_texture);
+    bullet_entity->transform.position = entity->transform.position;
+    bullet_entity->transform.scale = sf::Vector2f(0.15f, 0.15f);
     bullet_controller->set_angle(angle);
 
     WillieNelson::Game::Active()->add_entity(bullet_entity);

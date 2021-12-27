@@ -9,15 +9,16 @@ find_package(SFML 2.5.1 COMPONENTS graphics audio REQUIRED)
 add_executable(
                 wilson
                 game/main.cpp
-        game/PlayerController.cpp game/PlayerController.h
+                game/PlayerController.cpp game/PlayerController.h
                 game/StartScene.h
                 game/common.h
+                game/BulletController.cpp game/BulletController.h
 
                 core/json.hpp
                 core/Entity.cpp core/Entity.h
                 core/Component.h
                 core/SpriteComponent.cpp core/SpriteComponent.h
-        core/Game.cpp core/Game.h
+                core/Game.cpp core/Game.h
                 core/Resources.cpp core/Resources.h
                 core/Transform.h
                 core/AnimatedSpriteComponent.cpp core/AnimatedSpriteComponent.h

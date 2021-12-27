@@ -7,10 +7,11 @@ public:
     void update(float delta_time, std::vector<sf::Event> &events) override;
 
 private:
-    float m_speed = 0.1f;
+    float m_speed = 10.0f;
 
     void movement(std::vector<sf::Event> &events);
-    void shooting();
+    void shooting(std::vector<sf::Event> &events);
+    void create_bullet(sf::Vector2f angle);
 };
 
 

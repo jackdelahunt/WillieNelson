@@ -15,7 +15,7 @@ namespace WillieNelson {
     }
 
     Game::Game() {
-        m_video_mode = sf::VideoMode(800, 640);
+        m_video_mode = sf::VideoMode(1024, 665);
         m_window = std::make_unique<sf::RenderWindow>(m_video_mode, "WillieNelson");
         m_current_scene_index = 0;
     }

@@ -3,6 +3,7 @@
 #include <memory>
 #include <exception>
 #include <iostream>
+#include "Physics.h"
 
 namespace WillieNelson {
     Game* Game::Active() {
@@ -118,6 +119,7 @@ namespace WillieNelson {
     void Game::next_scene() {
         m_entities.clear();
         m_current_scene_index++;
+        Physics::Current()->clear();
         auto s = m_scenes.size();
         if(m_current_scene_index < m_scenes.size()) {
             m_scenes.at(m_current_scene_index)->attach(*this);

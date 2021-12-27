@@ -28,6 +28,10 @@ namespace WillieNelson {
         return nullptr;
     }
 
+    void Physics::clear() {
+        m_colliders.clear();
+    }
+
     bool Physics::are_colliding(BoxCollider& left, BoxCollider& right) {
         auto left_left = left.entity->transform.position.x;
         auto left_bottom = left.entity->transform.position.y;

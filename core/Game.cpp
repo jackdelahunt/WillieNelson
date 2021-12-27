@@ -3,6 +3,7 @@
 #include <memory>
 #include <exception>
 #include <iostream>
+#include "Physics.h"
 
 namespace WillieNelson {
     Game* Game::Active() {
@@ -14,7 +15,7 @@ namespace WillieNelson {
     }
 
     Game::Game() {
-        m_video_mode = sf::VideoMode(800, 640);
+        m_video_mode = sf::VideoMode(1024, 665);
         m_window = std::make_unique<sf::RenderWindow>(m_video_mode, "WillieNelson");
         m_current_scene_index = 0;
     }
@@ -118,6 +119,7 @@ namespace WillieNelson {
     void Game::next_scene() {
         m_entities.clear();
         m_current_scene_index++;
+        Physics::Current()->clear();
         auto s = m_scenes.size();
         if(m_current_scene_index < m_scenes.size()) {
             m_scenes.at(m_current_scene_index)->attach(*this);

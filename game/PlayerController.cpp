@@ -41,6 +41,8 @@ void PlayerController::shooting(std::vector<sf::Event> &events) {
             auto normal_vector = delta_vector / length;
 
             create_bullet(normal_vector);
+        } else if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Right) {
+            WillieNelson::Game::Active()->next_scene();
         }
     }
 }

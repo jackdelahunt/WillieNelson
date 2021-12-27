@@ -21,22 +21,16 @@ public:
         player_entity->add_component<PlayerController>();
         sprite_component->set_texture(texture);
 
-        game.add_entity(tilemap_entity);
-        game.add_entity(player_entity);
         //window.add_entity(text_object);
 
         //Button
 
         auto texture2 = WillieNelson::Resources::Current()->load_texture("../resources/battle-location-top-down-game-tileset-pack/PNG/Tiles/Ground_Tile_01_B.png");
-        auto game_object_2 = WillieNelson::Entity::New();
-        auto sprite_2 = game_object_2->add_component<WillieNelson::SpriteComponent>();
-        sprite_2->set_texture(texture2);
-
-        game.add_entity(game_object_2);
-
 
         auto button_object = WillieNelson::Entity::New();
         auto button = button_object->add_component<WillieNelson::ButtonComponent>();
+        auto sprite = button_object->add_component<WillieNelson::SpriteComponent>();
+        sprite->set_texture(texture2);
         button->set_button(256,256,0,0);
         button->send_call_back(
                 []() {
@@ -44,6 +38,8 @@ public:
                 }
                 );
 
+        game.add_entity(tilemap_entity);
         game.add_entity(button_object);
+        game.add_entity(player_entity);
     }
 };

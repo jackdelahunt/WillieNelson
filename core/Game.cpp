@@ -89,14 +89,16 @@ namespace WillieNelson {
     }
 
     void Game::update(float delta_time, std::vector<sf::Event>& events) {
-        for(auto& entity : m_entities) {
-            if(entity->enabled)
-                entity->update(delta_time, events);
+        for(int i = 0; i < m_entities.size(); i++) {
+            m_entities.at(i)->update(delta_time, events);
         }
     }
 
     void Game::add_entity(const std::shared_ptr<Entity>& entity) {
         m_entities.push_back(entity);
+
+        if(active_game == this) // runtime added entity
+            entity->start();
     }
 
     sf::RenderWindow &Game::window() {

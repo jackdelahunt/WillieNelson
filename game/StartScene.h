@@ -1,6 +1,6 @@
 #pragma once
 #include "common.h"
-#include "PlayerScript.h"
+#include "PlayerController.h"
 
 class StartScene: public WillieNelson::Scene {
 public:
@@ -9,23 +9,9 @@ public:
 
         auto game_object_1 = WillieNelson::Entity::New();
         auto sprite_1 = game_object_1->add_component<WillieNelson::SpriteComponent>();
-        game_object_1->add_component<PlayerScript>();
+        game_object_1->add_component<PlayerController>();
         sprite_1->set_texture(texture);
-        auto boxCollider_1 = game_object_1->add_component<WillieNelson::BoxCollider>();
-
-        auto game_object_2 = WillieNelson::Entity::New();
-        auto sprite_2 = game_object_2->add_component<WillieNelson::SpriteComponent>();
-        sprite_2->set_texture(texture);
-        auto boxCollider_2 = game_object_2->add_component<WillieNelson::BoxCollider>();
-        game_object_2->transform.position = sf::Vector2f(50.0f, 50.0f);
-
-        auto text_object = WillieNelson::Entity::New();
-        auto text = text_object->add_component<WillieNelson::TextComponent>();
-        text->set_font("Sansation_Regular");
-        text->set_text("Cool Text Bro", sf::Color::Magenta, 100);
 
         game.add_entity(game_object_1);
-        game.add_entity(game_object_2);
-        game.add_entity(text_object);
     }
 };

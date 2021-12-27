@@ -7,7 +7,7 @@
 class StartScene: public WillieNelson::Scene {
 public:
     void attach(WillieNelson::Game &game) override {
-        auto texture = WillieNelson::Resources::Current()->load_texture("../resources/battle-location-top-down-game-tileset-pack/PNG/Blocks/Block_A_01.png");
+        auto player_texture = WillieNelson::Resources::Current()->load_texture("../resources/bk_player_assets/player_hk_stand.png");
 
 
         auto tilemap_entity = WillieNelson::Entity::New();
@@ -19,7 +19,7 @@ public:
         auto player_entity = WillieNelson::Entity::New();
         auto sprite_component = player_entity->add_component<WillieNelson::SpriteComponent>();
         player_entity->add_component<PlayerController>();
-        sprite_component->set_texture(texture);
+        sprite_component->set_texture(player_texture);
 
         //window.add_entity(text_object);
 

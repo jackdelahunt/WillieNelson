@@ -21,5 +21,12 @@ public:
 
         game.add_entity(tilemap_entity);
         game.add_entity(player_entity);
+        //window.add_entity(text_object);
+
+        auto button_object = WillieNelson::Entity::New();
+        auto button = button_object->add_component<WillieNelson::ButtonComponent>();
+        button->set_button(100,100,0,0);
+
+        game.add_entity(button_object);
     }
 };

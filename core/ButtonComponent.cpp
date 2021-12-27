@@ -1,25 +1,33 @@
 
+#include <iostream>
 #include "ButtonComponent.h"
-#include "SpriteComponent.h"
 
 namespace WillieNelson {
 
     void ButtonComponent::start() {}
 
-    void ButtonComponent::update(float delta_time, std::vector<sf::Event>& events) {}
-
-    void ButtonComponent::set_button(float width, float height, float xPos, float yPos) {
-        m_button_pos = sf::Vector2f(xPos, yPos);
-        m_button_size = sf::Vector2f(width,height);
-        m_shape = sf::RectangleShape(m_button_size);
+    void ButtonComponent::update(float delta_time, std::vector<sf::Event>& events) {
+        get_button_click(events);
     }
 
-
-    sf::Drawable* ButtonComponent::get_drawable() {
-        return &m_shape;
+    void ButtonComponent::set_button(int width, int height, int xPos, int yPos) {
+        m_button_pos = sf::Vector2i(xPos, yPos);
+        m_button_size = sf::Vector2i(width,height);
     }
 
-    sf::Transformable *ButtonComponent::get_transform() {
-        return &m_shape;
+    void ButtonComponent::get_button_click(std::vector<sf::Event> &events) {
+        for (auto& event : events) {
+            if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+
+                auto mousePos = sf::Mouse::getPosition(WillieNelson::Game::Active()->window());
+
+                if (mousePos.x >= m_button_pos.x && mousePos.x <= m_button_pos.x + m_button_size.x &&
+                mousePos.y >= m_button_pos.y && mousePos.y <= m_button_pos.y + m_button_size.y) {
+                    std::cout << "Button Pressed" << std::endl;
+                }
+            }
+        }
+
+
     }
 }

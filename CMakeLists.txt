@@ -9,7 +9,7 @@ find_package(SFML 2.5.1 COMPONENTS graphics audio REQUIRED)
 add_executable(
                 wilson
                 game/main.cpp
-                game/PlayerScript.cpp game/PlayerScript.h
+        game/PlayerController.cpp game/PlayerController.h
                 game/StartScene.h
                 game/common.h
 

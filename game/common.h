@@ -12,3 +12,4 @@
 #include "../core/Transform.h"
 #include "../core/Game.h"
 #include "../core/TextComponent.h"
+#include "../core/ButtonComponent.h"

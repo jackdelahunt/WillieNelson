@@ -17,9 +17,7 @@ namespace WillieNelson {
         void start() override;
         void update(float delta_time, std::vector<sf::Event>& events) override;
         void destroy() override {};
-        //std::shared_ptr<sf::Font>& font
         void set_font(const std::string& fontName);
-        //std::shared_ptr<sf::Text>& text
         void set_text(const std::string& textName, sf::Color color, int size);
         void set_text(const std::string& textName);
 

@@ -20,10 +20,12 @@ namespace WillieNelson {
 
         void set_button(int width, int height, int xPos, int yPos);
         void get_button_click(std::vector<sf::Event> &events);
+        void send_call_back(std::function<void()> callback);
 
     private:
         sf::Vector2i m_button_pos;
         sf::Vector2i m_button_size;
+        std::function<void()> m_callback;
     };
 }
 

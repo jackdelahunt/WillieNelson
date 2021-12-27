@@ -1,4 +1,6 @@
 #pragma once
+
+#include <iostream>
 #include "common.h"
 #include "PlayerController.h"
 
@@ -23,9 +25,24 @@ public:
         game.add_entity(player_entity);
         //window.add_entity(text_object);
 
+        //Button
+
+        auto texture2 = WillieNelson::Resources::Current()->load_texture("../resources/battle-location-top-down-game-tileset-pack/PNG/Tiles/Ground_Tile_01_B.png");
+        auto game_object_2 = WillieNelson::Entity::New();
+        auto sprite_2 = game_object_2->add_component<WillieNelson::SpriteComponent>();
+        sprite_2->set_texture(texture2);
+
+        game.add_entity(game_object_2);
+
+
         auto button_object = WillieNelson::Entity::New();
         auto button = button_object->add_component<WillieNelson::ButtonComponent>();
-        button->set_button(100,100,0,0);
+        button->set_button(256,256,0,0);
+        button->send_call_back(
+                []() {
+                    std::cout << "Button Call" << std::endl;
+                }
+                );
 
         game.add_entity(button_object);
     }

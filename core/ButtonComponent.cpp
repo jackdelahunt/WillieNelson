@@ -15,6 +15,10 @@ namespace WillieNelson {
         m_button_size = sf::Vector2i(width,height);
     }
 
+    void ButtonComponent::send_call_back(std::function<void()> callback) {
+        m_callback = callback;
+    }
+
     void ButtonComponent::get_button_click(std::vector<sf::Event> &events) {
         for (auto& event : events) {
             if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
@@ -23,7 +27,8 @@ namespace WillieNelson {
 
                 if (mousePos.x >= m_button_pos.x && mousePos.x <= m_button_pos.x + m_button_size.x &&
                 mousePos.y >= m_button_pos.y && mousePos.y <= m_button_pos.y + m_button_size.y) {
-                    std::cout << "Button Pressed" << std::endl;
+                    m_callback();
+                    //std::cout << "Button Pressed" << std::endl;
                 }
             }
         }

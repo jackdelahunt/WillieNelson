@@ -25,21 +25,29 @@ public:
 
         //Button
 
-        auto texture2 = WillieNelson::Resources::Current()->load_texture("../resources/battle-location-top-down-game-tileset-pack/PNG/Tiles/Ground_Tile_01_B.png");
+        auto texture2 = WillieNelson::Resources::Current()->load_texture("../resources/battle-location-top-down-game-tileset-pack/PNG/Blocks/Block_A_01.png");
 
         auto button_object = WillieNelson::Entity::New();
         auto button = button_object->add_component<WillieNelson::ButtonComponent>();
         auto sprite = button_object->add_component<WillieNelson::SpriteComponent>();
+        auto text = button_object->add_component<WillieNelson::TextComponent>();
+        text->set_font("Sansation_Regular");
+        text->set_text("Level 2",sf::Color::White,50);
         sprite->set_texture(texture2);
-        button->set_button(256,256,0,0);
+        button->set_button(256,128,game.window().getSize().x / 2,game.window().getSize().y / 2);
         button->send_call_back(
                 []() {
                     std::cout << "Button Call" << std::endl;
+                    WillieNelson::Game::Active()->next_scene();
                 }
                 );
+
+        button_object->transform.position.x = game.window().getSize().x / 2;
+        button_object->transform.position.y = game.window().getSize().y / 2;
 
         game.add_entity(tilemap_entity);
         game.add_entity(button_object);
         game.add_entity(player_entity);
+
     }
 };

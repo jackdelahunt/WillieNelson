@@ -13,7 +13,8 @@ add_executable(
                 game/StartScene.h
                 game/common.h
                 game/BulletController.cpp game/BulletController.h
-        game/Level2.h
+                game/Level2.h
+                game/ZombieController.cpp game/ZombieController.h
 
                 core/json.hpp
                 core/Entity.cpp core/Entity.h

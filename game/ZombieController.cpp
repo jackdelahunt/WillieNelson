@@ -4,9 +4,12 @@
 
 void ZombieController::start() {
     m_player = WillieNelson::Game::Active()->get_entity_with_name("player")->get_component<PlayerController>().get();
+    m_box_collider = entity->get_component<WillieNelson::BoxCollider>().get();
 }
 
 void ZombieController::update(float delta_time, std::vector<sf::Event> &events) {
+    check_collisions();
+
     if(!m_player) return;
 
     auto player_pos = m_player->entity->transform.position;
@@ -15,4 +18,13 @@ void ZombieController::update(float delta_time, std::vector<sf::Event> &events) 
     auto normal_vector = delta_vector / length;
 
     entity->transform.position += normal_vector * m_speed;
+}
+
+void ZombieController::check_collisions() {
+    if(!m_box_collider) return;
+
+    auto other = m_box_collider->is_colliding();
+    if(other) {
+        std::cout << "collide";
+    }
 }

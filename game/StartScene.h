@@ -30,6 +30,8 @@ public:
             auto entity = WillieNelson::Entity::New();
             entity->name = "player";
             auto sprite = entity->add_component<WillieNelson::SpriteComponent>();
+            auto box_collider = entity->add_component<WillieNelson::BoxCollider>();
+            box_collider->set_dimensions(15, 15);
             entity->add_component<PlayerController>();
             sprite->set_texture(texture);
             game.add_entity(entity);
@@ -41,9 +43,11 @@ public:
         {
             auto entity = WillieNelson::Entity::New();
             auto sprite = entity->add_component<WillieNelson::SpriteComponent>();
+            auto box_collider = entity->add_component<WillieNelson::BoxCollider>();
+            box_collider->set_dimensions(15, 15);
             entity->add_component<ZombieController>();
             sprite->set_texture(texture);
-            entity->transform.position = sf::Vector2f(100.f, 100.f);
+            entity->transform.position = sf::Vector2f(300.f, 100.f);
             game.add_entity(entity);
         }
 

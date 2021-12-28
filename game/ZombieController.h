@@ -9,7 +9,10 @@ public:
 
 private:
     PlayerController* m_player = nullptr;
+    WillieNelson::BoxCollider* m_box_collider = nullptr;
     float m_speed = 0.01f;
+
+    void check_collisions();
 };
 
 

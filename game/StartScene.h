@@ -7,47 +7,61 @@
 class StartScene: public WillieNelson::Scene {
 public:
     void attach(WillieNelson::Game &game) override {
-        auto player_texture = WillieNelson::Resources::Current()->load_texture("../resources/bk_player_assets/player_hk_stand.png");
 
 
-        auto tilemap_entity = WillieNelson::Entity::New();
-        auto tilemap_component = tilemap_entity->add_component<WillieNelson::TilemapComponent>();
-        tilemap_component->load_from_disk("level_1.json");
-        tilemap_component->rebuild();
-        tilemap_entity->transform.scale = sf::Vector2f(0.2f, 0.2f);
+        /* -----------------
+         * TILEMAP
+         * ----------------- */
+        {
+            auto entity = WillieNelson::Entity::New();
+            auto tilemap = entity->add_component<WillieNelson::TilemapComponent>();
+            tilemap->load_from_disk("level_1.json");
+            tilemap->rebuild();
+            entity->transform.scale = sf::Vector2f(0.2f, 0.2f);
+            game.add_entity(entity);
+        }
 
-        auto player_entity = WillieNelson::Entity::New();
-        auto sprite_component = player_entity->add_component<WillieNelson::SpriteComponent>();
-        player_entity->add_component<PlayerController>();
-        sprite_component->set_texture(player_texture);
+        /* -----------------
+         * PLAYER
+         * ----------------- */
+        {
+            auto texture = WillieNelson::Resources::Current()->load_texture("../resources/bk_player_assets/player_hk_stand.png");
+            auto entity = WillieNelson::Entity::New();
+            entity->name = "player";
+            auto sprite = entity->add_component<WillieNelson::SpriteComponent>();
+            entity->add_component<PlayerController>();
+            sprite->set_texture(texture);
+            game.add_entity(entity);
+        }
 
-        //window.add_entity(text_object);
+        /* -----------------
+         * ZOMBIE(s)
+         * ----------------- */
 
-        //Button
+        /* -----------------
+         * BUTTON
+         * ----------------- */
+        {
+            auto texture = WillieNelson::Resources::Current()->load_texture(
+                    "../resources/battle-location-top-down-game-tileset-pack/PNG/Blocks/Block_A_01.png");
 
-        auto texture2 = WillieNelson::Resources::Current()->load_texture("../resources/battle-location-top-down-game-tileset-pack/PNG/Blocks/Block_A_01.png");
+            auto entity = WillieNelson::Entity::New();
+            auto button = entity->add_component<WillieNelson::ButtonComponent>();
+            auto sprite = entity->add_component<WillieNelson::SpriteComponent>();
+            auto text = entity->add_component<WillieNelson::TextComponent>();
+            text->set_font("Sansation_Regular");
+            text->set_text("Level 2", sf::Color::White, 50);
+            sprite->set_texture(texture);
+            button->set_button(256, 128, game.window().getSize().x / 2, game.window().getSize().y / 2);
+            button->send_call_back(
+                    []() {
+                        std::cout << "Button Call" << std::endl;
+                        WillieNelson::Game::Active()->next_scene();
+                    }
+            );
 
-        auto button_object = WillieNelson::Entity::New();
-        auto button = button_object->add_component<WillieNelson::ButtonComponent>();
-        auto sprite = button_object->add_component<WillieNelson::SpriteComponent>();
-        auto text = button_object->add_component<WillieNelson::TextComponent>();
-        text->set_font("Sansation_Regular");
-        text->set_text("Level 2",sf::Color::White,50);
-        sprite->set_texture(texture2);
-        button->set_button(256,128,game.window().getSize().x / 2,game.window().getSize().y / 2);
-        button->send_call_back(
-                []() {
-                    std::cout << "Button Call" << std::endl;
-                    WillieNelson::Game::Active()->next_scene();
-                }
-                );
-
-        button_object->transform.position.x = game.window().getSize().x / 2;
-        button_object->transform.position.y = game.window().getSize().y / 2;
-
-        game.add_entity(tilemap_entity);
-        game.add_entity(button_object);
-        game.add_entity(player_entity);
-
+            entity->transform.position.x = game.window().getSize().x / 2;
+            entity->transform.position.y = game.window().getSize().y / 2;
+        }
     }
 };

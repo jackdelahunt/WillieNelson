@@ -3,6 +3,7 @@
 #include <iostream>
 #include "common.h"
 #include "PlayerController.h"
+#include "ZombieController.h"
 
 class StartScene: public WillieNelson::Scene {
 public:
@@ -24,8 +25,8 @@ public:
         /* -----------------
          * PLAYER
          * ----------------- */
+        auto texture = WillieNelson::Resources::Current()->load_texture("../resources/bk_player_assets/player_hk_stand.png");
         {
-            auto texture = WillieNelson::Resources::Current()->load_texture("../resources/bk_player_assets/player_hk_stand.png");
             auto entity = WillieNelson::Entity::New();
             entity->name = "player";
             auto sprite = entity->add_component<WillieNelson::SpriteComponent>();
@@ -37,6 +38,14 @@ public:
         /* -----------------
          * ZOMBIE(s)
          * ----------------- */
+        {
+            auto entity = WillieNelson::Entity::New();
+            auto sprite = entity->add_component<WillieNelson::SpriteComponent>();
+            entity->add_component<ZombieController>();
+            sprite->set_texture(texture);
+            entity->transform.position = sf::Vector2f(100.f, 100.f);
+            game.add_entity(entity);
+        }
 
         /* -----------------
          * BUTTON
@@ -62,6 +71,8 @@ public:
 
             entity->transform.position.x = game.window().getSize().x / 2;
             entity->transform.position.y = game.window().getSize().y / 2;
+
+            // game.add_entity(entity);
         }
     }
 };

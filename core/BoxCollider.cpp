@@ -3,14 +3,11 @@
 
 namespace WillieNelson {
 
-    void BoxCollider::start() {
-        m_width = 100;
-        m_height = 100;
-    }
+    void BoxCollider::start() {}
 
     void BoxCollider::update(float delta_time, std::vector<sf::Event> &events) {
 
-    }
+    }   
 
     BoxCollider* BoxCollider::is_colliding() {
         return Physics::Current()->is_colliding(*this);

@@ -14,7 +14,7 @@ namespace WillieNelson {
 
     private:
         std::vector<std::shared_ptr<BoxCollider>> m_colliders;
-        bool are_colliding(BoxCollider& left, BoxCollider& right);
+        bool are_colliding(BoxCollider& a, BoxCollider& b);
     };
 
     static Physics* current_physics = nullptr;

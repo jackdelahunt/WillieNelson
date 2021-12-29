@@ -32,16 +32,20 @@ namespace WillieNelson {
         m_colliders.clear();
     }
 
-    bool Physics::are_colliding(BoxCollider& left, BoxCollider& right) {
-        auto left_left = left.entity->transform.position.x;
-        auto left_bottom = left.entity->transform.position.y;
+    bool Physics::are_colliding(BoxCollider& a, BoxCollider& b) {
+        auto a_min_x = a.entity->transform.position.x;
+        auto a_max_x = a.entity->transform.position.x + a.width();
+        auto a_min_y = a.entity->transform.position.y;
+        auto a_max_y = a.entity->transform.position.y + a.height();
 
-        auto other_left = right.entity->transform.position.x;
-        auto other_right = right.entity->transform.position.x + right.width();
-        auto other_bottom = right.entity->transform.position.y;
-        auto other_top = right.entity->transform.position.y + right.height();
+        auto b_min_x = b.entity->transform.position.x;
+        auto b_max_x = b.entity->transform.position.x + a.width();
+        auto b_min_y = b.entity->transform.position.y;
+        auto b_max_y = b.entity->transform.position.y + a.height();
 
-        return (left_left >= other_left && left_left <= other_right) &&
-               (left_bottom >= other_bottom && left_bottom <= other_top);
+        return (
+        (a_min_x <= b_max_x && a_max_x >= b_min_x) &&
+        (a_min_y <= b_max_y && a_max_y >= b_min_y)
+        );
     }
 }

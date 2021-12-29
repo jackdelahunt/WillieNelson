@@ -51,6 +51,7 @@ namespace WillieNelson {
         for(auto& entity : m_entities) {
             entity->Destroy();
         }
+        m_entities.clear();
     }
 
     std::vector<sf::Event> Game::poll_events() {
@@ -101,6 +102,25 @@ namespace WillieNelson {
 
         if(active_game == this) // runtime added entity
             entity->start();
+    }
+
+    void Game::remove_entity(Entity& entity) {
+        int index = -1;
+        for(int i = 0; i < m_entities.size(); i++) {
+            if(m_entities.at(i).get() == &entity) {
+                index = i;
+                break;
+            }
+        }
+
+        if(index == -1) return;
+
+        // some crack cocaine c++ stl code
+        auto iter = m_entities.begin() + index;
+        if(iter < m_entities.end()) {
+            m_entities.at(index)->Destroy();
+            m_entities.erase(iter);
+        }
     }
 
     sf::RenderWindow &Game::window() {

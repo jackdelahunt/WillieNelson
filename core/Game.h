@@ -26,6 +26,7 @@ namespace WillieNelson {
         void update(float delta_time, std::vector<sf::Event>& events);
         void end();
         void add_entity(const std::shared_ptr<Entity>& entity);
+        void remove_entity(Entity& entity);
         sf::RenderWindow& window();
         std::shared_ptr<Entity> get_entity_with_name(const char* name);
         bool is_open() const { return m_window->isOpen(); }

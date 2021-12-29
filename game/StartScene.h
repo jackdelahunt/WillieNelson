@@ -86,15 +86,16 @@ public:
 
         // === Score ===
         {
-            auto UIentity = WillieNelson::Entity::New();
-            auto text_score = UIentity->add_component<WillieNelson::TextComponent>();
+            auto entity = WillieNelson::Entity::New();
+            auto text_score = entity->add_component<WillieNelson::TextComponent>();
+            entity->name = "ui_score_entity";
             text_score->set_font("Sansation_Regular");
             text_score->set_text("Score : 00000", sf::Color::White, 30);
 
-            UIentity->transform.position = sf::Vector2f(10.f,10.f);
+            entity->transform.position = sf::Vector2f(10.f,10.f);
 
 
-            game.add_entity(UIentity);
+            game.add_entity(entity);
 
         }
 
@@ -102,8 +103,9 @@ public:
         {
             auto UIentity = WillieNelson::Entity::New();
             auto text_score = UIentity->add_component<WillieNelson::TextComponent>();
+            UIentity->name = "ui_ammo_entity";
             text_score->set_font("Sansation_Regular");
-            text_score->set_text("Ammo : 000", sf::Color::White, 30);
+            text_score->set_text("Ammo : 10", sf::Color::White, 30);
 
             UIentity->transform.position = sf::Vector2f(game.window().getSize().x - 190.f,10.f);
 
@@ -115,6 +117,7 @@ public:
         {
             auto UIentity = WillieNelson::Entity::New();
             auto text_score = UIentity->add_component<WillieNelson::TextComponent>();
+            UIentity->name = "ui_health_entity";
             text_score->set_font("Sansation_Regular");
             text_score->set_text("100%", sf::Color::White, 30);
 
@@ -128,6 +131,7 @@ public:
         {
             auto UIentity = WillieNelson::Entity::New();
             auto text_score = UIentity->add_component<WillieNelson::TextComponent>();
+            UIentity->name = "ui_round_entity";
             text_score->set_font("Sansation_Regular");
             text_score->set_text("234", sf::Color::White, 40);
 

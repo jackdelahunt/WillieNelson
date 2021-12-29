@@ -9,6 +9,8 @@ public:
 private:
     float m_speed = 10.0f;
     WillieNelson::SoundComponent* m_shooting_sound = nullptr;
+    int m_ammo = 10;
+
 
     void movement(std::vector<sf::Event> &events);
     void shooting(std::vector<sf::Event> &events);

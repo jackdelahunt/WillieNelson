@@ -36,7 +36,7 @@ void PlayerController::movement(std::vector<sf::Event> &events) {
 
 void PlayerController::shooting(std::vector<sf::Event> &events) {
     for (auto& event : events) {
-        if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+        if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left && m_ammo > 0) {
             auto mouse_pos = sf::Mouse::getPosition(WillieNelson::Game::Active()->window());
             auto delta_vector = sf::Vector2f((float)mouse_pos.x - entity->transform.position.x, (float)mouse_pos.y - entity->transform.position.y);
             auto length = std::sqrt(delta_vector.x * delta_vector.x) + std::sqrt(delta_vector.y * delta_vector.y);
@@ -44,6 +44,13 @@ void PlayerController::shooting(std::vector<sf::Event> &events) {
 
             if(m_shooting_sound) m_shooting_sound->play();
             create_bullet(normal_vector);
+
+            auto e = WillieNelson::Game::Active()->get_entity_with_name("ui_ammo_entity");
+            if (e != nullptr) {
+                e->get_component<WillieNelson::TextComponent>()->set_text("Ammo : " + std::to_string(--m_ammo));
+            }
+
+
         } else if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Right) {
             WillieNelson::Game::Active()->next_scene();
         }

@@ -21,7 +21,7 @@ namespace WillieNelson {
     }
 
     void TextComponent::set_text(const std::string& textName) {
-        m_text.setFont( m_font );
+        //m_text.setFont( m_font );
         m_text.setString(textName);
     }
 

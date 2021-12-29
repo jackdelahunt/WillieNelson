@@ -78,5 +78,63 @@ public:
 
             // game.add_entity(entity);
         }
+
+        /* -------------
+         * UI
+         * ------------- */
+
+
+        // === Score ===
+        {
+            auto UIentity = WillieNelson::Entity::New();
+            auto text_score = UIentity->add_component<WillieNelson::TextComponent>();
+            text_score->set_font("Sansation_Regular");
+            text_score->set_text("Score : 00000", sf::Color::White, 30);
+
+            UIentity->transform.position = sf::Vector2f(10.f,10.f);
+
+
+            game.add_entity(UIentity);
+
+        }
+
+        // === Ammo ===
+        {
+            auto UIentity = WillieNelson::Entity::New();
+            auto text_score = UIentity->add_component<WillieNelson::TextComponent>();
+            text_score->set_font("Sansation_Regular");
+            text_score->set_text("Ammo : 000", sf::Color::White, 30);
+
+            UIentity->transform.position = sf::Vector2f(game.window().getSize().x - 190.f,10.f);
+
+
+            game.add_entity(UIentity);
+        }
+
+        // === Health ===
+        {
+            auto UIentity = WillieNelson::Entity::New();
+            auto text_score = UIentity->add_component<WillieNelson::TextComponent>();
+            text_score->set_font("Sansation_Regular");
+            text_score->set_text("100%", sf::Color::White, 30);
+
+            UIentity->transform.position = sf::Vector2f(game.window().getSize().x / 2 - 25.f,10.f);
+
+
+            game.add_entity(UIentity);
+        }
+
+        // === Round Number ===
+        {
+            auto UIentity = WillieNelson::Entity::New();
+            auto text_score = UIentity->add_component<WillieNelson::TextComponent>();
+            text_score->set_font("Sansation_Regular");
+            text_score->set_text("234", sf::Color::White, 40);
+
+            UIentity->transform.position = sf::Vector2f(10.f, game.window().getSize().y - 50.f);
+
+
+            game.add_entity(UIentity);
+        }
     }
 };

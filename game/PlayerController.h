@@ -8,7 +8,7 @@ public:
 
 private:
     float m_speed = 10.0f;
-    SoundComponent* m_shooting_sound = nullptr;
+    WillieNelson::SoundComponent* m_shooting_sound = nullptr;
 
     void movement(std::vector<sf::Event> &events);
     void shooting(std::vector<sf::Event> &events);

@@ -5,7 +5,7 @@
 #include <math.h>
 
 void PlayerController::start() {
-    m_shooting_sound = entity->get_component<SoundComponent>().get();
+    m_shooting_sound = entity->get_component<WillieNelson::SoundComponent>().get();
 }
 
 void PlayerController::update(float delta_time, std::vector<sf::Event> &events) {

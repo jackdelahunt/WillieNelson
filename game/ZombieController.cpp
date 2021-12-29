@@ -5,9 +5,18 @@
 void ZombieController::start() {
     m_player = WillieNelson::Game::Active()->get_entity_with_name("player")->get_component<PlayerController>().get();
     m_box_collider = entity->get_component<WillieNelson::BoxCollider>().get();
+    m_dead_sound = entity->get_component<WillieNelson::SoundComponent>().get();
 }
 
 void ZombieController::update(float delta_time, std::vector<sf::Event> &events) {
+
+    if(m_is_dead) {
+        if(!m_dead_sound->is_playing()) {
+            WillieNelson::Game::Active()->remove_entity(*entity);
+        }
+        return;
+    }
+
     check_collisions();
 
     if(!m_player) return;
@@ -26,7 +35,8 @@ void ZombieController::check_collisions() {
     auto collisions = m_box_collider->is_colliding();
     for(auto other : collisions) {
         if (other && other->entity->name == "bullet") {
-            WillieNelson::Game::Active()->remove_entity(*entity);
+            if(m_dead_sound) m_dead_sound->play();
+            m_is_dead = true;
             return;
         }
     }

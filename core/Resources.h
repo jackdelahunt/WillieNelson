@@ -27,7 +27,7 @@ namespace WillieNelson {
         static Resources* Current();
 
         std::shared_ptr<sf::Texture> load_texture(const char* path);
-        std::shared_ptr<sf::SoundBuffer> load_sound(const char* path);
+        std::shared_ptr<sf::SoundBuffer > load_sound(const char* path);
         void save(std::string name, json& json);
         std::optional<json> try_load(std::string name);
 

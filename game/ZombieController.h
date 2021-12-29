@@ -10,6 +10,8 @@ public:
 private:
     PlayerController* m_player = nullptr;
     WillieNelson::BoxCollider* m_box_collider = nullptr;
+    WillieNelson::SoundComponent* m_dead_sound = nullptr;
+    bool m_is_dead = false;
     float m_speed = 0.01f;
 
     void check_collisions();

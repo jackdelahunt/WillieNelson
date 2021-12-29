@@ -1,0 +1,3 @@
+[submodule "vendor/PathFinder"]
+	path = vendor/PathFinder
+	url = git@github.com:jackdelahunt/PathFinder.git

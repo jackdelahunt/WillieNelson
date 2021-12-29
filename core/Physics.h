@@ -1,6 +1,7 @@
 #pragma once
 
 #include "BoxCollider.h"
+#include <vector>
 
 namespace WillieNelson {
     class Physics {
@@ -9,7 +10,7 @@ namespace WillieNelson {
 
         Physics();
         void add_collider(std::shared_ptr<BoxCollider> collider);
-        BoxCollider* is_colliding(BoxCollider& collider);
+        std::vector<BoxCollider*> is_colliding(BoxCollider& collider);
         void clear();
 
     private:

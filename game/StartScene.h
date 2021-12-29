@@ -4,6 +4,7 @@
 #include "common.h"
 #include "PlayerController.h"
 #include "ZombieController.h"
+#include "Spawner.h"
 
 class StartScene: public WillieNelson::Scene {
 public:
@@ -38,16 +39,12 @@ public:
         }
 
         /* -----------------
-         * ZOMBIE(s)
+         * SPAWNER(s)
          * ----------------- */
         {
             auto entity = WillieNelson::Entity::New();
-            auto sprite = entity->add_component<WillieNelson::SpriteComponent>();
-            auto box_collider = entity->add_component<WillieNelson::BoxCollider>();
-            box_collider->set_dimensions(25, 25);
-            entity->add_component<ZombieController>();
-            sprite->set_texture(texture);
-            entity->transform.position = sf::Vector2f(300.f, 100.f);
+            entity->add_component<Spawner>();
+            entity->transform.position = sf::Vector2f(500.f, 500.f);
             game.add_entity(entity);
         }
 

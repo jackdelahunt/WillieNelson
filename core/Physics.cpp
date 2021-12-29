@@ -16,16 +16,17 @@ namespace WillieNelson {
         m_colliders.push_back(collider);
     }
 
-    BoxCollider *Physics::is_colliding(BoxCollider &collider) {
+    std::vector<BoxCollider*> Physics::is_colliding(BoxCollider &collider) {
+        auto colliding_with = std::vector<BoxCollider*>();
         for (auto& col : m_colliders) {
             if(col.get() == &collider) continue;
 
             if(are_colliding(*col, collider)) {
-                return col.get();
+                colliding_with.push_back(col.get());
             }
 
         }
-        return nullptr;
+        return colliding_with;
     }
 
     void Physics::clear() {

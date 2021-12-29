@@ -7,9 +7,9 @@ namespace WillieNelson {
 
     void BoxCollider::update(float delta_time, std::vector<sf::Event> &events) {
 
-    }   
+    }
 
-    BoxCollider* BoxCollider::is_colliding() {
+    std::vector<BoxCollider*> BoxCollider::is_colliding() {
         return Physics::Current()->is_colliding(*this);
     }
 

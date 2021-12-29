@@ -10,6 +10,7 @@ namespace WillieNelson {
 
         Physics();
         void add_collider(std::shared_ptr<BoxCollider> collider);
+        void remove_collider(BoxCollider& collider);
         std::vector<BoxCollider*> is_colliding(BoxCollider& collider);
         void clear();
 

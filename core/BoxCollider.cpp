@@ -9,6 +9,10 @@ namespace WillieNelson {
 
     }
 
+    void BoxCollider::destroy() {
+        Physics::Current()->remove_collider(*this);
+    }
+
     std::vector<BoxCollider*> BoxCollider::is_colliding() {
         return Physics::Current()->is_colliding(*this);
     }

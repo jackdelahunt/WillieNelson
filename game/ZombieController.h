@@ -16,6 +16,7 @@ private:
     float m_damage = 0.001f;
 
     void check_collisions();
+    void drop_loot();
 };
 
 

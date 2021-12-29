@@ -4,7 +4,9 @@
 #include <iostream>
 #include <math.h>
 
-void PlayerController::start() {}
+void PlayerController::start() {
+    m_shooting_sound = entity->get_component<SoundComponent>().get();
+}
 
 void PlayerController::update(float delta_time, std::vector<sf::Event> &events) {
     movement(events);
@@ -40,6 +42,7 @@ void PlayerController::shooting(std::vector<sf::Event> &events) {
             auto length = std::sqrt(delta_vector.x * delta_vector.x) + std::sqrt(delta_vector.y * delta_vector.y);
             auto normal_vector = delta_vector / length;
 
+            if(m_shooting_sound) m_shooting_sound->play();
             create_bullet(normal_vector);
         } else if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Right) {
             WillieNelson::Game::Active()->next_scene();

@@ -15,6 +15,7 @@ libwilson.add_sources([
     "core/Scene.cpp",
     "core/TilemapComponent.cpp",
     "core/Window.cpp",
+    "core/SoundComponent.cpp"
 ])
 libwilson.add_include_directory("vendor/SFML-2.5.1/include/")
 libwilson.add_headers([
@@ -26,5 +27,6 @@ libwilson.add_headers([
     "core/TilemapComponent.h",
     "core/json.hpp",
     "core/Transform.h",
+    "core/SoundComponent.h"
 ])
 libwilson.package(dynamic=True)

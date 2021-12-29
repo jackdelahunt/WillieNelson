@@ -15,12 +15,7 @@ void ZombieController::update(float delta_time, std::vector<sf::Event> &events) 
         if(!m_dead_sound->is_playing()) {
             WillieNelson::Game::Active()->remove_entity(*entity);
         }
-        srand((unsigned) time(nullptr));
-        int result = 1 + (rand() % 20);
 
-        if (result == 20) {
-            drop_loot();
-        }
         return;
     }
 
@@ -46,6 +41,15 @@ void ZombieController::check_collisions() {
             if(m_dead_sound) m_dead_sound->play();
             m_is_dead = true;
             m_player->m_score += 10;
+
+//            srand((unsigned) time(nullptr));
+//            int result = 1 + (rand() % 2);
+//
+//            if (result == 2) {
+//                drop_loot();
+//            }
+
+            drop_loot();
             return;
         }
 

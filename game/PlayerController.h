@@ -19,10 +19,12 @@ private:
     WillieNelson::TextComponent* m_score_text = nullptr;
     WillieNelson::TextComponent* m_round_text = nullptr;
     WillieNelson::TextComponent* m_health_text = nullptr;
+    WillieNelson::BoxCollider* m_box_collider = nullptr;
 
     void movement(std::vector<sf::Event> &events);
     void shooting(std::vector<sf::Event> &events);
     void create_bullet(sf::Vector2f angle);
+    void check_collisions();
 };
 
 

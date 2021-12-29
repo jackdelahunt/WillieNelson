@@ -7,6 +7,8 @@
 void PlayerController::start() {
 
     m_shooting_sound = entity->get_component<WillieNelson::SoundComponent>().get();
+    m_box_collider = entity->get_component<WillieNelson::BoxCollider>().get();
+
     m_score_text = WillieNelson::Game::Active()->get_entity_with_name("ui_score_entity")->get_component<WillieNelson::TextComponent>().get();
     m_ammo_text = WillieNelson::Game::Active()->get_entity_with_name("ui_ammo_entity")->get_component<WillieNelson::TextComponent>().get();
     m_health_text = WillieNelson::Game::Active()->get_entity_with_name("ui_health_entity")->get_component<WillieNelson::TextComponent>().get();
@@ -29,6 +31,8 @@ void PlayerController::update(float delta_time, std::vector<sf::Event> &events) 
         int health = (int) round(m_health);
         m_health_text->set_text(std::to_string(health) + "%");
     }
+
+    check_collisions();
 
 }
 
@@ -90,4 +94,22 @@ void PlayerController::create_bullet(sf::Vector2f angle) {
     bullet_controller->set_angle(angle);
 
     WillieNelson::Game::Active()->add_entity(bullet_entity);
+}
+
+void PlayerController::check_collisions() {
+    if(!m_box_collider) return;
+
+    auto collisions = m_box_collider->is_colliding();
+    for(auto other: collisions) {
+        if (other && other->entity->name == "ammo") {
+            WillieNelson::Game::Active()->remove_entity(*(other->entity));
+            m_ammo += 1;
+            if (m_ammo_text != nullptr) {
+                m_ammo_text->set_text("Ammo : " + std::to_string(m_ammo));
+            }
+
+        }
+    }
+
+
 }

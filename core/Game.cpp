@@ -38,6 +38,7 @@ namespace WillieNelson {
 
         sf::Clock delta_clock;
         float delta_time = 0.0f;
+        m_has_started = true;
         while (m_window->isOpen()) {
             auto events = poll_events();
             update(delta_time, events);
@@ -100,7 +101,7 @@ namespace WillieNelson {
     void Game::add_entity(const std::shared_ptr<Entity>& entity) {
         m_entities.push_back(entity);
 
-        if(active_game == this) // runtime added entity
+        if(m_has_started) // runtime added entity
             entity->start();
     }
 

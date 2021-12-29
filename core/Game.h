@@ -47,6 +47,7 @@ namespace WillieNelson {
         std::vector<std::shared_ptr<Scene>> m_scenes;
         sf::VideoMode m_video_mode;
         size_t m_current_scene_index;
+        bool m_has_started = false;
     };
 
     static Game* active_game = nullptr;

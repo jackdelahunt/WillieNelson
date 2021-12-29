@@ -49,22 +49,6 @@ public:
         }
 
         /* -----------------
-         * ZOMBIE(s)
-         * ----------------- */
-        {
-            /*
-            auto entity = WillieNelson::Entity::New();
-            auto sprite = entity->add_component<WillieNelson::SpriteComponent>();
-            auto box_collider = entity->add_component<WillieNelson::BoxCollider>();
-            box_collider->set_dimensions(25, 25);
-            entity->add_component<ZombieController>();
-            sprite->set_texture(texture);
-            entity->transform.position = sf::Vector2f(300.f, 100.f);
-            game.add_entity(entity);
-             */
-        }
-
-        /* -----------------
          * BUTTON
          * ----------------- */
         {

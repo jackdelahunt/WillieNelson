@@ -7,6 +7,7 @@ public:
     void update(float delta_time, std::vector<sf::Event> &events) override;
 
     int m_score = 0;
+    double m_health = 100;
 
 private:
     float m_speed = 10.0f;

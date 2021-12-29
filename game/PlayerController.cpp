@@ -2,13 +2,14 @@
 #include "common.h"
 #include "BulletController.h"
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 void PlayerController::start() {
 
     m_shooting_sound = entity->get_component<WillieNelson::SoundComponent>().get();
     m_score_text = WillieNelson::Game::Active()->get_entity_with_name("ui_score_entity")->get_component<WillieNelson::TextComponent>().get();
     m_ammo_text = WillieNelson::Game::Active()->get_entity_with_name("ui_ammo_entity")->get_component<WillieNelson::TextComponent>().get();
+    m_health_text = WillieNelson::Game::Active()->get_entity_with_name("ui_health_entity")->get_component<WillieNelson::TextComponent>().get();
 }
 
 void PlayerController::update(float delta_time, std::vector<sf::Event> &events) {
@@ -17,6 +18,11 @@ void PlayerController::update(float delta_time, std::vector<sf::Event> &events) 
 
     if(m_score_text != nullptr) {
         m_score_text->set_text("Score : " + std::to_string(m_score));
+    }
+
+    if(m_health_text != nullptr) {
+        int health = (int) round(m_health);
+        m_health_text->set_text(std::to_string(health) + "%");
     }
 
 }

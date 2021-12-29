@@ -35,8 +35,15 @@ void ZombieController::check_collisions() {
     auto collisions = m_box_collider->is_colliding();
     for(auto other : collisions) {
         if (other && other->entity->name == "bullet") {
+
             if(m_dead_sound) m_dead_sound->play();
             m_is_dead = true;
+            m_player->m_score += 10;
+            return;
+        }
+
+        if (other && other->entity->name == "player" && m_player->m_health > 0.f) {
+            m_player->m_health -= m_damage;
             return;
         }
     }

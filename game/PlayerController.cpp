@@ -2,15 +2,34 @@
 #include "common.h"
 #include "BulletController.h"
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 void PlayerController::start() {
+
     m_shooting_sound = entity->get_component<WillieNelson::SoundComponent>().get();
+    m_score_text = WillieNelson::Game::Active()->get_entity_with_name("ui_score_entity")->get_component<WillieNelson::TextComponent>().get();
+    m_ammo_text = WillieNelson::Game::Active()->get_entity_with_name("ui_ammo_entity")->get_component<WillieNelson::TextComponent>().get();
+    m_health_text = WillieNelson::Game::Active()->get_entity_with_name("ui_health_entity")->get_component<WillieNelson::TextComponent>().get();
+    m_round_text = WillieNelson::Game::Active()->get_entity_with_name("ui_round_entity")->get_component<WillieNelson::TextComponent>().get();
+
+    if(m_round_text != nullptr) {
+        m_round_text->set_text(std::to_string(m_round));
+    }
 }
 
 void PlayerController::update(float delta_time, std::vector<sf::Event> &events) {
     movement(events);
     shooting(events);
+
+    if(m_score_text != nullptr) {
+        m_score_text->set_text("Score : " + std::to_string(m_score));
+    }
+
+    if(m_health_text != nullptr) {
+        int health = (int) round(m_health);
+        m_health_text->set_text(std::to_string(health) + "%");
+    }
+
 }
 
 void PlayerController::movement(std::vector<sf::Event> &events) {
@@ -36,7 +55,7 @@ void PlayerController::movement(std::vector<sf::Event> &events) {
 
 void PlayerController::shooting(std::vector<sf::Event> &events) {
     for (auto& event : events) {
-        if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+        if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left && m_ammo > 0) {
             auto mouse_pos = sf::Mouse::getPosition(WillieNelson::Game::Active()->window());
             auto delta_vector = sf::Vector2f((float)mouse_pos.x - entity->transform.position.x, (float)mouse_pos.y - entity->transform.position.y);
             auto length = std::sqrt(delta_vector.x * delta_vector.x) + std::sqrt(delta_vector.y * delta_vector.y);
@@ -44,6 +63,13 @@ void PlayerController::shooting(std::vector<sf::Event> &events) {
 
             if(m_shooting_sound) m_shooting_sound->play();
             create_bullet(normal_vector);
+
+
+            if (m_ammo_text != nullptr) {
+                m_ammo_text->set_text("Ammo : " + std::to_string(--m_ammo));
+            }
+
+
         } else if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Right) {
             WillieNelson::Game::Active()->next_scene();
         }
@@ -54,7 +80,7 @@ void PlayerController::create_bullet(sf::Vector2f angle) {
     auto bullet_entity = WillieNelson::Entity::New();
     bullet_entity->name = "bullet";
     auto bullet_controller = bullet_entity->add_component<BulletController>();
-    auto bullet_texture = WillieNelson::Resources::Current()->load_texture("./resources/battle-location-top-down-game-tileset-pack/PNG/Props/Artifact.png");
+    auto bullet_texture = WillieNelson::Resources::Current()->load_texture("../resources/battle-location-top-down-game-tileset-pack/PNG/Props/Artifact.png");
     auto box_collder = bullet_entity->add_component<WillieNelson::BoxCollider>();
     box_collder->set_dimensions(15, 15);
     bullet_entity->add_component<WillieNelson::SpriteComponent>()->set_texture(bullet_texture);

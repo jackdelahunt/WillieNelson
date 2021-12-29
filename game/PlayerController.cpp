@@ -5,12 +5,20 @@
 #include <math.h>
 
 void PlayerController::start() {
+
     m_shooting_sound = entity->get_component<WillieNelson::SoundComponent>().get();
+    m_score_text = WillieNelson::Game::Active()->get_entity_with_name("ui_score_entity")->get_component<WillieNelson::TextComponent>().get();
+    m_ammo_text = WillieNelson::Game::Active()->get_entity_with_name("ui_ammo_entity")->get_component<WillieNelson::TextComponent>().get();
 }
 
 void PlayerController::update(float delta_time, std::vector<sf::Event> &events) {
     movement(events);
     shooting(events);
+
+    if(m_score_text != nullptr) {
+        m_score_text->set_text("Score : " + std::to_string(m_score));
+    }
+
 }
 
 void PlayerController::movement(std::vector<sf::Event> &events) {
@@ -45,9 +53,9 @@ void PlayerController::shooting(std::vector<sf::Event> &events) {
             if(m_shooting_sound) m_shooting_sound->play();
             create_bullet(normal_vector);
 
-            auto e = WillieNelson::Game::Active()->get_entity_with_name("ui_ammo_entity");
-            if (e != nullptr) {
-                e->get_component<WillieNelson::TextComponent>()->set_text("Ammo : " + std::to_string(--m_ammo));
+
+            if (m_ammo_text != nullptr) {
+                m_ammo_text->set_text("Ammo : " + std::to_string(--m_ammo));
             }
 
 

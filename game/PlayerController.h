@@ -6,11 +6,17 @@ public:
     void start() override;
     void update(float delta_time, std::vector<sf::Event> &events) override;
 
+    int m_score = 0;
+
 private:
     float m_speed = 10.0f;
     WillieNelson::SoundComponent* m_shooting_sound = nullptr;
     int m_ammo = 10;
 
+    WillieNelson::TextComponent* m_ammo_text = nullptr;
+    WillieNelson::TextComponent* m_score_text = nullptr;
+    WillieNelson::TextComponent* m_round_text = nullptr;
+    WillieNelson::TextComponent* m_health_text = nullptr;
 
     void movement(std::vector<sf::Event> &events);
     void shooting(std::vector<sf::Event> &events);

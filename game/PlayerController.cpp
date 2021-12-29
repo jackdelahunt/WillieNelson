@@ -62,6 +62,7 @@ void PlayerController::shooting(std::vector<sf::Event> &events) {
             auto normal_vector = delta_vector / length;
 
             if(m_shooting_sound) m_shooting_sound->play();
+
             create_bullet(normal_vector);
 
 

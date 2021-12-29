@@ -24,7 +24,7 @@ void ZombieController::check_collisions() {
     if(!m_box_collider) return;
 
     auto other = m_box_collider->is_colliding();
-    if(other) {
-        std::cout << "collide";
+    if(other && other->entity->name == "bullet") {
+        WillieNelson::Game::Active()->remove_entity(*entity);
     }
 }

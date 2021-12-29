@@ -12,7 +12,8 @@ public:
 private:
     float m_speed = 10.0f;
     WillieNelson::SoundComponent* m_shooting_sound = nullptr;
-    int m_ammo = 10;
+    int m_ammo = 25;
+    int m_round = 1;
 
     WillieNelson::TextComponent* m_ammo_text = nullptr;
     WillieNelson::TextComponent* m_score_text = nullptr;

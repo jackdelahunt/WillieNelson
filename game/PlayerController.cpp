@@ -10,6 +10,11 @@ void PlayerController::start() {
     m_score_text = WillieNelson::Game::Active()->get_entity_with_name("ui_score_entity")->get_component<WillieNelson::TextComponent>().get();
     m_ammo_text = WillieNelson::Game::Active()->get_entity_with_name("ui_ammo_entity")->get_component<WillieNelson::TextComponent>().get();
     m_health_text = WillieNelson::Game::Active()->get_entity_with_name("ui_health_entity")->get_component<WillieNelson::TextComponent>().get();
+    m_round_text = WillieNelson::Game::Active()->get_entity_with_name("ui_round_entity")->get_component<WillieNelson::TextComponent>().get();
+
+    if(m_round_text != nullptr) {
+        m_round_text->set_text(std::to_string(m_round));
+    }
 }
 
 void PlayerController::update(float delta_time, std::vector<sf::Event> &events) {

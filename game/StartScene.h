@@ -105,7 +105,7 @@ public:
             auto text_score = UIentity->add_component<WillieNelson::TextComponent>();
             UIentity->name = "ui_ammo_entity";
             text_score->set_font("Sansation_Regular");
-            text_score->set_text("Ammo : 10", sf::Color::White, 30);
+            text_score->set_text("Ammo : 50", sf::Color::White, 30);
 
             UIentity->transform.position = sf::Vector2f(game.window().getSize().x - 190.f,10.f);
 

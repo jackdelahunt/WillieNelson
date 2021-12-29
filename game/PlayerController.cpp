@@ -103,7 +103,7 @@ void PlayerController::check_collisions() {
     for(auto other: collisions) {
         if (other && other->entity->name == "ammo") {
             WillieNelson::Game::Active()->remove_entity(*(other->entity));
-            m_ammo += 1;
+            m_ammo += 20;
             if (m_ammo_text != nullptr) {
                 m_ammo_text->set_text("Ammo : " + std::to_string(m_ammo));
             }

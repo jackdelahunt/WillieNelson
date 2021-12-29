@@ -8,11 +8,11 @@ public:
 
     int m_score = 0;
     double m_health = 100;
+    int m_ammo = 50;
 
 private:
     float m_speed = 10.0f;
     WillieNelson::SoundComponent* m_shooting_sound = nullptr;
-    int m_ammo = 50;
     int m_round = 1;
 
     WillieNelson::TextComponent* m_ammo_text = nullptr;

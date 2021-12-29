@@ -31,6 +31,7 @@ add_executable(
                 core/BoxCollider.cpp core/BoxCollider.h
                 core/Physics.cpp core/Physics.h
                 core/ButtonComponent.cpp core/ButtonComponent.h
+                core/SoundComponent.cpp core/SoundComponent.h
         )
 
-target_link_libraries(wilson sfml-graphics)
+target_link_libraries(wilson sfml-graphics sfml-audio)

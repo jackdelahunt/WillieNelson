@@ -32,6 +32,9 @@ public:
             entity->name = "player";
             auto sprite = entity->add_component<WillieNelson::SpriteComponent>();
             auto box_collider = entity->add_component<WillieNelson::BoxCollider>();
+            auto sound = WillieNelson::Resources::Current()->load_sound("./resources/sounds/laserShoot.wav");
+            entity->add_component<WillieNelson::SoundComponent>()->set_sound(sound);
+
             box_collider->set_dimensions(25, 25);
             entity->add_component<PlayerController>();
             sprite->set_texture(texture);

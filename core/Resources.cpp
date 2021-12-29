@@ -28,6 +28,17 @@ namespace WillieNelson {
         return texture;
     }
 
+    std::shared_ptr<sf::SoundBuffer> Resources::load_sound(const char *path) {
+        for(auto& handle : m_sound_handles) {
+            if(handle.name == path) return handle.sound_buffer;
+        }
+
+        auto buffer = std::make_shared<sf::SoundBuffer>();
+        buffer->loadFromFile(path);
+        m_sound_handles.push_back((SoundHandle) {.name = path, .sound_buffer= buffer});
+        return buffer;
+    }
+
     void Resources::build_save_path() {
         std::filesystem::create_directory("data");
     }
@@ -52,5 +63,4 @@ namespace WillieNelson {
         }
         return std::optional<json> {};
     }
-
 }

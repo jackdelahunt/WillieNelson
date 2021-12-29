@@ -23,8 +23,11 @@ void ZombieController::update(float delta_time, std::vector<sf::Event> &events) 
 void ZombieController::check_collisions() {
     if(!m_box_collider) return;
 
-    auto other = m_box_collider->is_colliding();
-    if(other && other->entity->name == "bullet") {
-        WillieNelson::Game::Active()->remove_entity(*entity);
+    auto collisions = m_box_collider->is_colliding();
+    for(auto other : collisions) {
+        if (other && other->entity->name == "bullet") {
+            WillieNelson::Game::Active()->remove_entity(*entity);
+            return;
+        }
     }
 }

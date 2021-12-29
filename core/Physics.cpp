@@ -16,6 +16,21 @@ namespace WillieNelson {
         m_colliders.push_back(collider);
     }
 
+    void Physics::remove_collider(BoxCollider &collider) {
+        int index = -1;
+        for(int i = 0; i < m_colliders.size(); i++) {
+            if(m_colliders.at(i).get() == &collider) {
+                index = i;
+                break;
+            }
+        }
+
+        if(index < 0) return;
+
+        auto iter = m_colliders.begin() + index;
+        m_colliders.erase(iter);
+    }
+
     std::vector<BoxCollider*> Physics::is_colliding(BoxCollider &collider) {
         auto colliding_with = std::vector<BoxCollider*>();
         for (auto& col : m_colliders) {

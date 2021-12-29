@@ -26,7 +26,7 @@ public:
         /* -----------------
          * PLAYER
          * ----------------- */
-        auto texture = WillieNelson::Resources::Current()->load_texture("../resources/bk_player_assets/player_hk_stand.png");
+        auto texture = WillieNelson::Resources::Current()->load_texture("./resources/bk_player_assets/player_hk_stand.png");
         {
             auto entity = WillieNelson::Entity::New();
             entity->name = "player";
@@ -53,7 +53,7 @@ public:
          * ----------------- */
         {
             auto texture = WillieNelson::Resources::Current()->load_texture(
-                    "../resources/battle-location-top-down-game-tileset-pack/PNG/Blocks/Block_A_01.png");
+                    "./resources/battle-location-top-down-game-tileset-pack/PNG/Blocks/Block_A_01.png");
 
             auto entity = WillieNelson::Entity::New();
             auto button = entity->add_component<WillieNelson::ButtonComponent>();

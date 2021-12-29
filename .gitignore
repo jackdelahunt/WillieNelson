@@ -5,3 +5,4 @@ __pycache__/
 cmake-build-debug/
 WillieNelson
 libwilson/
+build/

@@ -10,12 +10,15 @@ add_executable(
                 wilson
                 game/main.cpp
                 game/PlayerController.cpp game/PlayerController.h
-                game/StartScene.h
                 game/common.h
                 game/BulletController.cpp game/BulletController.h
-                game/Level2.h
                 game/ZombieController.cpp game/ZombieController.h
                 game/Spawner.cpp game/Spawner.h
+
+                game/MenuScene.h
+                game/HighScoreScene.h
+                game/StartScene.h
+                game/Level2.h
 
                 core/json.hpp
                 core/Entity.cpp core/Entity.h

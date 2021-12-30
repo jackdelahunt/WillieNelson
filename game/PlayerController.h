@@ -1,5 +1,6 @@
 #pragma once
 #include "common.h"
+#include "Weapon.h"
 
 class PlayerController : public WillieNelson::Component {
 public:
@@ -15,6 +16,7 @@ private:
     float m_speed = 10.0f;
     WillieNelson::SoundComponent* m_shooting_sound = nullptr;
 
+    Weapon* m_weapon;
 
     WillieNelson::TextComponent* m_ammo_text = nullptr;
     WillieNelson::TextComponent* m_score_text = nullptr;

@@ -32,9 +32,9 @@ void Spawner::new_round() {
     if(zombies == nullptr) {
         m_player->m_round++;
 
-        ZombieController::zombie_speed += 0.01f;
-        ZombieController::zombie_damage += 0.0001f;
-        ZombieController::zombie_health += 0.1f;
+        zombie_speed += 0.01f;
+        zombie_damage += 0.0001f;
+        zombie_health += 0.1f;
 
         m_spawn_amount = (int) round(30 * (m_player->m_round * 0.15));
         std::cout << m_spawn_amount << std::endl;
@@ -52,7 +52,9 @@ void Spawner::spawn_zombie() {
     auto box_collider = zombie_entity->add_component<WillieNelson::BoxCollider>();
     zombie_entity->add_component<WillieNelson::SoundComponent>()->set_sound(sound);
     box_collider->set_dimensions(25, 25);
-    zombie_entity->add_component<ZombieController>();
+    auto zombie_controller = zombie_entity->add_component<ZombieController>();
+    //zombie_entity->add_component<ZombieController>();
+    zombie_controller->set_attributes(zombie_health, zombie_speed, zombie_damage);
     sprite->set_texture(texture);
     zombie_entity->name = "zombie";
 
@@ -78,3 +80,4 @@ void Spawner::spawn_zombie() {
     WillieNelson::Game::Active()->add_entity(zombie_entity);
 
 }
+

@@ -149,14 +149,17 @@ namespace WillieNelson {
     }
 
     void Game::next_scene() {
-        m_entities.clear();
         m_current_scene_index++;
         m_has_changed_scene = true;
-        Physics::Current()->clear();
+        auto god_entities = clear_for_scene_change();
         m_has_started = false;
         auto s = m_scenes.size();
         if(m_current_scene_index < m_scenes.size()) {
             m_scenes.at(m_current_scene_index)->attach(*this);
+        }
+
+        for(auto& g_ett : god_entities) {
+            m_entities.push_back(g_ett);
         }
 
         init_scene();
@@ -164,16 +167,19 @@ namespace WillieNelson {
 
     void Game::scene_index(int index) {
 
-        if(index < m_scenes.size() && index >= 0) {
-            m_has_changed_scene = true;
-            m_entities.clear();
-            m_current_scene_index = index;
-            Physics::Current()->clear();
-            m_has_started = false;
-            m_scenes.at(m_current_scene_index)->attach(*this);
-        }
+        if(!(index < m_scenes.size() && index >= 0)) return;
 
+        m_has_changed_scene = true;
+        auto god_entities = clear_for_scene_change();
+        m_current_scene_index = index;
+        m_has_started = false;
+        m_scenes.at(m_current_scene_index)->attach(*this);
+
+        for(auto& g_ett : god_entities) {
+            m_entities.push_back(g_ett);
+        }
         init_scene();
+
     }
 
     void Game::draw_info() {
@@ -190,5 +196,19 @@ namespace WillieNelson {
         }
 
         m_has_started = true;
+    }
+
+    std::vector<std::shared_ptr<Entity>> Game::clear_for_scene_change() {
+        auto god_tiers = std::vector<std::shared_ptr<Entity>>();
+        for(int i = m_entities.size() - 1; i >= 0; i--) {
+            if(!m_entities.at(i)->god_mode) {
+                m_entities.at(i)->Destroy();
+            } else {
+                god_tiers.push_back(m_entities.at(i));
+            }
+        }
+
+        m_entities.clear();
+        return god_tiers;
     }
 }

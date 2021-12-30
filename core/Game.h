@@ -56,6 +56,7 @@ namespace WillieNelson {
 
         void draw_info();
         void init_scene();
+        [[nodiscard]] std::vector<std::shared_ptr<Entity>> clear_for_scene_change();
     };
 
     static Game* active_game = nullptr;

@@ -3,6 +3,7 @@
 #include "SFML/Graphics.hpp"
 #include "Entity.h"
 #include "Scene.h"
+#include "MovableBuffer.h"
 
 namespace WillieNelson {
 
@@ -49,8 +50,9 @@ namespace WillieNelson {
         size_t m_current_scene_index;
         bool m_has_started = false;
         float m_delta_time = 0.0f;
+        MovableBuffer m_fps_buffer = MovableBuffer(300);
 
-        void draw_fps();
+        void draw_info();
     };
 
     static Game* active_game = nullptr;

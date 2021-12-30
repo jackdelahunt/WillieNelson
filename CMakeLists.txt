@@ -39,8 +39,9 @@ add_executable(
                 core/SoundComponent.cpp core/SoundComponent.h
                 core/imconfig-SFML.h
                 core/imgui-SFML_export.h
+                core/MovableBuffer.h
 
-                vendor/imgui/imgui.cpp
+        vendor/imgui/imgui.cpp
                 vendor/imgui/imgui_widgets.cpp
                 vendor/imgui/imgui_draw.cpp
                 vendor/imgui/imgui_tables.cpp

@@ -48,7 +48,8 @@ namespace WillieNelson {
             auto restart = delta_clock.restart();
             ImGui::SFML::Update(*m_window, restart);
             update(m_delta_time, events);
-            draw_fps();
+            m_fps_buffer.push(m_delta_time);
+            draw_info();
             draw();
             m_delta_time = restart.asSeconds();
         }
@@ -157,10 +158,9 @@ namespace WillieNelson {
         }
     }
 
-    void Game::draw_fps() {
-        ImGui::Begin("Debug");
-        static float arr[] = { 0.6f, 0.1f, 1.0f, 0.5f, 0.92f, 0.1f, 0.2f };
-        ImGui::PlotLines("Frame Times", arr, IM_ARRAYSIZE(arr));
+    void Game::draw_info() {
+        ImGui::Begin("Info");
+        ImGui::PlotLines("Frame Times", m_fps_buffer.buffer, m_fps_buffer.size, 0);
          auto s = std::to_string(1 / m_delta_time);
          ImGui::Text("%s", s.c_str());
         ImGui::End();

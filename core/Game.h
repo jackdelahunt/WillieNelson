@@ -33,6 +33,7 @@ namespace WillieNelson {
         bool is_open() const { return m_window->isOpen(); }
         void next_scene();
         void scene_index(int index);
+        void next_game_scene(int currentIndex);
 
         template<typename T>
         void add_scene() {

@@ -24,7 +24,9 @@ add_executable(
                 game/MenuScene.h
                 game/HighScoreScene.h
                 game/StartScene.h
+                game/Level1.h
                 game/Level2.h
+                game/Level3.h
 
                 core/json.hpp
                 core/Entity.cpp core/Entity.h

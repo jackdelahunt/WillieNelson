@@ -30,6 +30,7 @@ public:
         {
             auto entity = WillieNelson::Entity::New();
             entity->name = "player";
+            entity->god_mode = true;
             auto sprite = entity->add_component<WillieNelson::SpriteComponent>();
             auto box_collider = entity->add_component<WillieNelson::BoxCollider>();
             auto sound = WillieNelson::Resources::Current()->load_sound("./resources/sounds/laserShoot.wav");
@@ -47,36 +48,9 @@ public:
         {
             auto entity = WillieNelson::Entity::New();
             entity->add_component<Spawner>();
+            entity->god_mode = true;
             entity->transform.position = sf::Vector2f(500.f, 500.f);
             game.add_entity(entity);
-        }
-
-        /* -----------------
-         * BUTTON
-         * ----------------- */
-        {
-            auto texture = WillieNelson::Resources::Current()->load_texture(
-                    "../resources/battle-location-top-down-game-tileset-pack/PNG/Blocks/Block_A_01.png");
-
-            auto entity = WillieNelson::Entity::New();
-            auto button = entity->add_component<WillieNelson::ButtonComponent>();
-            auto sprite = entity->add_component<WillieNelson::SpriteComponent>();
-            auto text = entity->add_component<WillieNelson::TextComponent>();
-            text->set_font("Sansation_Regular");
-            text->set_text("Level 2", sf::Color::White, 50);
-            sprite->set_texture(texture);
-            button->set_button(256, 128, game.window().getSize().x / 2, game.window().getSize().y / 2);
-            button->send_call_back(
-                    []() {
-                        std::cout << "Button Call" << std::endl;
-                        WillieNelson::Game::Active()->next_scene();
-                    }
-            );
-
-            entity->transform.position.x = game.window().getSize().x / 2;
-            entity->transform.position.y = game.window().getSize().y / 2;
-
-            // game.add_entity(entity);
         }
 
         /* -------------
@@ -89,6 +63,7 @@ public:
             auto entity = WillieNelson::Entity::New();
             auto text_score = entity->add_component<WillieNelson::TextComponent>();
             entity->name = "ui_score_entity";
+            entity->god_mode = true;
             text_score->set_font("Sansation_Regular");
             text_score->set_text("Score : 00000", sf::Color::White, 30);
 
@@ -104,6 +79,7 @@ public:
             auto UIentity = WillieNelson::Entity::New();
             auto text_score = UIentity->add_component<WillieNelson::TextComponent>();
             UIentity->name = "ui_ammo_entity";
+            UIentity->god_mode = true;
             text_score->set_font("Sansation_Regular");
             text_score->set_text("Ammo : 50", sf::Color::White, 30);
 
@@ -118,6 +94,7 @@ public:
             auto UIentity = WillieNelson::Entity::New();
             auto text_score = UIentity->add_component<WillieNelson::TextComponent>();
             UIentity->name = "ui_health_entity";
+            UIentity->god_mode = true;
             text_score->set_font("Sansation_Regular");
             text_score->set_text("100%", sf::Color::Red, 30);
 
@@ -132,6 +109,7 @@ public:
             auto UIentity = WillieNelson::Entity::New();
             auto text_score = UIentity->add_component<WillieNelson::TextComponent>();
             UIentity->name = "ui_round_entity";
+            UIentity->god_mode = true;
             text_score->set_font("Sansation_Regular");
             text_score->set_text("234", sf::Color::White, 40);
 

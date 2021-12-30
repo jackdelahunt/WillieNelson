@@ -37,7 +37,10 @@ void Spawner::new_round() {
         zombie_health += 0.1f;
 
         m_spawn_amount = (int) round(30 * (m_player->m_round * 0.15));
-        std::cout << m_spawn_amount << std::endl;
+
+        if (m_player->m_round % 5 == 0) {
+            WillieNelson::Game::Active()->next_scene();
+        }
     }
 
 }

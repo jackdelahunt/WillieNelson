@@ -8,31 +8,37 @@ public:
     void attach(WillieNelson::Game &game) override {
 
         /* -----------------
-         * BUTTON
+         * BUTTON START
          * ----------------- */
         {
             auto texture = WillieNelson::Resources::Current()->load_texture(
                     "../resources/battle-location-top-down-game-tileset-pack/PNG/Blocks/Block_A_01.png");
 
-            auto entity = WillieNelson::Entity::New();
-            auto button = entity->add_component<WillieNelson::ButtonComponent>();
-            auto sprite = entity->add_component<WillieNelson::SpriteComponent>();
-            auto text = entity->add_component<WillieNelson::TextComponent>();
-            text->set_font("Sansation_Regular");
-            text->set_text("Play", sf::Color::White, 50);
+            auto button_entity = WillieNelson::Entity::New();
+            auto button = button_entity->add_component<WillieNelson::ButtonComponent>();
+            auto sprite = button_entity->add_component<WillieNelson::SpriteComponent>();
             sprite->set_texture(texture);
-            button->set_button(256, 128, game.window().getSize().x / 2, game.window().getSize().y / 2);
+            button->set_button(256, 128, (int)game.window().getSize().x / 2 - 128, (int)game.window().getSize().y / 2 - 64);
             button->send_call_back(
                     []() {
                         std::cout << "Button Call" << std::endl;
                         WillieNelson::Game::Active()->next_scene();
                     }
             );
+            button_entity->transform.position.x = (float) game.window().getSize().x / 2 - 128;
+            button_entity->transform.position.y = (float) game.window().getSize().y / 2 - 64;
 
-            entity->transform.position.x = game.window().getSize().x / 2;
-            entity->transform.position.y = game.window().getSize().y / 2;
+            auto text_entity = WillieNelson::Entity::New();
+            auto text = text_entity->add_component<WillieNelson::TextComponent>();
+            text->set_font("Sansation_Regular");
+            text->set_text("Play", sf::Color::White, 50);
 
-            game.add_entity(entity);
+            text_entity->transform.position.x = button_entity->transform.position.x + 85;
+            text_entity->transform.position.y = button_entity->transform.position.y + 30;
+
+            game.add_entity(button_entity);
+            game.add_entity(text_entity);
+
         }
     }
 };

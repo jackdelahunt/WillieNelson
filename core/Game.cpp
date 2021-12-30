@@ -19,7 +19,7 @@ namespace WillieNelson {
 
     Game::Game() {
         m_video_mode = sf::VideoMode(1024, 665);
-        m_window = std::make_unique<sf::RenderWindow>(m_video_mode, "WillieNelson");
+        m_window = std::make_unique<sf::RenderWindow>(m_video_mode, "WillieNelson", sf::Style::Titlebar | sf::Style::Close);
         m_current_scene_index = 0;
 
         auto _ = ImGui::SFML::Init(*m_window);

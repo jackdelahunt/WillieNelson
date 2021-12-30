@@ -3,8 +3,13 @@ project(wilson)
 
 set(CMAKE_CXX_STANDARD 17)
 set(SFML_DIR "vendor/SFML-2.5.1/lib/cmake/SFML")
+set(IMGUI_DIR "vendor/imgui")
+set(IMGUI_SFML_DIR "vendor/imgui-sfml")
+
+include_directories(${IMGUI_DIR} ${IMGUI_SFML_DIR} ${OPENGL_INCLUDE_DIRS})
 
 find_package(SFML 2.5.1 COMPONENTS graphics audio REQUIRED)
+find_package(OpenGL REQUIRED)
 
 add_executable(
                 wilson
@@ -32,6 +37,14 @@ add_executable(
                 core/Physics.cpp core/Physics.h
                 core/ButtonComponent.cpp core/ButtonComponent.h
                 core/SoundComponent.cpp core/SoundComponent.h
+                core/imconfig-SFML.h
+                core/imgui-SFML_export.h
+
+                vendor/imgui/imgui.cpp
+                vendor/imgui/imgui_widgets.cpp
+                vendor/imgui/imgui_draw.cpp
+                vendor/imgui/imgui_tables.cpp
+                vendor/imgui-sfml/imgui-SFML.cpp
         )
 
-target_link_libraries(wilson sfml-graphics sfml-audio)
+target_link_libraries(wilson ${OPENGL_LIBRARIES} sfml-graphics sfml-audio)

@@ -5,6 +5,9 @@
 #include <iostream>
 #include "Physics.h"
 
+#include "imgui.h"
+#include "imgui-SFML.h"
+
 namespace WillieNelson {
     Game* Game::Active() {
         if(active_game == nullptr) {
@@ -18,6 +21,8 @@ namespace WillieNelson {
         m_video_mode = sf::VideoMode(1024, 665);
         m_window = std::make_unique<sf::RenderWindow>(m_video_mode, "WillieNelson");
         m_current_scene_index = 0;
+
+        ImGui::SFML::Init(*m_window);
     }
 
     void Game::start() {
@@ -41,9 +46,12 @@ namespace WillieNelson {
         m_has_started = true;
         while (m_window->isOpen()) {
             auto events = poll_events();
+            auto restart = delta_clock.restart();
+            ImGui::SFML::Update(*m_window, restart);
+            ImGui::EndFrame();
             update(delta_time, events);
             draw();
-            delta_time = delta_clock.restart().asSeconds();
+            delta_time = restart.asSeconds();
         }
         end();
     }
@@ -53,6 +61,7 @@ namespace WillieNelson {
             entity->Destroy();
         }
         m_entities.clear();
+        ImGui::SFML::Shutdown();
     }
 
     std::vector<sf::Event> Game::poll_events() {
@@ -60,8 +69,9 @@ namespace WillieNelson {
         sf::Event event;
         while (m_window->pollEvent(event))
         {
+            ImGui::SFML::ProcessEvent(*m_window, event);
             if (event.type == sf::Event::Closed)
-                m_window->close();
+                end();
 
             events.push_back(event);
         }
@@ -89,6 +99,7 @@ namespace WillieNelson {
                 }
             }
         }
+        ImGui::SFML::Render(*m_window);
         m_window->display();
     }
 

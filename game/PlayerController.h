@@ -13,7 +13,7 @@ public:
     int m_round = 1;
 
 private:
-    float m_speed = 10.0f;
+    float m_speed = 0.1f;
     WillieNelson::SoundComponent* m_shooting_sound = nullptr;
 
     Weapon* m_weapon;

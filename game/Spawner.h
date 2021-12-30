@@ -1,17 +1,21 @@
 #pragma once
 #include "common.h"
+#include "PlayerController.h"
 
 class Spawner : public WillieNelson::Component {
 public:
     void start() override;
     void update(float delta_time, std::vector<sf::Event> &events) override;
 
+    float m_interval = 0.8f;
+    int m_spawn_amount = 2;
+
 private:
-    float m_interval = 1.0f;
+    PlayerController* m_player = nullptr;
     float m_current_time = 0.0f;
-    float spawn_area = 100.0f;
 
     void spawn_zombie();
+    void new_round();
 };
 
 

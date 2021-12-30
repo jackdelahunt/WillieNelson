@@ -1,25 +1,50 @@
 #include <iostream>
 #include "Spawner.h"
 #include "ZombieController.h"
+#include "PlayerController.h"
 #include <stdlib.h>
-#include <time.h>
+#include <ctime>
 
 void Spawner::start() {
-    srand(time(NULL));
+    srand(time(nullptr));
+    m_player = WillieNelson::Game::Active()->get_entity_with_name("player")->get_component<PlayerController>().get();
 }
 
 void Spawner::update(float delta_time, std::vector<sf::Event> &events) {
     m_current_time += delta_time;
-    if(m_current_time >= m_interval) {
+
+    if(m_current_time >= m_interval && m_spawn_amount > 0) {
         m_current_time = 0;
+        m_spawn_amount--;
         spawn_zombie();
+
+    }
+
+    if(m_spawn_amount == 0) {
+        new_round();
     }
 }
 
-void Spawner::spawn_zombie() {
-    float x_ratio = (float)rand() / (float)RAND_MAX;
-    float y_ratio = (float)rand() / (float)RAND_MAX;
+void Spawner::new_round() {
+    auto zombies = WillieNelson::Game::Active()->get_entity_with_name("zombie");
 
+    // If zombie is null then all zombies are dead increase the next wave difficulty
+    if(zombies == nullptr) {
+        m_player->m_round++;
+
+        ZombieController::zombie_speed += 0.01f;
+        ZombieController::zombie_damage += 0.0001f;
+        ZombieController::zombie_health += 0.1f;
+
+        m_spawn_amount = (int) round(30 * (m_player->m_round * 0.15));
+        std::cout << m_spawn_amount << std::endl;
+    }
+
+}
+
+void Spawner::spawn_zombie() {
+
+    srand((unsigned) time(nullptr));
     auto texture = WillieNelson::Resources::Current()->load_texture("./resources/bk_player_assets/player_hk_stand.png");
     auto sound = WillieNelson::Resources::Current()->load_sound("./resources/sounds/dead.wav");
     auto zombie_entity = WillieNelson::Entity::New();
@@ -29,7 +54,27 @@ void Spawner::spawn_zombie() {
     box_collider->set_dimensions(25, 25);
     zombie_entity->add_component<ZombieController>();
     sprite->set_texture(texture);
-    zombie_entity->transform.position = entity->transform.position + sf::Vector2f(x_ratio * spawn_area, y_ratio * spawn_area);
+    zombie_entity->name = "zombie";
+
+    int result = 1 + (rand() % 4);
+
+    switch(result) {
+        case 1:
+            zombie_entity->transform.position = sf::Vector2f((float) WillieNelson::Game::Active()->window().getSize().x + 5, (float) WillieNelson::Game::Active()->window().getSize().y + 5);
+            break;
+        case 2:
+            zombie_entity->transform.position = sf::Vector2f((float) - 5, (float) - - 5);
+            break;
+        case 3:
+            zombie_entity->transform.position = sf::Vector2f((float) - 5, (float) WillieNelson::Game::Active()->window().getSize().y + 5);
+            break;
+        case 4:
+            zombie_entity->transform.position = sf::Vector2f((float) WillieNelson::Game::Active()->window().getSize().x + 5, (float) - 5);
+            break;
+        default:
+            zombie_entity->transform.position = sf::Vector2f((float) WillieNelson::Game::Active()->window().getSize().x + 5, (float) WillieNelson::Game::Active()->window().getSize().y + 5);
+    }
+
     WillieNelson::Game::Active()->add_entity(zombie_entity);
 
 }

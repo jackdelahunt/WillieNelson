@@ -28,7 +28,7 @@ void ZombieController::update(float delta_time, std::vector<sf::Event> &events) 
     auto length = std::sqrt(delta_vector.x * delta_vector.x) + std::sqrt(delta_vector.y * delta_vector.y);
     auto normal_vector = delta_vector / length;
 
-    entity->transform.position += normal_vector * m_speed;
+    entity->transform.position += normal_vector * zombie_speed;
 }
 
 void ZombieController::check_collisions() {
@@ -47,7 +47,7 @@ void ZombieController::check_collisions() {
         }
 
         if (other && other->entity->name == "player" && m_player->m_health > 0.f) {
-            m_player->m_health -= m_damage;
+            m_player->m_health -= zombie_damage;
             return;
         }
     }
@@ -55,10 +55,10 @@ void ZombieController::check_collisions() {
 
 void ZombieController::drop_loot() {
     srand((unsigned) time(nullptr));
-    int result = 1 + (rand() % 10);
-    int result2 = 1 + (rand() % 100);
+    int result = 1 + (rand() % 5);
+    int result2 = 1 + (rand() % 50);
 
-    if (result == 10) {
+    if (result == 5) {
         //Drop Ammo 1 in 20 chance
         auto texture = WillieNelson::Resources::Current()->load_texture("./resources/ammo.png");
         auto ammo_entity = WillieNelson::Entity::New();
@@ -72,7 +72,7 @@ void ZombieController::drop_loot() {
 
         WillieNelson::Game::Active()->add_entity(ammo_entity);
 
-    } else if (result2 == 100) {
+    } else if (result2 == 50) {
         //Drop gun 1 in 100 chance
         auto texture = WillieNelson::Resources::Current()->load_texture("./resources/ammo.png");
         auto gun_entity = WillieNelson::Entity::New();

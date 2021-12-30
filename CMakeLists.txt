@@ -19,6 +19,7 @@ add_executable(
                 game/BulletController.cpp game/BulletController.h
                 game/ZombieController.cpp game/ZombieController.h
                 game/Spawner.cpp game/Spawner.h
+                game/Weapon.h
 
                 game/MenuScene.h
                 game/HighScoreScene.h

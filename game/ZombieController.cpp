@@ -28,7 +28,13 @@ void ZombieController::update(float delta_time, std::vector<sf::Event> &events) 
     auto length = std::sqrt(delta_vector.x * delta_vector.x) + std::sqrt(delta_vector.y * delta_vector.y);
     auto normal_vector = delta_vector / length;
 
-    entity->transform.position += normal_vector * zombie_speed;
+    entity->transform.position += normal_vector * m_speed;
+}
+
+void ZombieController::set_attributes(float health, float speed, float damage) {
+    m_health = health;
+    m_speed = speed;
+    m_damage = damage;
 }
 
 void ZombieController::check_collisions() {
@@ -37,17 +43,30 @@ void ZombieController::check_collisions() {
     auto collisions = m_box_collider->is_colliding();
     for(auto other : collisions) {
         if (other && other->entity->name == "bullet") {
+            m_bullet = other->entity->get_component<BulletController>().get();
 
-            if(m_dead_sound) m_dead_sound->play();
-            m_is_dead = true;
+            m_health -= m_bullet->m_damage;
+
+            WillieNelson::Game::Active()->remove_entity(*(other->entity));
+
             m_player->m_score += 10;
 
-            drop_loot();
+            if (m_health < 0) {
+                std::cout << "dead";
+                if(m_dead_sound) m_dead_sound->play();
+                m_is_dead = true;
+
+                m_player->m_score += 100;
+
+                drop_loot();
+            }
+
+
             return;
         }
 
         if (other && other->entity->name == "player" && m_player->m_health > 0.f) {
-            m_player->m_health -= zombie_damage;
+            m_player->m_health -= m_damage;
             return;
         }
     }

@@ -11,6 +11,10 @@ public:
         buffer = (float*)malloc(size * sizeof(float));
     }
 
+    ~MovableBuffer() {
+        delete buffer;
+    }
+
     void push(float in) {
         int index = 0;
         float out = buffer[index];

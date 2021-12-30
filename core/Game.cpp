@@ -141,9 +141,12 @@ namespace WillieNelson {
         m_entities.clear();
         m_current_scene_index++;
         Physics::Current()->clear();
+        m_has_started = false;
         auto s = m_scenes.size();
         if(m_current_scene_index < m_scenes.size()) {
             m_scenes.at(m_current_scene_index)->attach(*this);
         }
+
+        this->start();
     }
 }

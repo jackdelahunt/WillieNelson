@@ -55,10 +55,10 @@ void ZombieController::check_collisions() {
 
 void ZombieController::drop_loot() {
     srand((unsigned) time(nullptr));
-    int result = 1 + (rand() % 10);
-    int result2 = 1 + (rand() % 100);
+    int result = 1 + (rand() % 5);
+    int result2 = 1 + (rand() % 50);
 
-    if (result == 10) {
+    if (result == 5) {
         //Drop Ammo 1 in 20 chance
         auto texture = WillieNelson::Resources::Current()->load_texture("./resources/ammo.png");
         auto ammo_entity = WillieNelson::Entity::New();
@@ -72,7 +72,7 @@ void ZombieController::drop_loot() {
 
         WillieNelson::Game::Active()->add_entity(ammo_entity);
 
-    } else if (result2 == 100) {
+    } else if (result2 == 50) {
         //Drop gun 1 in 100 chance
         auto texture = WillieNelson::Resources::Current()->load_texture("./resources/ammo.png");
         auto gun_entity = WillieNelson::Entity::New();

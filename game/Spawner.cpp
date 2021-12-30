@@ -1,19 +1,38 @@
 #include <iostream>
 #include "Spawner.h"
 #include "ZombieController.h"
+#include "PlayerController.h"
 #include <stdlib.h>
-#include <time.h>
+#include <ctime>
 
 void Spawner::start() {
-    srand(time(NULL));
+    srand(time(nullptr));
+    m_player = WillieNelson::Game::Active()->get_entity_with_name("player")->get_component<PlayerController>().get();
 }
 
 void Spawner::update(float delta_time, std::vector<sf::Event> &events) {
     m_current_time += delta_time;
-    if(m_current_time >= m_interval) {
+
+    if(m_current_time >= m_interval && m_spawn_amount > 0) {
         m_current_time = 0;
+        m_spawn_amount--;
         spawn_zombie();
+
     }
+
+    if(m_spawn_amount == 0) {
+        new_round();
+    }
+}
+
+void Spawner::new_round() {
+    auto zombies = WillieNelson::Game::Active()->get_entity_with_name("zombie");
+
+    if(zombies == nullptr) {
+        m_player->m_round++;
+        m_spawn_amount = 2 * m_player->m_round;
+    }
+
 }
 
 void Spawner::spawn_zombie() {
@@ -28,6 +47,7 @@ void Spawner::spawn_zombie() {
     box_collider->set_dimensions(25, 25);
     zombie_entity->add_component<ZombieController>();
     sprite->set_texture(texture);
+    zombie_entity->name = "zombie";
 
     int result = 1 + (rand() % 4);
 

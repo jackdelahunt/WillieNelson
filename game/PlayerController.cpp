@@ -32,6 +32,10 @@ void PlayerController::update(float delta_time, std::vector<sf::Event> &events) 
         m_health_text->set_text(std::to_string(health) + "%");
     }
 
+    if(m_round_text != nullptr) {
+        m_round_text->set_text(std::to_string(m_round));
+    }
+
     check_collisions();
 
 }

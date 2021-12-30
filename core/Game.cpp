@@ -37,13 +37,12 @@ namespace WillieNelson {
             m_scenes.at(m_current_scene_index)->attach(*this);
         }
 
-        for(auto& entity : m_entities) {
-            entity->start();
-        }
+        init_scene();
 
         sf::Clock delta_clock;
         m_has_started = true;
         while (m_window->isOpen()) {
+            m_has_changed_scene = false;
             auto events = poll_events();
             auto restart = delta_clock.restart();
             ImGui::SFML::Update(*m_window, restart);
@@ -105,7 +104,8 @@ namespace WillieNelson {
 
     void Game::update(float delta_time, std::vector<sf::Event>& events) {
         for(int i = 0; i < m_entities.size(); i++) {
-            m_entities.at(i)->update(delta_time, events);
+            if(m_has_changed_scene) return;
+            m_entities.at(i)->update(delta_time, events, &m_has_changed_scene);
         }
     }
 
@@ -151,6 +151,7 @@ namespace WillieNelson {
     void Game::next_scene() {
         m_entities.clear();
         m_current_scene_index++;
+        m_has_changed_scene = true;
         Physics::Current()->clear();
         m_has_started = false;
         auto s = m_scenes.size();
@@ -158,12 +159,13 @@ namespace WillieNelson {
             m_scenes.at(m_current_scene_index)->attach(*this);
         }
 
-        this->start();
+        init_scene();
     }
 
     void Game::scene_index(int index) {
 
         if(index < m_scenes.size() && index >= 0) {
+            m_has_changed_scene = true;
             m_entities.clear();
             m_current_scene_index = index;
             Physics::Current()->clear();
@@ -171,7 +173,7 @@ namespace WillieNelson {
             m_scenes.at(m_current_scene_index)->attach(*this);
         }
 
-        this->start();
+        init_scene();
     }
 
     void Game::draw_info() {
@@ -180,5 +182,13 @@ namespace WillieNelson {
          auto s = std::to_string(1 / m_delta_time);
          ImGui::Text("%s", s.c_str());
         ImGui::End();
+    }
+
+    void Game::init_scene() {
+        for(auto& e : m_entities) {
+            e->start();
+        }
+
+        m_has_started = true;
     }
 }

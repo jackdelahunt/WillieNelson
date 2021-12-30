@@ -50,10 +50,12 @@ namespace WillieNelson {
         sf::VideoMode m_video_mode;
         size_t m_current_scene_index;
         bool m_has_started = false;
+        bool m_has_changed_scene = false;
         float m_delta_time = 0.0f;
         MovableBuffer m_fps_buffer = MovableBuffer(300);
 
         void draw_info();
+        void init_scene();
     };
 
     static Game* active_game = nullptr;

@@ -19,7 +19,7 @@ namespace WillieNelson {
         std::vector<std::shared_ptr<Component>> components;
 
         Entity();
-        void update(float delta_time, std::vector<sf::Event>& events);
+        void update(float delta_time, std::vector<sf::Event>& events, bool* cancel);
         void start();
         void Destroy();
         template<typename T>

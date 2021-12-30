@@ -19,8 +19,9 @@ namespace WillieNelson {
         }
     }
 
-    void Entity::update(float delta_time, std::vector<sf::Event>& events) {
+    void Entity::update(float delta_time, std::vector<sf::Event>& events, bool* cancel) {
         for (auto& c: components) {
+            if(*cancel) break;
             if(c->active)
                 c->update(delta_time, events);
         }

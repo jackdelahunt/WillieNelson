@@ -32,7 +32,7 @@ void Spawner::new_round() {
     if(zombies == nullptr) {
         m_player->m_round++;
 
-        zombie_speed += 0.01f;
+        zombie_speed += 0.002f;
         zombie_damage += 0.0001f;
         zombie_health += 0.1f;
 

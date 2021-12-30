@@ -5,10 +5,9 @@
 
 int main() {
     auto game = WillieNelson::Game();
-    game.add_scene<StartScene>();
-    game.add_scene<MenuScene>();
-    game.add_scene<HighScoreScene>();
-
-    game.add_scene<Level2>();
+    game.add_scene<MenuScene>(); // 0
+    game.add_scene<HighScoreScene>();// 1
+    game.add_scene<StartScene>();// 2
+    game.add_scene<Level2>();// 3
     game.start();
 }

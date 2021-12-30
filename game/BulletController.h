@@ -10,6 +10,7 @@ public:
     float m_damage = 40.0f;
 
 private:
+    void check_bounds();
     sf::Vector2f m_angle;
     float m_speed = 1.0f;
 };

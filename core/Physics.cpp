@@ -31,7 +31,7 @@ namespace WillieNelson {
         m_colliders.erase(iter);
     }
 
-    std::vector<BoxCollider*> Physics::is_colliding(BoxCollider &collider) {
+    [[nodiscard]]  std::vector<BoxCollider*> Physics::is_colliding(BoxCollider &collider) {
         auto colliding_with = std::vector<BoxCollider*>();
         for (auto& col : m_colliders) {
             if(col.get() == &collider) continue;

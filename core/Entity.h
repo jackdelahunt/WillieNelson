@@ -38,7 +38,7 @@ namespace WillieNelson {
         }
 
         template <typename T>
-        std::shared_ptr<T> get_component()
+        [[nodiscard]] std::shared_ptr<T> get_component()
         {
             for (auto& component : components)
             {

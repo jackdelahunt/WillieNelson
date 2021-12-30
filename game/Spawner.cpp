@@ -17,9 +17,8 @@ void Spawner::update(float delta_time, std::vector<sf::Event> &events) {
 }
 
 void Spawner::spawn_zombie() {
-    float x_ratio = (float)rand() / (float)RAND_MAX;
-    float y_ratio = (float)rand() / (float)RAND_MAX;
 
+    srand((unsigned) time(nullptr));
     auto texture = WillieNelson::Resources::Current()->load_texture("./resources/bk_player_assets/player_hk_stand.png");
     auto sound = WillieNelson::Resources::Current()->load_sound("./resources/sounds/dead.wav");
     auto zombie_entity = WillieNelson::Entity::New();
@@ -29,7 +28,28 @@ void Spawner::spawn_zombie() {
     box_collider->set_dimensions(25, 25);
     zombie_entity->add_component<ZombieController>();
     sprite->set_texture(texture);
-    zombie_entity->transform.position = entity->transform.position + sf::Vector2f(x_ratio * spawn_area, y_ratio * spawn_area);
+
+    int result = 1 + (rand() % 4);
+
+    std::cout << result << std::endl;
+
+    switch(result) {
+        case 1:
+            zombie_entity->transform.position = sf::Vector2f((float) WillieNelson::Game::Active()->window().getSize().x + 5, (float) WillieNelson::Game::Active()->window().getSize().y + 5);
+            break;
+        case 2:
+            zombie_entity->transform.position = sf::Vector2f((float) - 5, (float) - - 5);
+            break;
+        case 3:
+            zombie_entity->transform.position = sf::Vector2f((float) - 5, (float) WillieNelson::Game::Active()->window().getSize().y + 5);
+            break;
+        case 4:
+            zombie_entity->transform.position = sf::Vector2f((float) WillieNelson::Game::Active()->window().getSize().x + 5, (float) - 5);
+            break;
+        default:
+            zombie_entity->transform.position = sf::Vector2f((float) WillieNelson::Game::Active()->window().getSize().x + 5, (float) WillieNelson::Game::Active()->window().getSize().y + 5);
+    }
+
     WillieNelson::Game::Active()->add_entity(zombie_entity);
 
 }

@@ -74,29 +74,31 @@ void ZombieController::check_collisions() {
 
 void ZombieController::drop_loot() {
     srand((unsigned) time(nullptr));
-    int result = 1 + (rand() % 5);
-    int result2 = 1 + (rand() % 50);
-    int gunResult = 1 + (rand() % 17);
-//cmake-build-debug/weapons/tile8.png
-//    if (result == 5) {
-//        //Drop Ammo 1 in 20 chance
-//        auto texture = WillieNelson::Resources::Current()->load_texture("./resources/ammo.png");
-//        auto ammo_entity = WillieNelson::Entity::New();
-//        auto sprite = ammo_entity->add_component<WillieNelson::SpriteComponent>();
-//        auto box_collider = ammo_entity->add_component<WillieNelson::BoxCollider>();
-//        ammo_entity->name = "ammo";
-//        box_collider->set_dimensions(25, 25);
-//        sprite->set_texture(texture);
-//        ammo_entity->transform.scale = sf::Vector2f(0.05f,0.05f);
-//        ammo_entity->transform.position = this->entity->transform.position;
-//
-//        WillieNelson::Game::Active()->add_entity(ammo_entity);
-//
-//    } else if (result2 == 50) {
+    int result = 1 + (rand() % 10); // ammo drop chance
+    int result2 = 1 + (rand() % 35); // Gun drop chance
+    int gunResult = 1 + (rand() % 17); // Gun variation
+
+    std::cout << "Ammo Chance " << result << std::endl;
+    std::cout << "Gun Chance " << result2 << std::endl;
+
+    if (result == 10 || m_player->m_ammo < 4) {
+        //Drop Ammo 1 in 20 chance
+        auto texture = WillieNelson::Resources::Current()->load_texture("./resources/ammo.png");
+        auto ammo_entity = WillieNelson::Entity::New();
+        auto sprite = ammo_entity->add_component<WillieNelson::SpriteComponent>();
+        auto box_collider = ammo_entity->add_component<WillieNelson::BoxCollider>();
+        ammo_entity->name = "ammo";
+        box_collider->set_dimensions(25, 25);
+        sprite->set_texture(texture);
+        ammo_entity->transform.scale = sf::Vector2f(0.05f,0.05f);
+        ammo_entity->transform.position = this->entity->transform.position;
+
+        WillieNelson::Game::Active()->add_entity(ammo_entity);
+
+    } else if (result2 == 35) {
         std::string gunPath = "./resources/weapons/tile";
         gunPath = gunPath + std::to_string(gunResult) + ".png";
 
-        //std::cout << gunPath << std::endl;
         //Drop gun 1 in 100 chance
         auto texture = WillieNelson::Resources::Current()->load_texture(gunPath.c_str());
         auto gun_entity = WillieNelson::Entity::New();
@@ -109,7 +111,7 @@ void ZombieController::drop_loot() {
         gun_entity->transform.position = this->entity->transform.position;
 
         WillieNelson::Game::Active()->add_entity(gun_entity);
-    //}
+    }
 
 
 

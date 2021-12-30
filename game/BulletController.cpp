@@ -2,7 +2,7 @@
 #include <iostream>
 
 void BulletController::start() {
-    std::cout << "Create bullet";
+    //std::cout << "Create bullet";
 }
 
 void BulletController::update(float delta_time, std::vector<sf::Event> &events) {

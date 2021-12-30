@@ -28,6 +28,7 @@ private:
     void shooting(std::vector<sf::Event> &events);
     void create_bullet(sf::Vector2f angle);
     void check_collisions();
+    void death();
 };
 
 

@@ -40,6 +40,10 @@ void PlayerController::update(float delta_time, std::vector<sf::Event> &events) 
         m_round_text->set_text(std::to_string(m_round));
     }
 
+    if(m_health <= 0.0f) {
+        death();
+    }
+
     check_collisions();
 
 }
@@ -118,9 +122,13 @@ void PlayerController::check_collisions() {
 
             m_weapon->weapon_damage += 3.0f; //Add damage to bullets when gun is picked up
         } else return;
-
-
     }
+}
 
+void PlayerController::death() {
+    std::cout << "Dead" << std::endl;
 
+    std::cout << "Score " << m_score << std::endl;
+
+    WillieNelson::Game::Active()->restart();
 }

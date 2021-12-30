@@ -5,6 +5,9 @@
 #include <iostream>
 #include "Physics.h"
 
+#include "imgui.h"
+#include "imgui-SFML.h"
+
 namespace WillieNelson {
     Game* Game::Active() {
         if(active_game == nullptr) {
@@ -18,6 +21,8 @@ namespace WillieNelson {
         m_video_mode = sf::VideoMode(1024, 665);
         m_window = std::make_unique<sf::RenderWindow>(m_video_mode, "WillieNelson");
         m_current_scene_index = 0;
+
+        auto _ = ImGui::SFML::Init(*m_window);
     }
 
     void Game::start() {
@@ -37,13 +42,16 @@ namespace WillieNelson {
         }
 
         sf::Clock delta_clock;
-        float delta_time = 0.0f;
         m_has_started = true;
         while (m_window->isOpen()) {
             auto events = poll_events();
-            update(delta_time, events);
+            auto restart = delta_clock.restart();
+            ImGui::SFML::Update(*m_window, restart);
+            update(m_delta_time, events);
+            m_fps_buffer.push(m_delta_time);
+            draw_info();
             draw();
-            delta_time = delta_clock.restart().asSeconds();
+            m_delta_time = restart.asSeconds();
         }
         end();
     }
@@ -53,6 +61,7 @@ namespace WillieNelson {
             entity->Destroy();
         }
         m_entities.clear();
+        ImGui::SFML::Shutdown();
     }
 
     std::vector<sf::Event> Game::poll_events() {
@@ -60,8 +69,9 @@ namespace WillieNelson {
         sf::Event event;
         while (m_window->pollEvent(event))
         {
+            ImGui::SFML::ProcessEvent(*m_window, event);
             if (event.type == sf::Event::Closed)
-                m_window->close();
+                end();
 
             events.push_back(event);
         }
@@ -89,6 +99,7 @@ namespace WillieNelson {
                 }
             }
         }
+        ImGui::SFML::Render(*m_window);
         m_window->display();
     }
 
@@ -161,5 +172,13 @@ namespace WillieNelson {
         }
 
         this->start();
+    }
+
+    void Game::draw_info() {
+        ImGui::Begin("Info");
+        ImGui::PlotLines("Frame Times", m_fps_buffer.buffer, m_fps_buffer.size, 0);
+         auto s = std::to_string(1 / m_delta_time);
+         ImGui::Text("%s", s.c_str());
+        ImGui::End();
     }
 }

@@ -1,11 +1,13 @@
 #include "SpriteComponent.h"
 #include <iostream>
+#include "imgui.h"
 
 namespace WillieNelson {
 
     void SpriteComponent::start() {}
 
-    void SpriteComponent::update(float delta_time, std::vector<sf::Event>& events) {}
+    void SpriteComponent::update(float delta_time, std::vector<sf::Event>& events) {
+    }
 
     void SpriteComponent::set_texture(std::shared_ptr<sf::Texture>& texture) {
         m_sprite.setTexture(*texture);

@@ -154,8 +154,15 @@ namespace WillieNelson {
         auto god_entities = clear_for_scene_change();
         m_has_started = false;
         auto s = m_scenes.size();
-        if(m_current_scene_index < m_scenes.size()) {
+
+        std::cout << "Current Scene " << m_current_scene_index << std::endl;
+        std::cout << "Total " << m_scenes.size() << std::endl;
+        if(m_current_scene_index < m_scenes.size() && m_current_scene_index != 6) {
             m_scenes.at(m_current_scene_index)->attach(*this);
+        }
+        else if (m_current_scene_index == m_scenes.size()) {
+            m_current_scene_index = 2;
+            m_scenes.at(3)->attach(*this);
         }
 
         for(auto& g_ett : god_entities) {
@@ -179,7 +186,6 @@ namespace WillieNelson {
             m_entities.push_back(g_ett);
         }
         init_scene();
-
     }
 
     void Game::draw_info() {

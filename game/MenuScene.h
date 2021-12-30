@@ -22,7 +22,7 @@ public:
             button->send_call_back(
                     []() {
                         std::cout << "Button Call" << std::endl;
-                        WillieNelson::Game::Active()->next_scene();
+                        WillieNelson::Game::Active()->scene_index(2);
                     }
             );
             button_entity->transform.position.x = (float) game.window().getSize().x / 2 - 128;

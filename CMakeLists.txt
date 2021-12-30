@@ -16,6 +16,7 @@ add_executable(
                 game/Spawner.cpp game/Spawner.h
 
                 game/MenuScene.h
+                game/HighScoreScene.h
                 game/StartScene.h
                 game/Level2.h
 

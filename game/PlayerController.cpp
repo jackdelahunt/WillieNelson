@@ -89,7 +89,7 @@ void PlayerController::create_bullet(sf::Vector2f angle) {
     auto bullet_entity = WillieNelson::Entity::New();
     bullet_entity->name = "bullet";
     auto bullet_controller = bullet_entity->add_component<BulletController>();
-    auto bullet_texture = WillieNelson::Resources::Current()->load_texture("../resources/battle-location-top-down-game-tileset-pack/PNG/Props/Artifact.png");
+    auto bullet_texture = WillieNelson::Resources::Current()->load_texture("./resources/battle-location-top-down-game-tileset-pack/PNG/Props/Artifact.png");
     auto box_collder = bullet_entity->add_component<WillieNelson::BoxCollider>();
     box_collder->set_dimensions(15, 15);
     bullet_entity->add_component<WillieNelson::SpriteComponent>()->set_texture(bullet_texture);

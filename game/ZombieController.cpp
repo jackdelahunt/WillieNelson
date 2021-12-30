@@ -28,7 +28,7 @@ void ZombieController::update(float delta_time, std::vector<sf::Event> &events) 
     auto length = std::sqrt(delta_vector.x * delta_vector.x) + std::sqrt(delta_vector.y * delta_vector.y);
     auto normal_vector = delta_vector / length;
 
-    entity->transform.position += normal_vector * m_speed;
+    entity->transform.position += normal_vector * zombie_speed;
 }
 
 void ZombieController::check_collisions() {
@@ -47,7 +47,7 @@ void ZombieController::check_collisions() {
         }
 
         if (other && other->entity->name == "player" && m_player->m_health > 0.f) {
-            m_player->m_health -= m_damage;
+            m_player->m_health -= zombie_damage;
             return;
         }
     }

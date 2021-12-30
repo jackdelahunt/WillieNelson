@@ -28,9 +28,16 @@ void Spawner::update(float delta_time, std::vector<sf::Event> &events) {
 void Spawner::new_round() {
     auto zombies = WillieNelson::Game::Active()->get_entity_with_name("zombie");
 
+    // If zombie is null then all zombies are dead increase the next wave difficulty
     if(zombies == nullptr) {
         m_player->m_round++;
-        m_spawn_amount = 2 * m_player->m_round;
+
+        ZombieController::zombie_speed += 0.01f;
+        ZombieController::zombie_damage += 0.0001f;
+        ZombieController::zombie_health += 0.1f;
+
+        m_spawn_amount = (int) round(30 * (m_player->m_round * 0.15));
+        std::cout << m_spawn_amount << std::endl;
     }
 
 }
@@ -50,8 +57,6 @@ void Spawner::spawn_zombie() {
     zombie_entity->name = "zombie";
 
     int result = 1 + (rand() % 4);
-
-    std::cout << result << std::endl;
 
     switch(result) {
         case 1:

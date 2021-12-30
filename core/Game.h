@@ -31,6 +31,7 @@ namespace WillieNelson {
         std::shared_ptr<Entity> get_entity_with_name(const char* name);
         bool is_open() const { return m_window->isOpen(); }
         void next_scene();
+        void scene_index(int index);
 
         template<typename T>
         void add_scene() {

@@ -149,4 +149,17 @@ namespace WillieNelson {
 
         this->start();
     }
+
+    void Game::scene_index(int index) {
+
+        if(index < m_scenes.size() && index >= 0) {
+            m_entities.clear();
+            m_current_scene_index = index;
+            Physics::Current()->clear();
+            m_has_started = false;
+            m_scenes.at(m_current_scene_index)->attach(*this);
+        }
+
+        this->start();
+    }
 }

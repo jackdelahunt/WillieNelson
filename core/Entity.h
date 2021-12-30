@@ -14,6 +14,7 @@ namespace WillieNelson {
     public:
         static std::shared_ptr<Entity> New();
         bool enabled = true;
+        bool god_mode = false;
         std::string name;
         Transform transform;
         std::vector<std::shared_ptr<Component>> components;

@@ -22,7 +22,7 @@ namespace WillieNelson {
         m_window = std::make_unique<sf::RenderWindow>(m_video_mode, "WillieNelson");
         m_current_scene_index = 0;
 
-        ImGui::SFML::Init(*m_window);
+        auto _ = ImGui::SFML::Init(*m_window);
     }
 
     void Game::start() {
@@ -42,16 +42,15 @@ namespace WillieNelson {
         }
 
         sf::Clock delta_clock;
-        float delta_time = 0.0f;
         m_has_started = true;
         while (m_window->isOpen()) {
             auto events = poll_events();
             auto restart = delta_clock.restart();
             ImGui::SFML::Update(*m_window, restart);
-            ImGui::EndFrame();
-            update(delta_time, events);
+            update(m_delta_time, events);
+            draw_fps();
             draw();
-            delta_time = restart.asSeconds();
+            m_delta_time = restart.asSeconds();
         }
         end();
     }
@@ -156,5 +155,14 @@ namespace WillieNelson {
         if(m_current_scene_index < m_scenes.size()) {
             m_scenes.at(m_current_scene_index)->attach(*this);
         }
+    }
+
+    void Game::draw_fps() {
+        ImGui::Begin("Debug");
+        static float arr[] = { 0.6f, 0.1f, 1.0f, 0.5f, 0.92f, 0.1f, 0.2f };
+        ImGui::PlotLines("Frame Times", arr, IM_ARRAYSIZE(arr));
+         auto s = std::to_string(1 / m_delta_time);
+         ImGui::Text("%s", s.c_str());
+        ImGui::End();
     }
 }

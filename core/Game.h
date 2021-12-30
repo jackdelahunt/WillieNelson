@@ -48,6 +48,9 @@ namespace WillieNelson {
         sf::VideoMode m_video_mode;
         size_t m_current_scene_index;
         bool m_has_started = false;
+        float m_delta_time = 0.0f;
+
+        void draw_fps();
     };
 
     static Game* active_game = nullptr;

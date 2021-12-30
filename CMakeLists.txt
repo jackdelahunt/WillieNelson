@@ -25,6 +25,7 @@ add_executable(
                 game/HighScoreScene.h
                 game/StartScene.h
                 game/Level2.h
+                game/Level3.h
 
                 core/json.hpp
                 core/Entity.cpp core/Entity.h

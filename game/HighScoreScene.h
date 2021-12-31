@@ -12,6 +12,7 @@ public:
             auto score = entity->add_component<WillieNelson::ScoreComponent>();
             score->load_from_disk("high_score.json");
             entity->name = "score_entity";
+            entity->god_mode = true;
             game.add_entity(entity);
         }
 

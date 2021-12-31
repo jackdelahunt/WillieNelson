@@ -50,16 +50,16 @@ void PlayerController::update(float delta_time, std::vector<sf::Event> &events) 
 }
 
 void PlayerController::movement(std::vector<sf::Event> &events) {
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) && entity->transform.position.y > -5)
         entity->transform.position += sf::Vector2f(0, -m_speed);
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)  && entity->transform.position.x > -15)
         entity->transform.position += sf::Vector2f(-m_speed, 0);
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S ) && entity->transform.position.y < WillieNelson::Game::Active()->window().getSize().y -40)
         entity->transform.position += sf::Vector2f(0, m_speed);
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)  && entity->transform.position.x < WillieNelson::Game::Active()->window().getSize().x - 50)
         entity->transform.position += sf::Vector2f(m_speed, 0);
 }
 

@@ -132,14 +132,21 @@ void PlayerController::death() {
 
     std::cout << "Score " << m_score << std::endl;
 
-    for (int i = 0; i < m_score_component->m_scores.size(); i++)
-    {
-        if (m_score > m_score_component->m_scores[i]) {
-            m_score_component->m_scores[i] = m_score;
-            break;
-        }
+//    for (int i = 0; i < m_score_component->m_scores.size(); i++)
+//    {
+//        if (m_score > m_score_component->m_scores[i]) {
+    m_score_component->m_scores.push_back(m_score);
+    std::sort(m_score_component->m_scores.begin(), m_score_component->m_scores.end(), std::greater<>());
+
+    for(auto s : m_score_component->m_scores) {
+        std::cout << "Howdy " << s << std::endl;
     }
 
+    m_score_component->m_scores.pop_back();
+
+    for(auto s : m_score_component->m_scores) {
+        std::cout << "Ho "<< s << std::endl;
+    }
 
     WillieNelson::Game::Active()->restart();
 }

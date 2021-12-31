@@ -7,6 +7,15 @@ class MenuScene: public WillieNelson::Scene{
 public:
     void attach(WillieNelson::Game &game) override {
 
+        {
+            auto entity = WillieNelson::Entity::New();
+            auto score = entity->add_component<WillieNelson::ScoreComponent>();
+            score->load_from_disk("high_score.json");
+            game.add_entity(entity);
+        }
+
+
+
         /* -----------------
          * BUTTON START
          * ----------------- */

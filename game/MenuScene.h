@@ -6,7 +6,6 @@
 class MenuScene: public WillieNelson::Scene{
 public:
     void attach(WillieNelson::Game &game) override {
-
         /* -----------------
          * BUTTON START
          * ----------------- */

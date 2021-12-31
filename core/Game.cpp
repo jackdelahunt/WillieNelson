@@ -63,6 +63,15 @@ namespace WillieNelson {
         ImGui::SFML::Shutdown();
     }
 
+    void Game::restart() {
+        for(auto& entity : m_entities) {
+            entity->Destroy();
+        }
+        m_entities.clear();
+
+        scene_index(0);
+    }
+
     std::vector<sf::Event> Game::poll_events() {
         auto events = std::vector<sf::Event>();
         sf::Event event;

@@ -1,6 +1,7 @@
 #include "PlayerController.h"
 #include "common.h"
 #include "BulletController.h"
+#include "ScoreComponent.h"
 #include <iostream>
 #include <cmath>
 
@@ -38,6 +39,10 @@ void PlayerController::update(float delta_time, std::vector<sf::Event> &events) 
 
     if(m_round_text != nullptr) {
         m_round_text->set_text(std::to_string(m_round));
+    }
+
+    if(m_health <= 0.0f) {
+        death();
     }
 
     check_collisions();
@@ -118,9 +123,18 @@ void PlayerController::check_collisions() {
 
             m_weapon->weapon_damage += 3.0f; //Add damage to bullets when gun is picked up
         } else return;
-
-
     }
+}
 
+void PlayerController::death() {
+    std::cout << "Dead" << std::endl;
 
+    std::cout << "Score " << m_score << std::endl;
+
+    ScoreComponent::Active()->m_scores.push_back(m_score);
+    std::sort(ScoreComponent::Active()->m_scores.begin(), ScoreComponent::Active()->m_scores.end(), std::greater<>());
+    ScoreComponent::Active()->m_scores.pop_back();
+    ScoreComponent::Active()->save();
+
+    WillieNelson::Game::Active()->restart();
 }

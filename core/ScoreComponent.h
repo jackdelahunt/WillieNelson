@@ -21,9 +21,11 @@ namespace WillieNelson {
 
         void from_json(json &j);
 
+        std::vector<int> m_scores;
+
 
     private:
-        std::vector<int> m_scores;
+
     };
 }
 

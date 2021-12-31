@@ -7,7 +7,7 @@ namespace WillieNelson {
     void TextComponent::update(float delta_time, std::vector<sf::Event>& events) {}
 
     void TextComponent::set_font(const std::string& fontName) {
-        if (!m_font.loadFromFile("../resources/fonts/" + fontName + ".ttf"))
+        if (!m_font.loadFromFile("./resources/fonts/" + fontName + ".ttf"))
         {
             std::cout << "Error loading file" << std::endl;
         }

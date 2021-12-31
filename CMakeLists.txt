@@ -20,6 +20,7 @@ add_executable(
                 game/ZombieController.cpp game/ZombieController.h
                 game/Spawner.cpp game/Spawner.h
                 game/Weapon.h
+                game/ScoreComponent.cpp game/ScoreComponent.h
 
                 game/MenuScene.h
                 game/HighScoreScene.h
@@ -46,7 +47,7 @@ add_executable(
                 core/imconfig-SFML.h
                 core/imgui-SFML_export.h
                 core/MovableBuffer.h
-                core/ScoreComponent.cpp core/ScoreComponent.h
+
 
         vendor/imgui/imgui.cpp
                 vendor/imgui/imgui_widgets.cpp

@@ -1,6 +1,7 @@
 #include "PlayerController.h"
 #include "common.h"
 #include "BulletController.h"
+#include "ScoreComponent.h"
 #include <iostream>
 #include <cmath>
 
@@ -13,8 +14,6 @@ void PlayerController::start() {
     m_ammo_text = WillieNelson::Game::Active()->get_entity_with_name("ui_ammo_entity")->get_component<WillieNelson::TextComponent>().get();
     m_health_text = WillieNelson::Game::Active()->get_entity_with_name("ui_health_entity")->get_component<WillieNelson::TextComponent>().get();
     m_round_text = WillieNelson::Game::Active()->get_entity_with_name("ui_round_entity")->get_component<WillieNelson::TextComponent>().get();
-
-    m_score_component = WillieNelson::Game::Active()->get_entity_with_name("score_entity")->get_component<WillieNelson::ScoreComponent>().get();
 
     if (m_weapon == nullptr) {
         m_weapon = new Weapon();
@@ -132,9 +131,10 @@ void PlayerController::death() {
 
     std::cout << "Score " << m_score << std::endl;
 
-    m_score_component->m_scores.push_back(m_score);
-    std::sort(m_score_component->m_scores.begin(), m_score_component->m_scores.end(), std::greater<>());
-    m_score_component->m_scores.pop_back();
+    ScoreComponent::Active()->m_scores.push_back(m_score);
+    std::sort(ScoreComponent::Active()->m_scores.begin(), ScoreComponent::Active()->m_scores.end(), std::greater<>());
+    ScoreComponent::Active()->m_scores.pop_back();
+    ScoreComponent::Active()->save();
 
     WillieNelson::Game::Active()->restart();
 }

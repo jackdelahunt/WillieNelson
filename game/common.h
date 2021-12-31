@@ -14,4 +14,3 @@
 #include "../core/TextComponent.h"
 #include "../core/ButtonComponent.h"
 #include "../core/SoundComponent.h"
-#include "../core/ScoreComponent.h"

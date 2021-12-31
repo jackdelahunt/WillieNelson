@@ -23,7 +23,6 @@ namespace WillieNelson {
         return false;
     }
 
-
     json ScoreComponent::to_json() {
         json j;
         j["scores"] = m_scores;

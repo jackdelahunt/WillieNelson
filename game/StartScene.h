@@ -30,7 +30,7 @@ public:
         /* -----------------
          * PLAYER
          * ----------------- */
-        auto texture = WillieNelson::Resources::Current()->load_texture("../resources/bk_player_assets/player_hk_stand.png");
+        auto texture = WillieNelson::Resources::Current()->load_texture("./resources/bk_player_assets/player_hk_stand.png");
         {
             auto entity = WillieNelson::Entity::New();
             entity->name = "player";

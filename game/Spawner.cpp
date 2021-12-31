@@ -54,7 +54,7 @@ void Spawner::spawn_zombie() {
     auto sprite = zombie_entity->add_component<WillieNelson::SpriteComponent>();
     auto box_collider = zombie_entity->add_component<WillieNelson::BoxCollider>();
     zombie_entity->add_component<WillieNelson::SoundComponent>()->set_sound(sound);
-    box_collider->set_dimensions(25, 25);
+    box_collider->set_dimensions(50, 50);
     auto zombie_controller = zombie_entity->add_component<ZombieController>();
     //zombie_entity->add_component<ZombieController>();
     zombie_controller->set_attributes(zombie_health, zombie_speed, zombie_damage);

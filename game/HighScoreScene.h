@@ -83,7 +83,7 @@ public:
          * ----------------- */
         {
             auto texture = WillieNelson::Resources::Current()->load_texture(
-                    "../resources/battle-location-top-down-game-tileset-pack/PNG/Blocks/Block_A_01.png");
+                    "./resources/battle-location-top-down-game-tileset-pack/PNG/Blocks/Block_A_01.png");
 
             auto button_entity = WillieNelson::Entity::New();
             auto button = button_entity->add_component<WillieNelson::ButtonComponent>();

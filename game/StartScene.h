@@ -5,10 +5,14 @@
 #include "PlayerController.h"
 #include "ZombieController.h"
 #include "Spawner.h"
+#include "ScoreComponent.h"
 
 class StartScene: public WillieNelson::Scene {
 public:
     void attach(WillieNelson::Game &game) override {
+
+
+        ScoreComponent::Active()->load_from_disk("high_score.json");
 
 
         /* -----------------

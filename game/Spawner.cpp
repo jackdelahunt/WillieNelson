@@ -33,8 +33,8 @@ void Spawner::new_round() {
         m_player->m_round++;
 
         zombie_speed += 0.002f;
-        zombie_damage += 0.0001f;
-        zombie_health += 0.1f;
+        zombie_damage += 0.0002f;
+        zombie_health += 0.2f;
 
         m_spawn_amount = (int) round(30 * (m_player->m_round * 0.15));
 
@@ -68,16 +68,16 @@ void Spawner::spawn_zombie() {
             zombie_entity->transform.position = sf::Vector2f((float) WillieNelson::Game::Active()->window().getSize().x + 5, (float) WillieNelson::Game::Active()->window().getSize().y + 5);
             break;
         case 2:
-            zombie_entity->transform.position = sf::Vector2f((float) - 5, (float) - - 5);
+            zombie_entity->transform.position = sf::Vector2f((float) - 10, (float) - 10);
             break;
         case 3:
-            zombie_entity->transform.position = sf::Vector2f((float) - 5, (float) WillieNelson::Game::Active()->window().getSize().y + 5);
+            zombie_entity->transform.position = sf::Vector2f((float) - 10, (float) WillieNelson::Game::Active()->window().getSize().y + 10);
             break;
         case 4:
-            zombie_entity->transform.position = sf::Vector2f((float) WillieNelson::Game::Active()->window().getSize().x + 5, (float) - 5);
+            zombie_entity->transform.position = sf::Vector2f((float) WillieNelson::Game::Active()->window().getSize().x + 10, (float) - 10);
             break;
         default:
-            zombie_entity->transform.position = sf::Vector2f((float) WillieNelson::Game::Active()->window().getSize().x + 5, (float) WillieNelson::Game::Active()->window().getSize().y + 5);
+            zombie_entity->transform.position = sf::Vector2f((float) WillieNelson::Game::Active()->window().getSize().x + 10, (float) WillieNelson::Game::Active()->window().getSize().y + 5);
     }
 
     WillieNelson::Game::Active()->add_entity(zombie_entity);

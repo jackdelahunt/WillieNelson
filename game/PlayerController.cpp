@@ -110,13 +110,13 @@ void PlayerController::check_collisions() {
     for(auto other: collisions) {
         if (other && other->entity->name == "ammo") {
             WillieNelson::Game::Active()->remove_entity(*(other->entity));
-            m_ammo += 20; // add ammo when picked up
+            m_ammo += 30; // add ammo when picked up
             if (m_ammo_text != nullptr) {
                 m_ammo_text->set_text("Ammo : " + std::to_string(m_ammo));
             }
         } else if (other && other->entity->name == "gun") {
             WillieNelson::Game::Active()->remove_entity(*(other->entity));
-            m_ammo += 30;
+            m_ammo += 35;
             if (m_ammo_text != nullptr) {
                 m_ammo_text->set_text("Ammo : " + std::to_string(m_ammo));
             }

@@ -10,9 +10,9 @@ public:
     float m_interval = 0.8f;
     int m_spawn_amount = 2;
 
-    inline static float zombie_damage = 0.1f;
+    inline static float zombie_damage = 0.005f;
     inline static float zombie_health = 100.0f;
-    inline static float zombie_speed = 0.1f;
+    inline static float zombie_speed = 0.01f;
 
 private:
     PlayerController* m_player = nullptr;

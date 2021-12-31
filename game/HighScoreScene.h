@@ -24,9 +24,6 @@ public:
         * TEXT
         * ----------------- */
         {
-
-
-
             auto text_entity = WillieNelson::Entity::New();
             auto text = text_entity->add_component<WillieNelson::TextComponent>();
             text->set_font("Sansation_Regular");
@@ -41,7 +38,6 @@ public:
         {
             auto text_entity = WillieNelson::Entity::New();
             auto text = text_entity->add_component<WillieNelson::TextComponent>();
-
 
 
             text->set_font("Sansation_Regular");

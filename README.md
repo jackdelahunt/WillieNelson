@@ -37,7 +37,7 @@ Some things could go wrong when running the `run` make command, the prerequisite
 
 If you do not have these installed make sure to get them for your system.
 
-And if you are a windows user run the MakeFile in powershell to have access to unix like ocmmands.
+And if you are a windows user run the MakeFile in powershell to have access to unix like commands.
 ### ImGUI-SFML
 If you are having problems finding ImGUI-SFML it may because you clone the repository incorrectly. Make sure to clone all submodules, with the `--recursive` flag in git.
 ### OpenAL

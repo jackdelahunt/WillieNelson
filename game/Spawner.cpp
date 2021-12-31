@@ -48,7 +48,7 @@ void Spawner::new_round() {
 void Spawner::spawn_zombie() {
 
     srand((unsigned) time(nullptr));
-    auto texture = WillieNelson::Resources::Current()->load_texture("./resources/bk_player_assets/player_hk_stand.png");
+    auto texture = WillieNelson::Resources::Current()->load_texture("./resources/zombie.png");
     auto sound = WillieNelson::Resources::Current()->load_sound("./resources/sounds/dead.wav");
     auto zombie_entity = WillieNelson::Entity::New();
     auto sprite = zombie_entity->add_component<WillieNelson::SpriteComponent>();
